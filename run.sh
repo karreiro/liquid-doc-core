@@ -10,7 +10,12 @@ cargo run --bin cli
 echo ""
 echo "2️⃣  Installing Ruby dependencies..."
 echo "----------------------------------------"
-bundle install
+if command -v bundle &> /dev/null; then
+    bundle install
+else
+    echo "📦 Bundle not found, installing gems directly..."
+    gem install sinatra
+fi
 
 echo ""
 echo "3️⃣  Building WebAssembly version..."
