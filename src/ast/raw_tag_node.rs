@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::LiquidNode;
+use super::{position::Position, LiquidNode};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct LiquidRawTagNode {
@@ -19,6 +19,7 @@ pub struct LiquidRawTagNode {
     pub loc_start: usize,
     #[serde(rename = "locEnd")]
     pub loc_end: usize,
+    pub position: Position,
     pub source: String,
     #[serde(rename = "blockStartLocStart")]
     pub block_start_loc_start: usize,

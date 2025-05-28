@@ -48,12 +48,12 @@ pub(crate) fn parse_liquid_string(input: &str) -> Option<LiquidAST> {
         .map_err(|e| println!("Parsing error: {}", e))
         .ok()?;
 
-    let mut builder = LiquidAST::new();
+    let mut ast = LiquidAST::new();
     for pair in text {
-        visit(&mut builder, pair);
+        visit(&mut ast, pair);
     }
 
-    Some(builder)
+    Some(ast)
 }
 
 #[wasm_bindgen]

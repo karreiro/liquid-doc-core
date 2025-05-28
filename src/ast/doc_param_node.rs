@@ -3,15 +3,13 @@ use serde::{Deserialize, Serialize};
 use crate::parser::Rule;
 
 use super::doc_param_name_node::LiquidDocParamNameNode;
+use super::position::Position;
 use super::text_node::TextNode;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct LiquidDocParamNode {
     pub name: String,
-    #[serde(rename = "locStart")]
-    pub loc_start: usize,
-    #[serde(rename = "locEnd")]
-    pub loc_end: usize,
+    pub position: Position,
     pub source: String,
     #[serde(rename = "paramType")]
     pub param_type: Option<TextNode>,
@@ -55,11 +53,9 @@ impl LiquidDocParamNode {
 
         // let pair = pair.next
         let source_str = pair.as_str();
-        let span = pair.as_span();
         LiquidDocParamNode {
             name: "param".to_string(), // The node name is always "param"
-            loc_start: span.start(),
-            loc_end: span.end(),
+            position: Position::from_pair(pair),
             source: source_str.to_string(),
             param_type, // Default to None, can be set later
             param_name,
