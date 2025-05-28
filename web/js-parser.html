@@ -105,6 +105,7 @@
       <button onclick="loadExample('inline')">Inline Example</button>
       <button onclick="loadExample('multiline')">Multiline Example</button>
       <button onclick="loadExample('mixed')">Mixed Example</button>
+      <button onclick="runSimpleBenchmark()">🚀 Run Benchmark</button>
     </div>
 
     <div class="container">
@@ -132,17 +133,128 @@
 
     <script type="module">
       // Add error handling for module loading
+      let toLiquidHtmlAST, NodeTypes;
+      let pestParser = null;
+      
       try {
-        console.log("Starting to load parser module...");
+        console.log("Starting to load parser modules...");
 
-        // Import from esm.sh CDN which provides ES modules
-        const module = await import(
+        // Import Ohm.js parser from esm.sh CDN
+        const ohmModule = await import(
           "https://esm.sh/@shopify/liquid-html-parser"
         );
-        console.log("Module loaded:", module);
+        console.log("Ohm.js module loaded:", ohmModule);
 
-        const { toLiquidHtmlAST, NodeTypes } = module;
-        console.log("Functions extracted:", { toLiquidHtmlAST, NodeTypes });
+        toLiquidHtmlAST = ohmModule.toLiquidHtmlAST;
+        NodeTypes = ohmModule.NodeTypes;
+        console.log("Ohm.js functions extracted:", { toLiquidHtmlAST, NodeTypes });
+
+        // Import Pest.rs WASM parser
+        try {
+          const wasmModule = await import('./pkg/wasm_liquiddoc_parser.js');
+          await wasmModule.default();
+          pestParser = wasmModule;
+          console.log("Pest.rs WASM module loaded:", pestParser);
+        } catch (wasmError) {
+          console.warn("Pest.rs WASM module not available:", wasmError);
+        }
+
+        // Simple benchmark function
+        window.runSimpleBenchmark = function() {
+          const input = `{% doc %}\n${document.getElementById("input").value}\n{% enddoc %}`;
+          const pestInput = document.getElementById("input").value; // Raw input for Pest.rs
+          const iterations = 100;
+          
+          console.log("🚀 Starting benchmark comparison...");
+          console.log(`Input: ${input.substring(0, 100)}...`);
+          console.log(`Iterations: ${iterations}`);
+          console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+
+          // Benchmark 1: Ohm.js parser (@shopify/liquid-html-parser)
+          console.log("\n📊 Benchmarking Ohm.js Parser (@shopify/liquid-html-parser)...");
+          
+          // Warm up Ohm.js
+          for (let i = 0; i < 5; i++) {
+            toLiquidHtmlAST(input);
+          }
+          
+          const ohmTimes = [];
+          const ohmStartTime = performance.now();
+          
+          for (let i = 0; i < iterations; i++) {
+            const iterStart = performance.now();
+            toLiquidHtmlAST(input);
+            const iterEnd = performance.now();
+            ohmTimes.push(iterEnd - iterStart);
+          }
+          
+          const ohmEndTime = performance.now();
+          const ohmTotalTime = ohmEndTime - ohmStartTime;
+          const ohmAvgTime = ohmTotalTime / iterations;
+          const ohmMinTime = Math.min(...ohmTimes);
+          const ohmMaxTime = Math.max(...ohmTimes);
+          
+          console.log("✅ Ohm.js Results:");
+          console.log(`   Total time: ${ohmTotalTime.toFixed(2)} ms`);
+          console.log(`   Average time: ${ohmAvgTime.toFixed(4)} ms`);
+          console.log(`   Min time: ${ohmMinTime.toFixed(4)} ms`);
+          console.log(`   Max time: ${ohmMaxTime.toFixed(4)} ms`);
+          console.log(`   Throughput: ${(1000 / ohmAvgTime).toFixed(2)} ops/sec`);
+
+          // Benchmark 2: Pest.rs parser (if available)
+          if (pestParser && pestParser.parse_liquid_doc_pest) {
+            console.log("\n📊 Benchmarking Pest.rs Parser (WASM)...");
+            
+            // Warm up Pest.rs
+            for (let i = 0; i < 5; i++) {
+              pestParser.parse_liquid_doc_pest(pestInput);
+            }
+            
+            const pestTimes = [];
+            const pestStartTime = performance.now();
+            
+            for (let i = 0; i < iterations; i++) {
+              const iterStart = performance.now();
+              pestParser.parse_liquid_doc_pest(pestInput);
+              const iterEnd = performance.now();
+              pestTimes.push(iterEnd - iterStart);
+            }
+            
+            const pestEndTime = performance.now();
+            const pestTotalTime = pestEndTime - pestStartTime;
+            const pestAvgTime = pestTotalTime / iterations;
+            const pestMinTime = Math.min(...pestTimes);
+            const pestMaxTime = Math.max(...pestTimes);
+            
+            console.log("✅ Pest.rs Results:");
+            console.log(`   Total time: ${pestTotalTime.toFixed(2)} ms`);
+            console.log(`   Average time: ${pestAvgTime.toFixed(4)} ms`);
+            console.log(`   Min time: ${pestMinTime.toFixed(4)} ms`);
+            console.log(`   Max time: ${pestMaxTime.toFixed(4)} ms`);
+            console.log(`   Throughput: ${(1000 / pestAvgTime).toFixed(2)} ops/sec`);
+
+            // Comparison
+            console.log("\n🔥 PERFORMANCE COMPARISON:");
+            console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+            const speedRatio = ohmAvgTime / pestAvgTime;
+            if (speedRatio > 1) {
+              console.log(`🚀 Pest.rs is ${speedRatio.toFixed(2)}x FASTER than Ohm.js`);
+            } else {
+              console.log(`🚀 Ohm.js is ${(1/speedRatio).toFixed(2)}x FASTER than Pest.rs`);
+            }
+            console.log(`   Ohm.js avg: ${ohmAvgTime.toFixed(4)} ms`);
+            console.log(`   Pest.rs avg: ${pestAvgTime.toFixed(4)} ms`);
+            console.log(`   Difference: ${Math.abs(ohmAvgTime - pestAvgTime).toFixed(4)} ms`);
+            
+          } else {
+            console.log("\n⚠️ Pest.rs parser not available (WASM module not found or function not exposed)");
+            console.log("   To enable Pest.rs benchmark:");
+            console.log("   1. Build WASM: wasm-pack build --target web --out-dir web/pkg");
+            console.log("   2. Ensure parse_liquid_doc_pest function is exposed in src/lib.rs");
+          }
+          
+          showStatus(`Benchmark complete! Check console for detailed comparison.`, "success");
+        };
 
         // Make parseInput available globally for onclick handlers
         window.parseInput = function () {
@@ -151,8 +263,8 @@
 
           try {
             console.log("Parsing Liquid HTML...");
-            const ast = toLiquidHtmlAST(input);
-            const liquidDocAst = ast.children[0].body.nodes
+            const ast = toLiquidHtmlAST(input); ////benchmark this
+            const liquidDocAst = ast.children[0].body.nodes;
 
             // Display the AST with circular reference handling
             output.innerHTML = `<pre>${JSON.stringify(
