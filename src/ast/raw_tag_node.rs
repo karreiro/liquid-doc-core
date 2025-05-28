@@ -15,10 +15,6 @@ pub struct LiquidRawTagNode {
     pub delimiter_whitespace_start: String,
     #[serde(rename = "delimiterWhitespaceEnd")]
     pub delimiter_whitespace_end: String,
-    #[serde(rename = "locStart")]
-    pub loc_start: usize,
-    #[serde(rename = "locEnd")]
-    pub loc_end: usize,
     pub position: Position,
     pub source: String,
     #[serde(rename = "blockStartLocStart")]

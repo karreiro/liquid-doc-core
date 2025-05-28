@@ -8,7 +8,7 @@ use wasm_bindgen::{prelude::wasm_bindgen, JsValue};
 pub struct LiquidParser;
 
 pub fn visit(
-    builder: &mut LiquidAST,
+    ast: &mut LiquidAST,
     pair: pest::iterators::Pair<Rule>,
     position_offset: Option<usize>,
 ) {
@@ -16,13 +16,13 @@ pub fn visit(
         Rule::Document => {
             // The Document rule is the root of the AST, so we can just ignore it
             for inner_pair in pair.into_inner() {
-                visit(builder, inner_pair, position_offset);
+                visit(ast, inner_pair, position_offset);
             }
         }
         Rule::ImplicitDescription => {
-            let description_content = pair.into_inner();
-            for inner_pair in description_content {
-                visit(builder, inner_pair, position_offset);
+            let node = LiquidDocDescriptionNode::implicit(&pair, position_offset);
+            if !node.content.is_empty() {
+                ast.add_node(LiquidNode::LiquidDocDescriptionNode(node));
             }
         }
         Rule::LiquidDocNode => {
@@ -32,13 +32,14 @@ pub fn visit(
                 Rule::paramNode => {
                     let node = LiquidDocParamNode::new(&next, position_offset);
 
-                    builder.add_node(LiquidNode::LiquidDocParamNode(node));
+                    ast.add_node(LiquidNode::LiquidDocParamNode(node));
                 }
                 Rule::exampleNode => {
                     // Process example node
                 }
                 Rule::descriptionNode => {
-                    // Process description node
+                    let node = LiquidDocDescriptionNode::explicit(&next, position_offset);
+                    ast.add_node(LiquidNode::LiquidDocDescriptionNode(node));
                 }
                 Rule::promptNode => {
                     // Process prompt node
@@ -52,23 +53,22 @@ pub fn visit(
         Rule::TextNode => {
             let text_node = TextNode::from_pair(&pair, position_offset);
             if !text_node.is_empty() {
-                builder.add_node(LiquidNode::TextNode(text_node));
+                ast.add_node(LiquidNode::TextNode(text_node));
             }
         }
-        Rule::descriptionContent => {
-            // This is a special case where we have a description content
-            // that can contain multiple text nodes
+        // Rule::descriptionContent => {
+        //     // This is a special case where we have a description content
+        //     // that can contain multiple text nodes
 
-            let text_node = TextNode::from_pair(&pair, position_offset);
-            if !text_node.is_empty() {
-                builder.add_node(LiquidNode::TextNode(text_node));
-            }
+        //     let text_node = TextNode::from_pair(&pair, position_offset);
+        //     if !text_node.is_empty() {
+        //         ast.add_node(LiquidNode::TextNode(text_node));
+        //     }
 
-            for inner_pair in pair.into_inner() {
-                visit(builder, inner_pair, position_offset);
-            }
-        }
-
+        //     for inner_pair in pair.into_inner() {
+        //         visit(ast, inner_pair, position_offset);
+        //     }
+        // }
         _ => todo!("Handle rule: {:?}", pair.as_rule()),
     }
 }
@@ -144,6 +144,152 @@ mod test {
         "end": 80
       },
       "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+      "type": "TextNode"
+    }
+  }
+]"#;
+
+        // prettify json string
+        let actual = serde_json::to_string_pretty(&ast.nodes).unwrap();
+
+        assert_eq!(expected, actual);
+    }
+
+    #[test]
+    pub fn test_serialization_round_trip_with_description() {
+        let input = "kdkd
+
+@param {sometype} requiredParamWithSomeType - This is a cool parameter";
+        let ast = parse_liquid_string(input, Some(10)).unwrap();
+
+        let expected = r#"[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "content": {
+      "value": "kdkd\n\n",
+      "position": {
+        "start": 10,
+        "end": 16
+      },
+      "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+      "type": "TextNode"
+    },
+    "isImplicit": true,
+    "isInline": true,
+    "position": {
+      "start": 10,
+      "end": 16
+    },
+    "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+    "name": "description"
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 16,
+      "end": 86
+    },
+    "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+    "required": true,
+    "paramType": {
+      "value": "sometype",
+      "position": {
+        "start": 23,
+        "end": 33
+      },
+      "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+      "type": "TextNode"
+    },
+    "paramName": {
+      "value": "requiredParamWithSomeType",
+      "position": {
+        "start": 34,
+        "end": 59
+      },
+      "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+      "type": "TextNode"
+    },
+    "paramDescription": {
+      "value": "This is a cool parameter",
+      "position": {
+        "start": 62,
+        "end": 86
+      },
+      "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+      "type": "TextNode"
+    }
+  }
+]"#;
+
+        // prettify json string
+        let actual = serde_json::to_string_pretty(&ast.nodes).unwrap();
+
+        assert_eq!(expected, actual);
+    }
+
+    #[test]
+    pub fn test_serialization_round_trip_with_explicit_description() {
+        let input = "@description kdkd
+
+@param {sometype} requiredParamWithSomeType - This is a cool parameter";
+        let ast = parse_liquid_string(input, Some(10)).unwrap();
+
+        let expected = r#"[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "content": {
+      "value": "@description kdkd\n\n",
+      "position": {
+        "start": 10,
+        "end": 29
+      },
+      "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+      "type": "TextNode"
+    },
+    "isImplicit": false,
+    "isInline": true,
+    "position": {
+      "start": 10,
+      "end": 29
+    },
+    "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+    "name": "description"
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 29,
+      "end": 99
+    },
+    "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+    "required": true,
+    "paramType": {
+      "value": "sometype",
+      "position": {
+        "start": 36,
+        "end": 46
+      },
+      "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+      "type": "TextNode"
+    },
+    "paramName": {
+      "value": "requiredParamWithSomeType",
+      "position": {
+        "start": 47,
+        "end": 72
+      },
+      "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+      "type": "TextNode"
+    },
+    "paramDescription": {
+      "value": "This is a cool parameter",
+      "position": {
+        "start": 75,
+        "end": 99
+      },
+      "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
       "type": "TextNode"
     }
   }
