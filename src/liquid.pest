@@ -15,8 +15,9 @@ ImplicitDescription = { descriptionContent }
 
 // Space definitions
 strictSpace = { " " | "\t" }
-openControl = { strictSpace* ~ ("@" | EOI) }
+openControl = { strictSpace* ~ (tagStart | EOI) }
 supportedTags = { "@prompt" | "@example" | "@description" | "@param" }
+tagStart = { "@prompt" | "@example" | "@description" | "@param"| "@" ~ !ASCII_ALPHANUMERIC }
 
 // Parameter node rules
 paramNode = { "@param" ~ strictSpace* ~ paramType? ~ strictSpace* ~ (optionalParamName | paramName) ~ (strictSpace* ~ "-")? ~ strictSpace* ~ paramDescription }
