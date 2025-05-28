@@ -14,14 +14,14 @@
             add_numbers
         } from './pkg/wasm_liquiddoc_parser.js';
 
+        console.log(add_numbers)
+
         async function run() {
             try {
                 await init();
                 document.getElementById('status').innerHTML = 'LiquidDoc WebAssembly module loaded successfully!';
 
-                window.wasmFunctions = {
-                    add_numbers
-                };
+                console.log(add_numbers(2, 2))
 
                 console.log('LiquidDoc WASM Parser ready!');
             } catch (error) {
@@ -31,8 +31,6 @@
         }
 
         run();
-
-        document.getElementById('result').innerHTML = window.wasmFunctions.add_numbers(2, 2);
     </script>
 </body>
 </html>

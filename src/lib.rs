@@ -30,7 +30,7 @@ impl CalculationResult {
 
 #[wasm_bindgen]
 pub fn add_numbers(a: i32, b: i32) -> JsValue {
-    JsValue::null()
+    JsValue::from_f64((a + b).into())
 }
 
 #[wasm_bindgen(start)]
