@@ -174,13 +174,13 @@
             ["Ohm.js (@shopify/liquid-html-parser)", () => toLiquidHtmlAST(ohmInput)]
           ];
           
-          if (pestParser && pestParser.parse_liquid_doc_pest) {
-            benchmarks.push(["Pest.rs (WASM)", () => pestParser.parse_liquid_doc_pest(pestInput)]);
+          if (pestParser && pestParser.parse_liquid) {
+            benchmarks.push(["Pest.rs (WASM)", () => pestParser.parse_liquid(pestInput)]);
           } else {
             console.log("\n⚠️ Pest.rs parser not available (WASM module not found or function not exposed)");
             console.log("   To enable Pest.rs benchmark:");
             console.log("   1. Build WASM: wasm-pack build --target web --out-dir web/pkg");
-            console.log("   2. Ensure parse_liquid_doc_pest function is exposed in src/lib.rs");
+            console.log("   2. Ensure parse_liquid function is exposed in src/lib.rs");
           }
           
           benchmarkComparison(benchmarks, iterations);

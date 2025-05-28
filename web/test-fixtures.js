@@ -64,8 +64,8 @@ function testFixture(fixture, iterations = 100) {
         ["Ohm.js", () => toLiquidHtmlAST(ohmInput)]
     ];
     
-    if (pestParser && pestParser.parse_liquid_doc_pest) {
-        benchmarks.push(["Pest.rs", () => pestParser.parse_liquid_doc_pest(pestInput)]);
+    if (pestParser && pestParser.parse_liquid) {
+        benchmarks.push(["Pest.rs", () => pestParser.parse_liquid(pestInput)]);
     }
     
     return benchmarkComparison(benchmarks, iterations);

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixture Benchmark Testing</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .results {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        .fixture-result {
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 3px solid #1976d2;
+            background: #f8f9fa;
+        }
+        pre {
+            background: #f8f8f8;
+            padding: 10px;
+            border-radius: 4px;
+            overflow: auto;
+            font-size: 12px;
+        }
+        button {
+            background: #1976d2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover { background: #1565c0; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+        .progress { color: #1976d2; font-weight: bold; }
+        .error { color: #d32f2f; background: #ffebee; padding: 10px; border-radius: 4px; }
+        .success { color: #388e3c; background: #e8f5e9; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Fixture Benchmark Testing</h1>
+    
+    <div>
+        <label>Iterations per test: <input id="iterations" type="number" value="100" min="10" max="1000"></label>
+        <button onclick="runAllTests()">🚀 Run All Fixture Tests</button>
+    </div>
+
+    <div id="status"></div>
+    <div id="results"></div>
+
+    <script type="module">
+        import { benchmarkComparison } from './benchmark.js';
+
+        let toLiquidHtmlAST, NodeTypes;
+        let pestParser = null;
+        let fixtures = [];
+
+        // Load parsers
+        async function loadParsers() {
+            try {
+                console.log("Loading Ohm.js parser...");
+                const ohmModule = await import("https://esm.sh/@shopify/liquid-html-parser");
+                toLiquidHtmlAST = ohmModule.toLiquidHtmlAST;
+                NodeTypes = ohmModule.NodeTypes;
+                console.log("✅ Ohm.js parser loaded");
+
+                try {
+                    const wasmModule = await import('./pkg/wasm_liquiddoc_parser.js');
+                    await wasmModule.default();
+                    pestParser = wasmModule;
+                    console.log("✅ Pest.rs WASM parser loaded");
+                } catch (wasmError) {
+                    console.warn("⚠️ Pest.rs WASM parser not available:", wasmError.message);
+                }
+
+                return true;
+            } catch (error) {
+                console.error("❌ Failed to load parsers:", error);
+                return false;
+            }
+        }
+
+        // Load fixture files
+        async function loadFixtures() {
+            const fixtureFiles = [
+                'fixture1.liquid', 'fixture2.liquid', 'fixture3.liquid', 'fixture4.liquid',
+                'fixture5.liquid', 'fixture6.liquid', 'fixture7.liquid', 'fixture8.liquid', 'fixture9.liquid'
+            ];
+
+            fixtures = [];
+            for (const filename of fixtureFiles) {
+                try {
+                    const response = await fetch(`./fixtures/${filename}`);
+                    if (response.ok) {
+                        const content = await response.text();
+                        fixtures.push({ name: filename, content: content.trim() });
+                    }
+                } catch (error) {
+                    console.warn(`Could not load ${filename}:`, error.message);
+                }
+            }
+            
+            console.log(`📁 Loaded ${fixtures.length} fixtures`);
+            return fixtures.length > 0;
+        }
+
+        // Test a single fixture
+        function testFixture(fixture, iterations) {
+            console.log(`\n🧪 Testing ${fixture.name}`);
+            
+            const ohmInput = `{% doc %}\n${fixture.content}\n{% enddoc %}`;
+            const pestInput = fixture.content;
+            
+            const benchmarks = [
+                ["Ohm.js", () => toLiquidHtmlAST(ohmInput)]
+            ];
+            
+            if (pestParser && pestParser.parse_liquid) {
+                benchmarks.push(["Pest.rs", () => pestParser.parse_liquid(pestInput)]);
+            }
+            
+            return benchmarkComparison(benchmarks, iterations);
+        }
+
+        // Show status
+        function showStatus(message, type = 'info') {
+            const status = document.getElementById('status');
+            const className = type === 'error' ? 'error' : type === 'success' ? 'success' : 'progress';
+            status.innerHTML = `<div class="${className}">${message}</div>`;
+        }
+
+        // Display results
+        function displayResults(allResults) {
+            const resultsDiv = document.getElementById('results');
+            let html = '<div class="results"><h2>📊 Test Results</h2>';
+
+            allResults.forEach((result, index) => {
+                const fixture = fixtures[index];
+                html += `<div class="fixture-result">
+                    <h3>${fixture.name}</h3>
+                    <div>Content: <code>${fixture.content.substring(0, 80)}${fixture.content.length > 80 ? '...' : ''}</code></div>
+                `;
+
+                if (result.length >= 1) {
+                    html += `<div>Ohm.js: ${result[0].avgTime.toFixed(4)} ms (${result[0].throughput.toFixed(2)} ops/sec)</div>`;
+                }
+                if (result.length >= 2) {
+                    html += `<div>Pest.rs: ${result[1].avgTime.toFixed(4)} ms (${result[1].throughput.toFixed(2)} ops/sec)</div>`;
+                    const speedup = result[0].avgTime / result[1].avgTime;
+                    html += `<div><strong>Speedup: ${speedup.toFixed(2)}x</strong></div>`;
+                }
+                html += '</div>';
+            });
+
+            // Aggregate results
+            const ohmTimes = allResults.filter(r => r.length >= 1).map(r => r[0].avgTime);
+            const pestTimes = allResults.filter(r => r.length >= 2).map(r => r[1].avgTime);
+
+            if (ohmTimes.length > 0 && pestTimes.length > 0) {
+                const ohmAvg = ohmTimes.reduce((a, b) => a + b, 0) / ohmTimes.length;
+                const pestAvg = pestTimes.reduce((a, b) => a + b, 0) / pestTimes.length;
+                const overallSpeedup = ohmAvg / pestAvg;
+
+                html += `<div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 4px;">
+                    <h3>🏆 Overall Results</h3>
+                    <div>Ohm.js average: ${ohmAvg.toFixed(4)} ms</div>
+                    <div>Pest.rs average: ${pestAvg.toFixed(4)} ms</div>
+                    <div><strong>Overall speedup: ${overallSpeedup.toFixed(2)}x</strong></div>
+                </div>`;
+            }
+
+            html += '</div>';
+            resultsDiv.innerHTML = html;
+        }
+
+        // Run all tests
+        window.runAllTests = async function() {
+            const iterations = parseInt(document.getElementById('iterations').value) || 100;
+            const button = event.target;
+            button.disabled = true;
+
+            try {
+                showStatus("🔧 Loading parsers and fixtures...");
+                
+                const parsersLoaded = await loadParsers();
+                if (!parsersLoaded) {
+                    showStatus("❌ Failed to load parsers", 'error');
+                    return;
+                }
+
+                const fixturesLoaded = await loadFixtures();
+                if (!fixturesLoaded) {
+                    showStatus("❌ No fixtures found", 'error');
+                    return;
+                }
+
+                showStatus(`🚀 Testing ${fixtures.length} fixtures with ${iterations} iterations each...`);
+                
+                const allResults = [];
+                for (let i = 0; i < fixtures.length; i++) {
+                    const fixture = fixtures[i];
+                    showStatus(`Testing ${fixture.name} (${i + 1}/${fixtures.length})...`);
+                    
+                    try {
+                        const result = testFixture(fixture, iterations);
+                        allResults.push(result);
+                    } catch (error) {
+                        console.error(`Error testing ${fixture.name}:`, error);
+                        allResults.push([]);
+                    }
+                }
+
+                displayResults(allResults);
+                showStatus("✅ All tests completed!", 'success');
+
+            } catch (error) {
+                showStatus(`❌ Error: ${error.message}`, 'error');
+            } finally {
+                button.disabled = false;
+            }
+        };
+
+        // Initialize
+        console.log("🔧 Fixture test page ready");
+    </script>
+</body>
+</html> 
