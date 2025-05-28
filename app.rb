@@ -12,6 +12,10 @@ get '/' do
   send_file File.join(settings.public_folder, 'index.html')
 end
 
+get '/ohm' do
+  send_file File.join(settings.public_folder, 'js-parser.html')
+end
+
 # Health check endpoint
 get '/health' do
   content_type :json
