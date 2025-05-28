@@ -2,24 +2,21 @@ use serde::{Deserialize, Serialize};
 
 use crate::parser::Rule;
 
+use super::position::Position;
+
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct TextNode {
     pub value: String,
-    #[serde(rename = "locStart")]
-    pub loc_start: usize,
-    #[serde(rename = "locEnd")]
-    pub loc_end: usize,
+    pub position: Position,
     pub source: String,
 }
 
 impl TextNode {
     pub fn new(pair: &pest::iterators::Pair<Rule>) -> Self {
-        let span = pair.as_span();
-        let source_str = span.as_str();
+        let source_str = pair.as_str();
         TextNode {
             value: source_str.to_string(),
-            loc_start: span.start(),
-            loc_end: span.end(),
+            position: Position::from_pair(pair),
             source: source_str.to_string(),
         }
     }
@@ -32,8 +29,7 @@ impl TextNode {
         let loc_end = original_start + end;
         TextNode {
             value: source_str[start..end].to_string(),
-            loc_start,
-            loc_end,
+            position: Position::new(loc_start, loc_end),
             source: source_str.to_string(),
         }
     }
