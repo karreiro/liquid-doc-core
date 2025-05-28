@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 
 use super::{position::Position, LiquidNode};
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidRawTagNode {
     pub name: String,
     pub body: String,

@@ -4,7 +4,7 @@ use crate::parser::Rule;
 
 use super::position::Position;
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct TextNode {
     pub value: String,
     pub position: Position,

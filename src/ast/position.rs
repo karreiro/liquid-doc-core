@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::parser::Rule;
 
-#[derive(Serialize, Deserialize, Debug, Copy, Clone)]
+#[derive(Serialize, Deserialize, Debug, Copy, Clone, PartialEq, Eq)]
 pub struct Position {
     pub start: usize,
     pub end: usize,

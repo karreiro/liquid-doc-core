@@ -6,7 +6,7 @@ use super::doc_param_name_node::LiquidDocParamNameNode;
 use super::position::Position;
 use super::text_node::TextNode;
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocParamNode {
     pub name: String,
     pub position: Position,
@@ -20,7 +20,6 @@ pub struct LiquidDocParamNode {
 }
 impl LiquidDocParamNode {
     pub fn new(pair: &pest::iterators::Pair<Rule>) -> Self {
-        println!("{:#?}", pair);
         assert!(
             pair.as_rule() == Rule::paramNode,
             "Expected a paramNode, found {:?}",
@@ -84,7 +83,6 @@ mod tests {
         let input = "@param {sometype} requiredParamWithNoType";
         let result = parse_liquid_string(input);
 
-        println!("{:#?}", result);
         assert!(result.is_some());
         let node = result.unwrap().head();
 
@@ -105,7 +103,6 @@ mod tests {
         let input = "@param {sometype} requiredParamWithNoType - This is a cool parameter";
         let result = parse_liquid_string(input);
 
-        println!("{:#?}", result);
         assert!(result.is_some());
         let node = result.unwrap().head();
         if let LiquidNode::LiquidDocParamNode(param_node) = node {

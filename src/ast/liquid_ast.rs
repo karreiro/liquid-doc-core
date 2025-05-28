@@ -1,7 +1,7 @@
 use crate::ast::{LiquidDocParamNameNode, LiquidDocParamNode, LiquidRawTagNode, TextNode};
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 #[serde(tag = "type")]
 pub enum LiquidNode {
     LiquidRawTag(LiquidRawTagNode),
@@ -10,7 +10,7 @@ pub enum LiquidNode {
     LiquidDocParamNameNode(LiquidDocParamNameNode),
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidAST {
     pub nodes: Vec<LiquidNode>,
 }
@@ -24,11 +24,8 @@ impl LiquidAST {
         self.nodes.push(node);
     }
 
+    #[allow(dead_code)]
     pub fn head(&self) -> LiquidNode {
         self.nodes[0].clone()
-    }
-
-    pub fn len(&self) -> usize {
-        self.nodes.len()
     }
 }

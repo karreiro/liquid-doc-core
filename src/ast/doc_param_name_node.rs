@@ -4,7 +4,7 @@ use crate::{ast::position::Position, parser::Rule};
 
 use super::text_node::TextNode;
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocParamNameNode {
     pub content: TextNode,
     pub position: Position,
