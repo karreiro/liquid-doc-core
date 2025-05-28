@@ -30,13 +30,12 @@ impl CalculationResult {
 
 #[wasm_bindgen]
 pub fn add_numbers(a: i32, b: i32) -> JsValue {
-    let var_name = CalculationResult{
+    let result = CalculationResult{
         a: a,
         b: b,
         result: a + b
     };
-    serde_wasm_bindgen::to_value(&var_name).unwrap()
-
+    serde_wasm_bindgen::to_value(&result).expect("The struct must be serializable")
 }
 
 #[wasm_bindgen(start)]
