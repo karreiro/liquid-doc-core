@@ -152,6 +152,10 @@
           try {
             console.log("Parsing Liquid HTML...");
             const ast = toLiquidHtmlAST(input);
+
+            console.log(input)
+            window.result = ast
+
             const liquidDocAst = ast.children[0].body.nodes
 
             // Display the AST with circular reference handling

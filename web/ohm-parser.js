@@ -49,22 +49,29 @@
   const markupTrimEnd = (i) => (tokens) => tokens[i].sourceString.trimEnd();
 
   function toCST(
-    source,
+    source /* the original file */,
     grammars,
     grammar,
     cstMappings,
-    matchingSource,
-    offset,
+    matchingSource = source /* for subtree parsing */,
+    offset = 0 /* for subtree parsing location offsets */,
   ) {
-    cstMappings ||= ['LiquidMappings']
-    matchingSource ||= source
-    offset ||= 0
-
+    // When we switch parser, our locStart and locEnd functions must account
+    // for the offset of the {% liquid %} markup
     const locStart = (tokens) => offset + tokens[0].source.startIdx;
     const locEnd = (tokens) => offset + tokens[tokens.length - 1].source.endIdx;
     const locEndSecondToLast = (tokens) => offset + tokens[tokens.length - 2].source.endIdx;
 
-    const textNode = {
+    // const textNode = {
+    //   type: ConcreteNodeTypes.TextNode,
+    //   value: function () {
+    //     return this.sourceString;
+    //   },
+    //   locStart,
+    //   locEnd,
+    //   source,
+    // };
+    const textNode = () => ({
       type: ConcreteNodeTypes.TextNode,
       value: function () {
         return (this).sourceString;
@@ -72,12 +79,11 @@
       locStart,
       locEnd,
       source,
-    };
+    });
 
-    const res = grammar.match(matchingSource, 'LiquidDocNode');
+    const res = grammar.match(matchingSource, 'Node');
     if (res.failed()) {
-      console.log(res)
-      // throw new LiquidHTMLCSTParsingError(res);
+      throw new Error(res);
     }
 
     const HelperMappings = {
@@ -222,7 +228,7 @@
           const markupNode = nodes[6];
           const nameNode = nodes[3];
           if (NamedTags.hasOwnProperty(nameNode.sourceString)) {
-            return markupNode.toAST((this).args.mapping);
+            return markupNode.toAST(this.args.mapping);
           }
           return markupNode.sourceString.trim();
         },
@@ -318,7 +324,7 @@
           const markupNode = nodes[6];
           const nameNode = nodes[3];
           if (NamedTags.hasOwnProperty(nameNode.sourceString)) {
-            return markupNode.toAST((this).args.mapping);
+            return markupNode.toAST(this.args.mapping);
           }
           return markupNode.sourceString.trim();
         },
@@ -330,6 +336,16 @@
       },
 
       liquidTagLiquid: 0,
+      // liquidTagLiquidMarkup(tagMarkup) {
+      //   return toCST(
+      //     source,
+      //     grammars,
+      //     grammars.LiquidStatement,
+      //     ['HelperMappings', 'LiquidMappings', 'LiquidStatement'],
+      //     tagMarkup.sourceString,
+      //     offset + tagMarkup.source.startIdx,
+      //   );
+      // },
 
       liquidTagEchoMarkup: 0,
       liquidTagSectionMarkup: 0,
@@ -374,6 +390,23 @@
         source,
       },
       renderArguments: 1,
+      // completionModeRenderArguments: function (
+      //   _0,
+      //   namedArguments,
+      //   _2,
+      //   _3,
+      //   _4,
+      //   _5,
+      //   variableLookup,
+      //   _7,
+      // ) {
+      //   const self = this;
+
+      //   // variableLookup.sourceString can be '' when there are no incomplete params
+      //   return namedArguments
+      //     .toAST(self.args.mapping)
+      //     .concat(variableLookup.sourceString === '' ? [] : variableLookup.toAST(self.args.mapping));
+      // },
       snippetExpression: 0,
       renderVariableExpression: {
         type: ConcreteNodeTypes.RenderVariableExpression,
@@ -403,6 +436,7 @@
 
       liquidDropCases: 0,
       liquidExpression: 0,
+      // liquidDropBaseCase: (sw) => sw.sourceString.trimEnd(),
       liquidVariable: {
         type: ConcreteNodeTypes.LiquidVariable,
         expression: 0,
@@ -428,15 +462,31 @@
           if (nodes[7].sourceString === '') {
             return [];
           } else {
-            return nodes[7].toAST((this).args.mapping);
+            return nodes[7].toAST(this.args.mapping);
           }
         },
       },
       filterArguments: 0,
       arguments: 0,
+      // complexArguments: function (completeParams, _space1, _comma, _space2, incompleteParam) {
+      //   const self = this;
+
+      //   return completeParams
+      //     .toAST(self.args.mapping)
+      //     .concat(
+      //       incompleteParam.sourceString === '' ? [] : incompleteParam.toAST(self.args.mapping),
+      //     );
+      // },
       simpleArgument: 0,
       tagArguments: 0,
       contentForTagArgument: 0,
+      // completionModeContentForTagArgument: function (namedArguments, _separator, variableLookup) {
+      //   const self = this;
+
+      //   return namedArguments
+      //     .toAST(self.args.mapping)
+      //     .concat(variableLookup.sourceString === '' ? [] : variableLookup.toAST(self.args.mapping));
+      // },
       positionalArgument: 0,
       namedArgument: {
         type: ConcreteNodeTypes.NamedArgument,
@@ -529,13 +579,379 @@
         locStart: (nodes) => offset + nodes[2].source.startIdx,
         locEnd: (nodes) => offset + nodes[nodes.length - 1].source.endIdx,
         source,
-      }
+      },
+
+      // trim on both sides
+      // tagMarkup: (n) => n.sourceString.trim(),
     };
+
+    const LiquidStatement = {
+      LiquidStatement: 0,
+      liquidTagOpenRule: {
+        type: ConcreteNodeTypes.LiquidTagOpen,
+        name: 0,
+        markup(nodes) {
+          const markupNode = nodes[2];
+          const nameNode = nodes[0];
+          if (NamedTags.hasOwnProperty(nameNode.sourceString)) {
+            return markupNode.toAST(this.args.mapping);
+          }
+          return markupNode.sourceString.trim();
+        },
+        whitespaceStart: null,
+        whitespaceEnd: null,
+        locStart,
+        locEnd: locEndSecondToLast,
+        source,
+      },
+
+      liquidTagClose: {
+        type: ConcreteNodeTypes.LiquidTagClose,
+        name: 1,
+        whitespaceStart: null,
+        whitespaceEnd: null,
+        locStart,
+        locEnd: locEndSecondToLast,
+        source,
+      },
+
+      liquidTagRule: {
+        type: ConcreteNodeTypes.LiquidTag,
+        name: 0,
+        markup(nodes) {
+          const markupNode = nodes[2];
+          const nameNode = nodes[0];
+          if (NamedTags.hasOwnProperty(nameNode.sourceString)) {
+            return markupNode.toAST(this.args.mapping);
+          }
+          return markupNode.sourceString.trim();
+        },
+        whitespaceStart: null,
+        whitespaceEnd: null,
+        locStart,
+        locEnd: locEndSecondToLast,
+        source,
+      },
+
+      liquidRawTagImpl: {
+        type: ConcreteNodeTypes.LiquidRawTag,
+        name: 0,
+        body: 4,
+        children(nodes) {
+          return toCST(
+            source,
+            grammars,
+            TextNodeGrammar,
+            ['HelperMappings'],
+            nodes[4].sourceString,
+            offset + nodes[4].source.startIdx,
+          );
+        },
+        whitespaceStart: null,
+        whitespaceEnd: null,
+        delimiterWhitespaceStart: null,
+        delimiterWhitespaceEnd: null,
+        locStart,
+        locEnd: locEndSecondToLast,
+        source,
+        blockStartLocStart: (tokens) => offset + tokens[0].source.startIdx,
+        blockStartLocEnd: (tokens) => offset + tokens[2].source.endIdx,
+        blockEndLocStart: (tokens) => offset + tokens[5].source.startIdx,
+        blockEndLocEnd: (tokens) => offset + tokens[5].source.endIdx,
+      },
+
+      liquidBlockComment: {
+        type: ConcreteNodeTypes.LiquidRawTag,
+        name: 'comment',
+        body: (tokens) =>
+          // We want this to behave like LiquidRawTag, so we have to do some
+          // shenanigans to make it behave the same while also supporting
+          // nested comments
+          //
+          // We're stripping the newline from the statementSep, that's why we
+          // slice(1). Since statementSep = newline (space | newline)*
+          tokens[1].sourceString.slice(1) + tokens[2].sourceString,
+        children(tokens) {
+          const commentSource = tokens[1].sourceString.slice(1) + tokens[2].sourceString;
+          return toCST(
+            source,
+            grammars,
+            TextNodeGrammar,
+            ['HelperMappings'],
+            commentSource,
+            offset + tokens[1].source.startIdx + 1,
+          );
+        },
+        whitespaceStart: '',
+        whitespaceEnd: '',
+        delimiterWhitespaceStart: '',
+        delimiterWhitespaceEnd: '',
+        locStart,
+        locEnd,
+        source,
+        blockStartLocStart: (tokens) => offset + tokens[0].source.startIdx,
+        blockStartLocEnd: (tokens) => offset + tokens[0].source.endIdx,
+        blockEndLocStart: (tokens) => offset + tokens[4].source.startIdx,
+        blockEndLocEnd: (tokens) => offset + tokens[4].source.endIdx,
+      },
+
+      liquidInlineComment: {
+        type: ConcreteNodeTypes.LiquidTag,
+        name: 0,
+        markup: markupTrimEnd(2),
+        whitespaceStart: null,
+        whitespaceEnd: null,
+        locStart,
+        locEnd: locEndSecondToLast,
+        source,
+      },
+    };
+
+    const LiquidHTMLMappings = {
+      Node(frontmatter, nodes) {
+        const self = this;
+        const frontmatterNode =
+          frontmatter.sourceString.length === 0 ? [] : [frontmatter.toAST(self.args.mapping)];
+
+        return frontmatterNode.concat(nodes.toAST(self.args.mapping));
+      },
+
+      // yamlFrontmatter: {
+      //   type: ConcreteNodeTypes.YAMLFrontmatter,
+      //   body: 2,
+      //   locStart,
+      //   locEnd,
+      //   source,
+      // },
+
+      // HtmlDoctype: {
+      //   type: ConcreteNodeTypes.HtmlDoctype,
+      //   legacyDoctypeString: 4,
+      //   locStart,
+      //   locEnd,
+      //   source,
+      // },
+
+      // HtmlComment: {
+      //   type: ConcreteNodeTypes.HtmlComment,
+      //   body: markup(1),
+      //   locStart,
+      //   locEnd,
+      //   source,
+      // },
+
+      // HtmlRawTagImpl: {
+      //   type: ConcreteNodeTypes.HtmlRawTag,
+      //   name: (tokens) => tokens[0].children[1].sourceString,
+      //   attrList(tokens) {
+      //     const mappings = this.args.mapping;
+      //     return tokens[0].children[2].toAST(mappings);
+      //   },
+      //   body: (tokens) => source.slice(tokens[0].source.endIdx, tokens[2].source.startIdx),
+      //   children: (tokens) => {
+      //     const rawMarkup = source.slice(tokens[0].source.endIdx, tokens[2].source.startIdx);
+      //     return toCST(
+      //       source,
+      //       grammars,
+      //       grammars.Liquid,
+      //       ['HelperMappings', 'LiquidMappings'],
+      //       rawMarkup,
+      //       tokens[0].source.endIdx,
+      //     );
+      //   },
+      //   locStart,
+      //   locEnd,
+      //   source,
+      //   blockStartLocStart: (tokens) => tokens[0].source.startIdx,
+      //   blockStartLocEnd: (tokens) => tokens[0].source.endIdx,
+      //   blockEndLocStart: (tokens) => tokens[2].source.startIdx,
+      //   blockEndLocEnd: (tokens) => tokens[2].source.endIdx,
+      // },
+
+      // HtmlVoidElement: {
+      //   type: ConcreteNodeTypes.HtmlVoidElement,
+      //   name: 1,
+      //   attrList: 3,
+      //   locStart,
+      //   locEnd,
+      //   source,
+      // },
+
+      // HtmlSelfClosingElement: {
+      //   type: ConcreteNodeTypes.HtmlSelfClosingElement,
+      //   name: 1,
+      //   attrList: 2,
+      //   locStart,
+      //   locEnd,
+      //   source,
+      // },
+
+      // HtmlTagOpen: {
+      //   type: ConcreteNodeTypes.HtmlTagOpen,
+      //   name: 1,
+      //   attrList: 2,
+      //   locStart,
+      //   locEnd,
+      //   source,
+      // },
+
+      // HtmlTagClose: {
+      //   type: ConcreteNodeTypes.HtmlTagClose,
+      //   name: 1,
+      //   locStart,
+      //   locEnd,
+      //   source,
+      // },
+
+      leadingTagNamePart: 0,
+      leadingTagNameTextNode: textNode,
+      trailingTagNamePart: 0,
+      trailingTagNameTextNode: textNode,
+      tagName(leadingPart, trailingParts) {
+        const mappings = this.args.mapping;
+        return [leadingPart.toAST(mappings)].concat(trailingParts.toAST(mappings));
+      },
+
+      AttrUnquoted: {
+        type: ConcreteNodeTypes.AttrUnquoted,
+        name: 0,
+        value: 2,
+        locStart,
+        locEnd,
+        source,
+      },
+
+      AttrSingleQuoted: {
+        type: ConcreteNodeTypes.AttrSingleQuoted,
+        name: 0,
+        value: 3,
+        locStart,
+        locEnd,
+        source,
+      },
+
+      AttrDoubleQuoted: {
+        type: ConcreteNodeTypes.AttrDoubleQuoted,
+        name: 0,
+        value: 3,
+        locStart,
+        locEnd,
+        source,
+      },
+
+      attrEmpty: {
+        type: ConcreteNodeTypes.AttrEmpty,
+        name: 0,
+        locStart,
+        locEnd,
+        source,
+      },
+
+      attrName: 0,
+      attrNameTextNode: textNode,
+      attrDoubleQuotedValue: 0,
+      attrSingleQuotedValue: 0,
+      attrUnquotedValue: 0,
+      attrDoubleQuotedTextNode: textNode,
+      attrSingleQuotedTextNode: textNode,
+      attrUnquotedTextNode: textNode,
+    };
+
+  const LiquidDocMappings = {
+    Node(implicitDescription, body) {
+      const self = this;
+      const implicitDescriptionNode =
+        implicitDescription.sourceString.length === 0
+          ? []
+          : [implicitDescription.toAST(self.args.mapping)];
+      return implicitDescriptionNode.concat(body.toAST(self.args.mapping));
+    },
+    ImplicitDescription: {
+      type: ConcreteNodeTypes.LiquidDocDescriptionNode,
+      name: 'description',
+      locStart,
+      locEnd,
+      source,
+      content: 0,
+      isImplicit: true,
+      isInline: true,
+    },
+    TextNode: textNode(),
+    paramNode: {
+      type: ConcreteNodeTypes.LiquidDocParamNode,
+      name: 'param',
+      locStart,
+      locEnd,
+      source,
+      paramType: 2,
+      paramName: 4,
+      paramDescription: 8,
+    },
+    descriptionNode: {
+      type: ConcreteNodeTypes.LiquidDocDescriptionNode,
+      name: 'description',
+      locStart,
+      locEnd,
+      source,
+      content: 2,
+      isImplicit: false,
+      isInline: function (node) {
+        return !node.children[1].sourceString.includes('\n');
+      },
+    },
+    descriptionContent: textNode(),
+    paramType: 2,
+    paramTypeContent: textNode(),
+    paramName: {
+      type: ConcreteNodeTypes.LiquidDocParamNameNode,
+      content: 0,
+      locStart,
+      locEnd,
+      source,
+      required: true,
+    },
+    optionalParamName: {
+      type: ConcreteNodeTypes.LiquidDocParamNameNode,
+      content: 2,
+      locStart,
+      locEnd,
+      source,
+      required: false,
+    },
+    paramDescription: textNode(),
+    exampleNode: {
+      type: ConcreteNodeTypes.LiquidDocExampleNode,
+      name: 'example',
+      locStart,
+      locEnd,
+      source,
+      content: 2,
+      isInline: function (node) {
+        return !node.children[1].sourceString.includes('\n');
+      },
+    },
+    promptNode: {
+      type: ConcreteNodeTypes.LiquidDocPromptNode,
+      name: 'prompt',
+      locStart,
+      locEnd,
+      source,
+      content: 1,
+    },
+    multilineTextContent: textNode(),
+    textValue: textNode(),
+    fallbackNode: textNode(),
+  };
+
 
     const defaultMappings = {
       HelperMappings,
       LiquidMappings,
+      LiquidHTMLMappings,
+      LiquidStatement,
+      LiquidDocMappings,
     };
+
 
     const selectedMappings = cstMappings.reduce(
       (mappings, key) => ({
@@ -545,89 +961,96 @@
       {},
     );
 
+
+    window.res = res
     return ohmExtras.toAST(res, selectedMappings);
   }
 
+
   window.toLiquidHtmlAST = function (str) {
-    const grammars = ohm.grammars(String.raw`
-      Helpers {
-        Node = TextNode*
-        TextNode = AnyExceptPlus<openControl>
-        openControl = end
-
-        empty = /* nothing */
-        anyExcept<lit> = (~ lit any)
-        anyExceptStar<lit> = (~ lit any)*
-        anyExceptPlus<lit> = (~ lit any)+
-        AnyExcept<lit> = (~ lit any)
-        AnyExceptPlus<lit> = (~ lit any)+
-        AnyExceptStar<lit> = (~ lit any)*
-        identifierCharacter = alnum | "_" | "-"
-
-        orderedListOf<a, b, sep> =
-          | nonemptyOrderedListOf<a, b, sep>
-          | emptyListOf<a, sep>
-        nonemptyOrderedListOf<a, b, sep> =
-          | nonemptyListOf<b, sep>
-          | nonemptyOrderedListOfBoth<a, b, sep>
-          | nonemptyListOf<a, sep>
-        nonemptyOrderedListOfBoth<a, b, sep> =
-          nonemptyListOf<a, sep> (sep nonemptyListOf<b, sep>)
-
-        singleQuote = "'" | "‘" | "’"
-        doubleQuote = "\"" | "“" | "”"
-        controls = "\u{007F}".."\u{009F}"
-        noncharacters = "\u{FDD0}".."\u{FDEF}"
-        newline = "\r"? "\n"
-      }
-
-      LiquidDoc <: Helpers {
-        Node := ImplicitDescription (LiquidDocNode | TextNode)*
-        LiquidDocNode =
-          | paramNode
-          | exampleNode
-          | descriptionNode
-          | promptNode
-          | fallbackNode
-
-        endOfDescription = strictSpace* openControl
-        descriptionContent = anyExceptStar<endOfDescription>
-        ImplicitDescription = descriptionContent
-
-        // By default, space matches new lines as well. We override it here to make writing rules easier.
-        strictSpace = " " | "\t"
-        // We use this as an escape hatch to stop matching TextNode and try again when one of these characters is encountered
-        openControl:=  strictSpace* ("@" | end)
-        // List of supported tags we use to identify boundaries
-        supportedTags = "@prompt" | "@example" | "@description" | "@param"
 
 
-        paramNode = "@param" strictSpace* paramType? strictSpace* (optionalParamName | paramName) (strictSpace* "-")? strictSpace* paramDescription
-        paramType = "{" strictSpace* paramTypeContent strictSpace* "}"
-        paramTypeContent = anyExceptStar<("}"| strictSpace)>
+    const grammarStr = String.raw`
+Helpers {
+  Node = TextNode*
+  TextNode = AnyExceptPlus<openControl>
+  openControl = end
 
-        paramName = textValue
-        optionalParamName = "[" strictSpace* textValue strictSpace* "]"
-        textValue = identifierCharacter+
+  empty = /* nothing */
+  anyExcept<lit> = (~ lit any)
+  anyExceptStar<lit> = (~ lit any)*
+  anyExceptPlus<lit> = (~ lit any)+
+  AnyExcept<lit> = (~ lit any)
+  AnyExceptPlus<lit> = (~ lit any)+
+  AnyExceptStar<lit> = (~ lit any)*
+  identifierCharacter = alnum | "_" | "-"
 
-        paramDescription = (~"]" anyExceptStar<endOfParam>)
-        endOfParam = strictSpace* (newline | end)
+  orderedListOf<a, b, sep> =
+    | nonemptyOrderedListOf<a, b, sep>
+    | emptyListOf<a, sep>
+  nonemptyOrderedListOf<a, b, sep> =
+    | nonemptyListOf<b, sep>
+    | nonemptyOrderedListOfBoth<a, b, sep>
+    | nonemptyListOf<a, sep>
+  nonemptyOrderedListOfBoth<a, b, sep> =
+    nonemptyListOf<a, sep> (sep nonemptyListOf<b, sep>)
 
-        // Prompt node is system-controlled, so we don't strip the leading spaces to maintain indentation
-        promptNode = "@prompt"  multilineTextContent
-        exampleNode = "@example" space* multilineTextContent
-        descriptionNode = "@description" space* multilineTextContent
+  singleQuote = "'"
+  doubleQuote = "\""
+  controls = "\u{007F}".."\u{009F}"
+  noncharacters = "\u{FDD0}".."\u{FDEF}"
+  newline = "\n"
+}
 
-        // We want multilineTextContent to be free-form, so instead of terminating the match at "@" we explicitly look for a suppported tag
-        // This means that malformed tags will be considered part of the multilineTextContent
-        multilineTextContent = anyExceptStar<endOfMultilineText>
-        endOfMultilineText =  strictSpace* (supportedTags | end)
+LiquidDoc <: Helpers {
+  Node := ImplicitDescription (LiquidDocNode | TextNode)*
+  LiquidDocNode =
+    | paramNode
+    | exampleNode
+    | descriptionNode
+    | promptNode
+    | fallbackNode
 
-        fallbackNode = "@" anyExceptStar<endOfParam>
-      }
-    `);
+  endOfDescription = strictSpace* openControl
+  descriptionContent = anyExceptStar<endOfDescription>
+  ImplicitDescription = descriptionContent
+
+  // By default, space matches new lines as well. We override it here to make writing rules easier.
+  strictSpace = " " | "\t"
+  // We use this as an escape hatch to stop matching TextNode and try again when one of these characters is encountered
+  openControl:=  strictSpace* ("@" | end)
+  // List of supported tags we use to identify boundaries
+  supportedTags = "@prompt" | "@example" | "@description" | "@param"
+
+
+  paramNode = "@param" strictSpace* paramType? strictSpace* (optionalParamName | paramName) (strictSpace* "-")? strictSpace* paramDescription
+  paramType = "{" strictSpace* paramTypeContent strictSpace* "}"
+  paramTypeContent = anyExceptStar<("}"| strictSpace)>
+
+  paramName = textValue
+  optionalParamName = "[" strictSpace* textValue strictSpace* "]"
+  textValue = identifierCharacter+
+
+  paramDescription = (~"]" anyExceptStar<endOfParam>)
+  endOfParam = strictSpace* (newline | end)
+
+  // Prompt node is system-controlled, so we don't strip the leading spaces to maintain indentation
+  promptNode = "@prompt"  multilineTextContent
+  exampleNode = "@example" space* multilineTextContent
+  descriptionNode = "@description" space* multilineTextContent
+
+  // We want multilineTextContent to be free-form, so instead of terminating the match at "@" we explicitly look for a suppported tag
+  // This means that malformed tags will be considered part of the multilineTextContent
+  multilineTextContent = anyExceptStar<endOfMultilineText>
+  endOfMultilineText =  strictSpace* (supportedTags | end)
+
+  fallbackNode = "@" anyExceptStar<endOfParam>
+}`;
+
+    const grammars = ohm.grammars(grammarStr);
+
     const grammar = grammars.LiquidDoc;
 
-    return toCST(str, grammars, grammar);
+    return toCST(str, grammars, grammar, ['LiquidDocMappings']);
   };
 })();
