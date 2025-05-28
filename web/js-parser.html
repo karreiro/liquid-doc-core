@@ -151,7 +151,7 @@
 
         // Import Pest.rs WASM parser
         try {
-          const wasmModule = await import('./pkg/wasm_liquiddoc_parser.js');
+          const wasmModule = await import('./pkg/wasm_liquiddoc_parser.js'); //TODO: change to the correct path when we have it
           await wasmModule.default();
           pestParser = wasmModule;
           console.log("Pest.rs WASM module loaded:", pestParser);
