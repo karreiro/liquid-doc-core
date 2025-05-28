@@ -13,8 +13,7 @@ echo "----------------------------------------"
 if command -v bundle &> /dev/null; then
     bundle install
 else
-    echo "📦 Bundle not found, installing gems directly..."
-    gem install sinatra
+    echo "📦 Install bundler to run ruby app" 
 fi
 
 echo ""
