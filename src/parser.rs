@@ -7,18 +7,22 @@ use wasm_bindgen::{prelude::wasm_bindgen, JsValue};
 #[grammar = "liquid.pest"]
 pub struct LiquidParser;
 
-pub fn visit(builder: &mut LiquidAST, pair: pest::iterators::Pair<Rule>) {
+pub fn visit(
+    builder: &mut LiquidAST,
+    pair: pest::iterators::Pair<Rule>,
+    position_offset: Option<usize>,
+) {
     match pair.as_rule() {
         Rule::Document => {
             // The Document rule is the root of the AST, so we can just ignore it
             for inner_pair in pair.into_inner() {
-                visit(builder, inner_pair);
+                visit(builder, inner_pair, position_offset);
             }
         }
         Rule::ImplicitDescription => {
             let description_content = pair.into_inner();
             for inner_pair in description_content {
-                visit(builder, inner_pair);
+                visit(builder, inner_pair, position_offset);
             }
         }
         Rule::LiquidDocNode => {
@@ -26,7 +30,7 @@ pub fn visit(builder: &mut LiquidAST, pair: pest::iterators::Pair<Rule>) {
             let next = content.next().unwrap();
             match next.as_rule() {
                 Rule::paramNode => {
-                    let node = LiquidDocParamNode::new(&next);
+                    let node = LiquidDocParamNode::new(&next, position_offset);
 
                     builder.add_node(LiquidNode::LiquidDocParamNode(node));
                 }
@@ -46,18 +50,22 @@ pub fn visit(builder: &mut LiquidAST, pair: pest::iterators::Pair<Rule>) {
             }
         }
         Rule::TextNode => {
-            let text_node = TextNode::from_pair(&pair);
-            builder.add_node(LiquidNode::TextNode(text_node));
+            let text_node = TextNode::from_pair(&pair, position_offset);
+            if !text_node.is_empty() {
+                builder.add_node(LiquidNode::TextNode(text_node));
+            }
         }
         Rule::descriptionContent => {
             // This is a special case where we have a description content
             // that can contain multiple text nodes
 
-            let text_node = TextNode::from_pair(&pair);
-            builder.add_node(LiquidNode::TextNode(text_node));
+            let text_node = TextNode::from_pair(&pair, position_offset);
+            if !text_node.is_empty() {
+                builder.add_node(LiquidNode::TextNode(text_node));
+            }
 
             for inner_pair in pair.into_inner() {
-                visit(builder, inner_pair);
+                visit(builder, inner_pair, position_offset);
             }
         }
 
@@ -65,14 +73,17 @@ pub fn visit(builder: &mut LiquidAST, pair: pest::iterators::Pair<Rule>) {
     }
 }
 
-pub(crate) fn parse_liquid_string(input: &str) -> Option<LiquidAST> {
+pub(crate) fn parse_liquid_string(
+    input: &str,
+    position_offset: Option<usize>,
+) -> Option<LiquidAST> {
     let text = LiquidParser::parse(Rule::Document, input)
         .map_err(|e| println!("Parsing error: {}", e))
         .ok()?;
 
     let mut ast = LiquidAST::new();
     for pair in text {
-        visit(&mut ast, pair);
+        visit(&mut ast, pair, position_offset);
     }
 
     Some(ast)
@@ -80,7 +91,7 @@ pub(crate) fn parse_liquid_string(input: &str) -> Option<LiquidAST> {
 
 #[wasm_bindgen]
 pub fn parse_liquid(input: &str) -> JsValue {
-    serde_wasm_bindgen::to_value(&parse_liquid_string(input))
+    serde_wasm_bindgen::to_value(&parse_liquid_string(input, None))
         .expect("The LiquidAst was not in the correct format")
 }
 
@@ -96,7 +107,7 @@ mod test {
     #[test]
     pub fn test_serialization_round_trip() {
         let input = "@param {sometype} requiredParamWithSomeType - This is a cool parameter";
-        let ast = parse_liquid_string(input).unwrap();
+        let ast = parse_liquid_string(input, Some(10)).unwrap();
 
         let expected = r#"[
   {

@@ -19,7 +19,7 @@ pub struct LiquidDocParamNode {
     pub param_description: Option<TextNode>,
 }
 impl LiquidDocParamNode {
-    pub fn new(pair: &pest::iterators::Pair<Rule>) -> Self {
+    pub fn new(pair: &pest::iterators::Pair<Rule>, position_offset: Option<usize>) -> Self {
         assert!(
             pair.as_rule() == Rule::paramNode,
             "Expected a paramNode, found {:?}",
@@ -33,18 +33,18 @@ impl LiquidDocParamNode {
         let (param_type, name) = if let Rule::paramType = first.as_rule() {
             (
                 // Remove the curly braces from the type string
-                Some(TextNode::new_trim_ends(&first)),
+                Some(TextNode::new_trim_ends(&first, position_offset)),
                 inner.next().expect("Expected a paramName after paramType"),
             )
         } else {
             (None, first)
         };
 
-        let param_name = TextNode::from_pair(&name);
+        let param_name = TextNode::from_pair(&name, position_offset);
 
         let description = inner.next().and_then(|t| {
             if !t.as_str().is_empty() {
-                Some(TextNode::from_pair(&t))
+                Some(TextNode::from_pair(&t, position_offset))
             } else {
                 None
             }
@@ -54,7 +54,7 @@ impl LiquidDocParamNode {
         let source_str = pair.as_str();
         LiquidDocParamNode {
             name: "param".to_string(), // The node name is always "param"
-            position: Position::from_pair(pair),
+            position: Position::from_pair(pair, position_offset),
             source: source_str.to_string(),
             param_type, // Default to None, can be set later
             param_name,
@@ -82,7 +82,7 @@ mod tests {
     #[test]
     fn test_parse_param_with_type() {
         let input = "@param {sometype} requiredParamWithNoType";
-        let result = parse_liquid_string(input);
+        let result = parse_liquid_string(input, Some(10));
 
         assert!(result.is_some());
         let node = result.unwrap().head();
@@ -99,7 +99,7 @@ mod tests {
     #[test]
     fn test_parse_param_with_type_and_description() {
         let input = "@param {sometype} requiredParamWithNoType - This is a cool parameter";
-        let result = parse_liquid_string(input);
+        let result = parse_liquid_string(input, Some(10));
 
         assert!(result.is_some());
         let node = result.unwrap().head();

@@ -9,14 +9,17 @@ pub struct Position {
 }
 
 impl Position {
-    pub fn new(start: usize, end: usize) -> Self {
-        Position { start, end }
-    }
-    pub fn from_pair(pair: &pest::iterators::Pair<Rule>) -> Self {
-        let span = pair.as_span();
-        Position {
-            start: span.start(),
-            end: span.end(),
+    pub fn new(start: usize, end: usize, offset: Option<usize>) -> Self {
+        match offset {
+            Some(o) => Position {
+                start: start + o,
+                end: end + o,
+            },
+            None => Position { start, end },
         }
+    }
+    pub fn from_pair(pair: &pest::iterators::Pair<Rule>, offset: Option<usize>) -> Self {
+        let span = pair.as_span();
+        Position::new(span.start(), span.end(), offset)
     }
 }
