@@ -111,15 +111,14 @@
       <div class="input-section">
         <h2>Input (Liquid HTML)</h2>
         <textarea id="input" placeholder="Enter Liquid HTML here...">
-{% doc %}
-  @param requiredParamWithNoType
-  @param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.
-  @param {String} paramWithNoDescription
-  @param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description
-  @param [optionalParameterWithDescription] - optional parameter description
-  @param {String} [optionalParameterWithType]
-  @unsupported this node falls back to a text node
-{% enddoc %}</textarea
+@param requiredParamWithNoType
+@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.
+@param {String} paramWithNoDescription
+@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description
+@param [optionalParameterWithDescription] - optional parameter description
+@param {String} [optionalParameterWithType]
+@unsupported this node falls back to a text node
+</textarea
         >
       </div>
 
@@ -147,17 +146,17 @@
 
         // Make parseInput available globally for onclick handlers
         window.parseInput = function () {
-          const input = document.getElementById("input").value;
+          const input = `{% doc %}\n${document.getElementById("input").value}\n{% enddoc %}`;
           const output = document.getElementById("output");
 
           try {
             console.log("Parsing Liquid HTML...");
             const ast = toLiquidHtmlAST(input);
-            console.log("AST:", ast);
+            const liquidDocAst = ast.children[0].body.nodes
 
             // Display the AST with circular reference handling
             output.innerHTML = `<pre>${JSON.stringify(
-              ast,
+              liquidDocAst,
               (key, value) => {
                 // Prevent circular references
                 if (
@@ -203,35 +202,31 @@
 
         window.loadExample = function (type) {
           const examples = {
-            params: `{% doc %}
-  @param requiredParamWithNoType
-  @param {String} paramWithDescription - param with description and \`punctation\`. This is still a valid param description.
-  @param {String} paramWithNoDescription
-  @param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description
-  @param [optionalParameterWithDescription] - optional parameter description
-  @param {String} [optionalParameterWithType]
-  @unsupported this node falls back to a text node
-{% enddoc %}`,
+            params: `
+@param requiredParamWithNoType
+@param {String} paramWithDescription - param with description and \`punctation\`. This is still a valid param description.
+@param {String} paramWithNoDescription
+@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description
+@param [optionalParameterWithDescription] - optional parameter description
+@param {String} [optionalParameterWithType]
+@unsupported this node falls back to a text node`,
 
-            inline: `{% doc %}
-  @example simple inline example
-{% enddoc %}`,
+            inline: `
+@example simple inline example`,
 
-            multiline: `{% doc %}
+            multiline: `
   @example including inline code
   This is a valid example
-  It can have multiple lines
-{% enddoc %}`,
+  It can have multiple lines`,
 
-            mixed: `{% doc %}
+            mixed: `
   @example
   This is a valid example
   It can have multiple lines
-  @param {String} paramWithDescription - param with description
-{% enddoc %}`,
+  @param {String} paramWithDescription - param with description`,
           };
 
-          document.getElementById("input").value = examples[type];
+          document.getElementById("input").value = examples[type].trim();
           window.parseInput();
         };
 
