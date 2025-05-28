@@ -1,5 +1,6 @@
-use wasm_bindgen::prelude::*;
+use pest_derive::Parser;
 use serde::{Deserialize, Serialize};
+use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern "C" {
@@ -20,23 +21,23 @@ pub struct CalculationResult {
 
 impl CalculationResult {
     pub fn new(a: i32, b: i32, result: i32) -> Self {
-        Self {
-            a,
-            b,
-            result,
-        }
+        Self { a, b, result }
     }
 }
 
 #[wasm_bindgen]
 pub fn add_numbers(a: i32, b: i32) -> JsValue {
-    let result = CalculationResult{
+    let result = CalculationResult {
         a: a,
         b: b,
-        result: a + b
+        result: a + b,
     };
     serde_wasm_bindgen::to_value(&result).expect("The struct must be serializable")
 }
+
+#[derive(Parser)]
+#[grammar = "liquid.pest"]
+pub struct LiquidParser;
 
 #[wasm_bindgen(start)]
 pub fn main() {
