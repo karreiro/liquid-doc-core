@@ -147,7 +147,10 @@
 
           try {
             console.log("Parsing Liquid HTML...");
+            const now0 = performance.now()
             const ast = window.toLiquidHtmlAST(input);
+            const now1 = performance.now()
+            console.log(now1 - now0)
 
             window.result = ast
 
