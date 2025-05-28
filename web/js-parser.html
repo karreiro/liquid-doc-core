@@ -1,121 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Liquid HTML Parser - Shopify</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
 
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-        }
+      h1 {
+        color: #333;
+        margin-bottom: 30px;
+      }
 
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
+      .input-section,
+      .output-section {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-        .input-section, .output-section {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+      h2 {
+        margin-top: 0;
+        color: #555;
+        font-size: 18px;
+      }
 
-        h2 {
-            margin-top: 0;
-            color: #555;
-            font-size: 18px;
-        }
+      textarea {
+        width: 100%;
+        min-height: 200px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: "Consolas", "Monaco", monospace;
+        font-size: 14px;
+        resize: vertical;
+      }
 
-        textarea {
-            width: 100%;
-            min-height: 400px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 14px;
-            resize: vertical;
-        }
+      #output {
+        background: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        min-height: 400px;
+        overflow: auto;
+        font-family: "Consolas", "Monaco", monospace;
+        font-size: 13px;
+        white-space: pre-wrap;
+      }
 
-        #output {
-            background: #f8f8f8;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 10px;
-            min-height: 400px;
-            overflow: auto;
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 13px;
-            white-space: pre-wrap;
-        }
+      .error {
+        color: #d32f2f;
+        background: #ffebee;
+        padding: 10px;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
 
-        .error {
-            color: #d32f2f;
-            background: #ffebee;
-            padding: 10px;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
+      .success {
+        color: #388e3c;
+        background: #e8f5e9;
+        padding: 10px;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
 
-        .success {
-            color: #388e3c;
-            background: #e8f5e9;
-            padding: 10px;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
+      .example-buttons {
+        margin-bottom: 10px;
+      }
 
-        .example-buttons {
-            margin-bottom: 10px;
-        }
+      button {
+        background: #1976d2;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+        font-size: 14px;
+      }
 
-        button {
-            background: #1976d2;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 10px;
-            font-size: 14px;
-        }
+      button:hover {
+        background: #1565c0;
+      }
 
-        button:hover {
-            background: #1565c0;
-        }
-
-        .loading {
-            color: #1976d2;
-            font-style: italic;
-        }
+      .loading {
+        color: #1976d2;
+        font-style: italic;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Liquid HTML Parser - Using @shopify/liquid-html-parser</h1>
 
     <div class="example-buttons">
-        <button onclick="loadExample('params')">Params Example</button>
-        <button onclick="loadExample('inline')">Inline Example</button>
-        <button onclick="loadExample('multiline')">Multiline Example</button>
-        <button onclick="loadExample('mixed')">Mixed Example</button>
+      <button onclick="loadExample('params')">Params Example</button>
+      <button onclick="loadExample('inline')">Inline Example</button>
+      <button onclick="loadExample('multiline')">Multiline Example</button>
+      <button onclick="loadExample('mixed')">Mixed Example</button>
     </div>
 
     <div class="container">
-        <div class="input-section">
-            <h2>Input (Liquid HTML)</h2>
-            <textarea id="input" placeholder="Enter Liquid HTML here...">{% doc %}
+      <div class="input-section">
+        <h2>Input (Liquid HTML)</h2>
+        <textarea id="input" placeholder="Enter Liquid HTML here...">
+{% doc %}
   @param requiredParamWithNoType
   @param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.
   @param {String} paramWithNoDescription
@@ -123,75 +119,91 @@
   @param [optionalParameterWithDescription] - optional parameter description
   @param {String} [optionalParameterWithType]
   @unsupported this node falls back to a text node
-{% enddoc %}</textarea>
-        </div>
+{% enddoc %}</textarea
+        >
+      </div>
 
-        <div class="output-section">
-            <h2>Output (AST)</h2>
-            <pre id="output"><span class="loading">Loading parser...</span></pre>
-        </div>
+      <div class="output-section">
+        <h2>Output (AST)</h2>
+        <pre id="output"><span class="loading">Loading parser...</span></pre>
+      </div>
     </div>
 
     <div id="status"></div>
 
     <script type="module">
-        // Add error handling for module loading
-        try {
-            console.log('Starting to load parser module...');
+      // Add error handling for module loading
+      try {
+        console.log("Starting to load parser module...");
 
-            // Import from esm.sh CDN which provides ES modules
-            const module = await import('https://esm.sh/@shopify/liquid-html-parser@2');
-            console.log('Module loaded:', module);
+        // Import from esm.sh CDN which provides ES modules
+        const module = await import(
+          "https://esm.sh/@shopify/liquid-html-parser"
+        );
+        console.log("Module loaded:", module);
 
-            const { toLiquidHtmlAST, NodeTypes } = module;
-            console.log('Functions extracted:', { toLiquidHtmlAST, NodeTypes });
+        const { toLiquidHtmlAST, NodeTypes } = module;
+        console.log("Functions extracted:", { toLiquidHtmlAST, NodeTypes });
 
-            // Make parseInput available globally for onclick handlers
-            window.parseInput = function() {
-                const input = document.getElementById('input').value;
-                const output = document.getElementById('output');
+        // Make parseInput available globally for onclick handlers
+        window.parseInput = function () {
+          const input = document.getElementById("input").value;
+          const output = document.getElementById("output");
 
-                try {
-                    console.log("Parsing Liquid HTML...");
-                    const ast = toLiquidHtmlAST(input);
-                    console.log("AST:", ast);
+          try {
+            console.log("Parsing Liquid HTML...");
+            const ast = toLiquidHtmlAST(input);
+            console.log("AST:", ast);
 
-                    // Display the AST with circular reference handling
-                    output.innerHTML = `<pre>${JSON.stringify(ast, (key, value) => {
-                        // Prevent circular references
-                        if (key === 'parentNode' || key === 'prev' || key === 'next' || key === 'parent') {
-                            return '[Circular Reference]';
-                        }
-                        return value;
-                    }, 2)}</pre>`;
-
-                    showStatus('Parsed successfully!', 'success');
-
-                    // Log some information about the AST
-                    if (ast.children) {
-                        console.log(`Found ${ast.children.length} top-level nodes`);
-                        ast.children.forEach((node, index) => {
-                            console.log(`Node ${index}: Type = ${node.type}, Name = ${node.name || 'N/A'}`);
-                        });
-                    }
-                } catch (error) {
-                    output.innerHTML = `<div class="error">Parse failed: ${error.message}</div>`;
-                    showStatus('Parse failed: ' + error.message, 'error');
-                    console.error('Parse error:', error);
+            // Display the AST with circular reference handling
+            output.innerHTML = `<pre>${JSON.stringify(
+              ast,
+              (key, value) => {
+                // Prevent circular references
+                if (
+                  key === "parentNode" ||
+                  key === "prev" ||
+                  key === "next" ||
+                  key === "parent"
+                ) {
+                  return "[Circular Reference]";
                 }
-            }
+                return value;
+              },
+              2
+            )}</pre>`;
 
-            window.showStatus = function(message, type) {
-                const status = document.getElementById('status');
-                status.innerHTML = `<div class="${type}">${message}</div>`;
-                setTimeout(() => {
-                    status.innerHTML = '';
-                }, 3000);
-            }
+            showStatus("Parsed successfully!", "success");
 
-            window.loadExample = function(type) {
-                const examples = {
-                    params: `{% doc %}
+            // Log some information about the AST
+            if (ast.children) {
+              console.log(`Found ${ast.children.length} top-level nodes`);
+              ast.children.forEach((node, index) => {
+                console.log(
+                  `Node ${index}: Type = ${node.type}, Name = ${
+                    node.name || "N/A"
+                  }`
+                );
+              });
+            }
+          } catch (error) {
+            output.innerHTML = `<div class="error">Parse failed: ${error.message}</div>`;
+            showStatus("Parse failed: " + error.message, "error");
+            console.error("Parse error:", error);
+          }
+        };
+
+        window.showStatus = function (message, type) {
+          const status = document.getElementById("status");
+          status.innerHTML = `<div class="${type}">${message}</div>`;
+          setTimeout(() => {
+            status.innerHTML = "";
+          }, 3000);
+        };
+
+        window.loadExample = function (type) {
+          const examples = {
+            params: `{% doc %}
   @param requiredParamWithNoType
   @param {String} paramWithDescription - param with description and \`punctation\`. This is still a valid param description.
   @param {String} paramWithNoDescription
@@ -201,56 +213,60 @@
   @unsupported this node falls back to a text node
 {% enddoc %}`,
 
-                    inline: `{% doc %}
+            inline: `{% doc %}
   @example simple inline example
 {% enddoc %}`,
 
-                    multiline: `{% doc %}
+            multiline: `{% doc %}
   @example including inline code
   This is a valid example
   It can have multiple lines
 {% enddoc %}`,
 
-                    mixed: `{% doc %}
+            mixed: `{% doc %}
   @example
   This is a valid example
   It can have multiple lines
   @param {String} paramWithDescription - param with description
-{% enddoc %}`
-                };
+{% enddoc %}`,
+          };
 
-                document.getElementById('input').value = examples[type];
-                window.parseInput();
-            }
+          document.getElementById("input").value = examples[type];
+          window.parseInput();
+        };
 
-            // Add input event listener
-            document.getElementById('input').addEventListener('input', () => {
-                window.parseInput();
-            });
+        // Add input event listener
+        document.getElementById("input").addEventListener("input", () => {
+          window.parseInput();
+        });
 
-            // Show that parser is ready
-            document.getElementById('output').innerHTML = '<span class="success">Parser loaded! Ready to parse Liquid HTML.</span>';
+        // Show that parser is ready
+        document.getElementById("output").innerHTML =
+          '<span class="success">Parser loaded! Ready to parse Liquid HTML.</span>';
 
-            // Parse initial content
-            window.parseInput();
+        // Parse initial content
+        window.parseInput();
 
-            // Log available NodeTypes for reference
-            console.log('Available NodeTypes:', NodeTypes);
+        // Log available NodeTypes for reference
+        console.log("Available NodeTypes:", NodeTypes);
+      } catch (error) {
+        console.error("Failed to load parser module:", error);
+        document.getElementById(
+          "output"
+        ).innerHTML = `<div class="error">Failed to load parser: ${error.message}</div>`;
 
-        } catch (error) {
-            console.error('Failed to load parser module:', error);
-            document.getElementById('output').innerHTML = `<div class="error">Failed to load parser: ${error.message}</div>`;
-
-            // Try alternative CDN
-            console.log('Trying alternative CDN...');
-            try {
-                const altModule = await import('https://cdn.skypack.dev/@shopify/liquid-html-parser');
-                console.log('Alternative module loaded:', altModule);
-                // ... rest of the code would go here
-            } catch (altError) {
-                console.error('Alternative CDN also failed:', altError);
-            }
+        // Try alternative CDN
+        console.log("Trying alternative CDN...");
+        try {
+          const altModule = await import(
+            "https://cdn.skypack.dev/@shopify/liquid-html-parser"
+          );
+          console.log("Alternative module loaded:", altModule);
+          // ... rest of the code would go here
+        } catch (altError) {
+          console.error("Alternative CDN also failed:", altError);
         }
+      }
     </script>
-</body>
+  </body>
 </html>
