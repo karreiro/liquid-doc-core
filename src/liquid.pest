@@ -14,7 +14,7 @@ descriptionContent = { (!endOfDescription ~ ANY)* }
 ImplicitDescription = { descriptionContent }
 
 // Space definitions
-strictSpace = { " " | "\t" }
+strictSpace = _{ " " | "\t" }
 openControl = { strictSpace* ~ (tagStart | EOI) }
 supportedTags = { "@prompt" | "@example" | "@description" | "@param" }
 tagStart = { "@prompt" | "@example" | "@description" | "@param"| "@" ~ !ASCII_ALPHANUMERIC }
@@ -43,5 +43,5 @@ fallbackNode = { "@" ~ (!endOfParam ~ ANY)* }
 
 // Helper rules (assuming these are defined in the Helpers parent grammar)
 TextNode = { (!openControl ~ ANY)+ }
-identifierCharacter = { ASCII_ALPHANUMERIC | "_" | "-" }
-space = { " " | "\t" | NEWLINE }
+identifierCharacter = @{ ASCII_ALPHANUMERIC | "_" | "-" }
+space = _{ " " | "\t" | NEWLINE }
