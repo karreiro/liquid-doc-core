@@ -30,7 +30,13 @@ impl CalculationResult {
 
 #[wasm_bindgen]
 pub fn add_numbers(a: i32, b: i32) -> JsValue {
-    JsValue::from_f64((a + b).into())
+    let var_name = CalculationResult{
+        a: a,
+        b: b,
+        result: a + b
+    };
+    serde_wasm_bindgen::to_value(&var_name).unwrap()
+
 }
 
 #[wasm_bindgen(start)]
