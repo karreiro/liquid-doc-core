@@ -9,16 +9,26 @@ pub struct TextNode {
     pub value: String,
     pub position: Position,
     pub source: String,
+    #[serde(rename = "type", skip_deserializing)]
+    pub type_: &'static str,
 }
 
 impl TextNode {
-    pub fn new(pair: &pest::iterators::Pair<Rule>) -> Self {
-        let source_str = pair.as_str();
+    pub fn new(value: String, position: Position, source: String) -> Self {
         TextNode {
-            value: source_str.to_string(),
-            position: Position::from_pair(pair),
-            source: source_str.to_string(),
+            value,
+            position,
+            source,
+            type_: "TextNode",
         }
+    }
+    pub fn from_pair(pair: &pest::iterators::Pair<Rule>) -> Self {
+        let source_str = pair.as_str();
+        TextNode::new(
+            source_str.to_string(),
+            Position::from_pair(pair),
+            source_str.to_string(),
+        )
     }
 
     fn new_from_indices(pair: &pest::iterators::Pair<Rule>, start: usize, end: usize) -> Self {
@@ -27,11 +37,11 @@ impl TextNode {
         let original_start = span.start();
         let loc_start = original_start + start;
         let loc_end = original_start + end;
-        TextNode {
-            value: source_str[start..end].to_string(),
-            position: Position::new(loc_start, loc_end),
-            source: source_str.to_string(),
-        }
+        TextNode::new(
+            source_str[start..end].to_string(),
+            Position::new(loc_start, loc_end),
+            source_str.to_string(),
+        )
     }
 
     pub fn new_trim_ends(pair: &pest::iterators::Pair<Rule>) -> Self {

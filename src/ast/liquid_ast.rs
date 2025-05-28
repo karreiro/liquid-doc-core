@@ -1,4 +1,4 @@
-use crate::ast::{LiquidDocParamNameNode, LiquidDocParamNode, LiquidRawTagNode, TextNode};
+use crate::ast::{LiquidDocParamNode, LiquidRawTagNode, TextNode};
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
@@ -7,7 +7,6 @@ pub enum LiquidNode {
     LiquidRawTag(LiquidRawTagNode),
     TextNode(TextNode),
     LiquidDocParamNode(LiquidDocParamNode),
-    LiquidDocParamNameNode(LiquidDocParamNameNode),
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]

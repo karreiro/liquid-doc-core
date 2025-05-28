@@ -2,7 +2,6 @@ use serde::{Deserialize, Serialize};
 
 use crate::parser::Rule;
 
-use super::doc_param_name_node::LiquidDocParamNameNode;
 use super::position::Position;
 use super::text_node::TextNode;
 
@@ -11,10 +10,11 @@ pub struct LiquidDocParamNode {
     pub name: String,
     pub position: Position,
     pub source: String,
+    pub required: bool,
     #[serde(rename = "paramType")]
     pub param_type: Option<TextNode>,
     #[serde(rename = "paramName")]
-    pub param_name: LiquidDocParamNameNode,
+    pub param_name: TextNode,
     #[serde(rename = "paramDescription")]
     pub param_description: Option<TextNode>,
 }
@@ -40,11 +40,11 @@ impl LiquidDocParamNode {
             (None, first)
         };
 
-        let param_name = LiquidDocParamNameNode::new(&name);
+        let param_name = TextNode::from_pair(&name);
 
         let description = inner.next().and_then(|t| {
             if !t.as_str().is_empty() {
-                Some(TextNode::new(&t))
+                Some(TextNode::from_pair(&t))
             } else {
                 None
             }
@@ -59,6 +59,7 @@ impl LiquidDocParamNode {
             param_type, // Default to None, can be set later
             param_name,
             param_description: description,
+            required: !source_str.starts_with('[') && !source_str.ends_with(']'),
         }
     }
 }
@@ -87,10 +88,7 @@ mod tests {
         let node = result.unwrap().head();
 
         if let LiquidNode::LiquidDocParamNode(param_node) = node {
-            assert_eq!(
-                param_node.param_name.content.as_str(),
-                "requiredParamWithNoType"
-            );
+            assert_eq!(param_node.param_name.as_str(), "requiredParamWithNoType");
             assert!(param_node.param_description.is_none());
             assert!(param_node.param_type.is_some());
             assert_eq!(param_node.param_type.unwrap().as_str(), "sometype");
@@ -106,10 +104,7 @@ mod tests {
         assert!(result.is_some());
         let node = result.unwrap().head();
         if let LiquidNode::LiquidDocParamNode(param_node) = node {
-            assert_eq!(
-                param_node.param_name.content.as_str(),
-                "requiredParamWithNoType"
-            );
+            assert_eq!(param_node.param_name.as_str(), "requiredParamWithNoType");
             assert_eq!(
                 param_node.param_description.unwrap().as_str(),
                 "This is a cool parameter"

@@ -9,9 +9,17 @@ pub struct LiquidParser;
 
 pub fn visit(builder: &mut LiquidAST, pair: pest::iterators::Pair<Rule>) {
     match pair.as_rule() {
+        Rule::Document => {
+            // The Document rule is the root of the AST, so we can just ignore it
+            for inner_pair in pair.into_inner() {
+                visit(builder, inner_pair);
+            }
+        }
         Rule::ImplicitDescription => {
-            let _description_content = pair.into_inner();
-            // Process description content
+            let description_content = pair.into_inner();
+            for inner_pair in description_content {
+                visit(builder, inner_pair);
+            }
         }
         Rule::LiquidDocNode => {
             let mut content = pair.into_inner();
@@ -37,14 +45,28 @@ pub fn visit(builder: &mut LiquidAST, pair: pest::iterators::Pair<Rule>) {
                 _ => {}
             }
         }
-        Rule::TextNode => (), // Process text node
-        Rule::EOI => (),
-        _ => unreachable!(),
+        Rule::TextNode => {
+            let text_node = TextNode::from_pair(&pair);
+            builder.add_node(LiquidNode::TextNode(text_node));
+        }
+        Rule::descriptionContent => {
+            // This is a special case where we have a description content
+            // that can contain multiple text nodes
+
+            let text_node = TextNode::from_pair(&pair);
+            builder.add_node(LiquidNode::TextNode(text_node));
+
+            for inner_pair in pair.into_inner() {
+                visit(builder, inner_pair);
+            }
+        }
+
+        _ => todo!("Handle rule: {:?}", pair.as_rule()),
     }
 }
 
 pub(crate) fn parse_liquid_string(input: &str) -> Option<LiquidAST> {
-    let text = LiquidParser::parse(Rule::LiquidDocNode, input)
+    let text = LiquidParser::parse(Rule::Document, input)
         .map_err(|e| println!("Parsing error: {}", e))
         .ok()?;
 
@@ -67,9 +89,7 @@ mod test {
     // test json serialization and deserialization
 
     use super::*;
-    use crate::ast::LiquidNode;
     use pretty_assertions::assert_eq;
-    use serde_json::json;
     // use wasm_bindgen_test::wasm_bindgen_test;
     // use wasm_bindgen_test::wasm_bindgen_test_configure;
     // wasm_bindgen_test_configure!(run_in_browser);
@@ -79,7 +99,7 @@ mod test {
         let ast = parse_liquid_string(input).unwrap();
 
         let expected = r#"[
-   {
+  {
     "type": "LiquidDocParamNode",
     "name": "param",
     "position": {
@@ -87,40 +107,40 @@ mod test {
       "end": 80
     },
     "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
-    "paramName": {
-      "type": "TextNode",
-      "value": "requiredParamWithSomeType",
-      "position": {
-        "start": 28,
-        "end": 53
-      },
-      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}"
-    },
-    "paramDescription": {
-      "type": "TextNode",
-      "value": "This is a cool parameter",
-      "position": {
-        "start": 56,
-        "end": 80
-      },
-      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}"
-    },
+    "required": true,
     "paramType": {
-      "type": "TextNode",
       "value": "sometype",
       "position": {
         "start": 18,
         "end": 26
       },
-      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}"
+      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+      "type": "TextNode"
     },
-    "required": true
+    "paramName": {
+      "value": "requiredParamWithSomeType",
+      "position": {
+        "start": 28,
+        "end": 53
+      },
+      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+      "type": "TextNode"
+    },
+    "paramDescription": {
+      "value": "This is a cool parameter",
+      "position": {
+        "start": 56,
+        "end": 80
+      },
+      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+      "type": "TextNode"
+    }
   }
 ]"#;
 
         // prettify json string
-        let prettified = serde_json::to_string_pretty(&ast.nodes).unwrap();
+        let actual = serde_json::to_string_pretty(&ast.nodes).unwrap();
 
-        assert_eq!(prettified, expected);
+        assert_eq!(expected, actual);
     }
 }
