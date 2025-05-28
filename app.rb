@@ -13,7 +13,7 @@ get '/' do
 end
 
 get '/ohm' do
-  send_file File.join(settings.public_folder, 'ohm.html')
+  send_file File.join(settings.public_folder, 'js-parser.html')
 end
 
 # Health check endpoint
