@@ -1,3 +1,4 @@
+use pest::{iterators::Pairs, Parser};
 use pest_derive::Parser;
 use serde::{Deserialize, Serialize};
 use wasm_bindgen::prelude::*;
@@ -39,7 +40,62 @@ pub fn add_numbers(a: i32, b: i32) -> JsValue {
 #[grammar = "liquid.pest"]
 pub struct LiquidParser;
 
-#[wasm_bindgen(start)]
-pub fn main() {
-    console_log!("WebAssembly Calculator module loaded! 🦀");
+pub fn visit(builder: &mut LiquidASTBuilder, pair: pest::iterators::Pair<Rule>) {
+    match pair.as_rule() {
+        Rule::ImplicitDescription => {
+            let descriptionContent = pair.into_inner();
+        }
+        Rule::LiquidDocNode => {
+            let mut content = pair.into_inner();
+            match content.next().unwrap().as_rule() {
+                Rule::paramNode => {}
+                Rule::exampleNode => {}
+                Rule::descriptionNode => {}
+                Rule::promptNode => {}
+                Rule::fallbackNode => {}
+                _ => {}
+            }
+        }
+        Rule::TextNode => (),
+        Rule::EOI => (),
+        _ => unreachable!(),
+    }
 }
+
+fn parse_liquid_string(pair: &str) -> Option<LiquidAst> {
+    let text = LiquidParser::parse(Rule::LiquidDocNode, pair)
+        .map_err(|e| console_log!("Parsing error: {}", e))
+        .ok()?;
+
+    let mut builder = LiquidASTBuilder {};
+    for pair in text {
+        visit(&mut builder, pair);
+    }
+
+    None
+}
+
+#[derive(Serialize, Debug, Clone)]
+pub struct LiquidAst {}
+
+pub struct LiquidASTBuilder {}
+
+impl LiquidASTBuilder {
+    pub fn new() -> Self {
+        LiquidASTBuilder {}
+    }
+    pub fn build(self) -> LiquidAst {
+        LiquidAst {}
+    }
+}
+// #[cfg(test)]
+// mod tests {
+//     use super::*;
+
+//     #[test]
+//     fn test_parse_liquid() {
+//         let input = "\n        {% doc -%}\n        @param requiredParamWithNoType\n        @param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n        @param {String} paramWithNoDescription\n        @param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n        @param [optionalParameterWithDescription] - optional parameter description\n        @param {String} [optionalParameterWithType]\n        @unsupported this node falls back to a text node\n        {%- enddoc %}\n      ";
+//         let result = parse_liquid(input);
+//         assert!(result.is_empty());
+//     }
+// }
