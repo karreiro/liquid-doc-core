@@ -31,29 +31,16 @@ impl TextNode {
         )
     }
 
-    fn new_from_indices(
-        pair: &pest::iterators::Pair<Rule>,
-        start: usize,
-        end: usize,
-        position_offset: Option<usize>,
-    ) -> Self {
-        let span = pair.as_span();
-        let source_str = span.as_str();
-        let original_start = span.start();
-        let loc_start = original_start + start;
-        let loc_end = original_start + end;
-        TextNode::new(
-            source_str[start..end].to_string(),
-            Position::new(loc_start, loc_end, position_offset),
-            source_str.to_string(),
-        )
-    }
-
-    pub fn new_trim_ends(
+    pub fn without_brackets(
         pair: &pest::iterators::Pair<Rule>,
         position_offset: Option<usize>,
     ) -> Self {
-        Self::new_from_indices(pair, 1, pair.as_str().len() - 1, position_offset)
+        let mut text_node = Self::from_pair(pair, position_offset);
+        text_node.value = text_node
+            .value
+            .trim_matches(|c| c == '{' || c == '}' || c == '[' || c == ']')
+            .to_string();
+        text_node
     }
 
     #[allow(dead_code)]

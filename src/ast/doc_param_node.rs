@@ -32,15 +32,14 @@ impl LiquidDocParamNode {
 
         let (param_type, name) = if let Rule::paramType = first.as_rule() {
             (
-                // Remove the curly braces from the type string
-                Some(TextNode::new_trim_ends(&first, position_offset)),
+                Some(TextNode::without_brackets(&first, position_offset)),
                 inner.next().expect("Expected a paramName after paramType"),
             )
         } else {
             (None, first)
         };
 
-        let param_name = TextNode::from_pair(&name, position_offset);
+        let param_name = TextNode::without_brackets(&name, position_offset);
 
         let description = inner.next().and_then(|t| {
             if !t.as_str().is_empty() {
@@ -109,6 +108,28 @@ mod tests {
                 param_node.param_description.unwrap().as_str(),
                 "This is a cool parameter"
             );
+        } else {
+            panic!("Expected a LiquidDocParamNode");
+        }
+    }
+    #[test]
+    fn test_parse_optional_param_with_type_and_description() {
+        let input =
+            "@param {sometype} [optionalParamWithTypeAndDescription] - This is a cool parameter";
+        let result = parse_liquid_string(input, Some(10));
+
+        assert!(result.is_some());
+        let node = result.unwrap().head();
+        if let LiquidNode::LiquidDocParamNode(param_node) = node {
+            assert_eq!(
+                param_node.param_name.as_str(),
+                "optionalParamWithTypeAndDescription"
+            );
+            assert_eq!(
+                param_node.param_description.unwrap().as_str(),
+                "This is a cool parameter"
+            );
+            assert!(param_node.required)
         } else {
             panic!("Expected a LiquidDocParamNode");
         }
