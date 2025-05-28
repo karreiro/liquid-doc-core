@@ -34,7 +34,7 @@ System prompt for AI models
 # Install dependencies
 rustup target add wasm32-unknown-unknown
 cargo install wasm-pack
-gem install sinatra puma rackup
+bundle
 
 # Build and run
 ./run.sh
