@@ -1,4 +1,4 @@
-use crate::ast::{LiquidDocDescriptionNode, LiquidDocParamNode, LiquidRawTagNode, TextNode};
+use crate::ast::{LiquidDocDescriptionNode, LiquidDocParamNode, TextNode};
 use serde::{Deserialize, Serialize};
 
 use super::LiquidDocExampleNode;
@@ -9,8 +9,8 @@ use super::LiquidDocExampleNode;
 /// This instructs the serializer to use the `type` field to differentiate between node types, which the consuming code requires.
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 #[serde(tag = "type")]
+#[allow(clippy::enum_variant_names)]
 pub enum LiquidNode {
-    LiquidRawTag(LiquidRawTagNode),
     LiquidDocDescriptionNode(LiquidDocDescriptionNode),
     TextNode(TextNode),
     LiquidDocParamNode(LiquidDocParamNode),
