@@ -23,16 +23,9 @@ fn main() {
         })
         .collect::<Vec<_>>();
 
-    // Generate constants and macros
-    let code_definition = format!(
+    // Generate multiple useful macros
+    let macro_definition = format!(
         r#"
-// Auto-generated constants from build script
-// These are the fixture file names discovered at build time
-pub const FIXTURE_NAMES: &[&str] = &[{}];
-
-// These are the full paths to the fixture files
-pub const FIXTURE_PATHS: &[&str] = &[{}];
-
 // Macro to iterate over each test file name
 #[macro_export]
 macro_rules! for_each_fixture_file {{
@@ -45,7 +38,7 @@ macro_rules! for_each_fixture_file {{
 #[macro_export]
 macro_rules! fixture_file_names {{
     () => {{
-        FIXTURE_NAMES
+        &[{}]
     }}
 }}
 
@@ -53,10 +46,15 @@ macro_rules! fixture_file_names {{
 #[macro_export]
 macro_rules! fixture_file_paths {{
     () => {{
-        FIXTURE_PATHS
+        &[{}]
     }}
 }}
 "#,
+        entries
+            .iter()
+            .map(|name| format!("        $macro!({:?});", name))
+            .collect::<Vec<_>>()
+            .join("\n"),
         entries
             .iter()
             .map(|name| format!("{:?}", name))
@@ -66,12 +64,7 @@ macro_rules! fixture_file_paths {{
             .iter()
             .map(|name| format!("{:?}", format!("web/fixtures/{}.liquid", name)))
             .collect::<Vec<_>>()
-            .join(", "),
-        entries
-            .iter()
-            .map(|name| format!("        $macro!({:?});", name))
-            .collect::<Vec<_>>()
-            .join("\n")
+            .join(", ")
     );
 
     fs::write(&dest_path, macro_definition).unwrap();

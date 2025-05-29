@@ -49,7 +49,7 @@ mod test {
     use pretty_assertions::assert_eq;
 
     #[test]
-    fn test_parse_optional_param_with_type_and_description() {
+    fn parse_inline_example_node() {
         let input = "@example simple inline example\n";
         let result = parse_liquid_string(input, Some(10));
 
