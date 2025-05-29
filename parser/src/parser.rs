@@ -1,7 +1,6 @@
 use crate::ast::{LiquidDocParamNode, *};
 use pest::Parser;
 use pest_derive::Parser;
-use wasm_bindgen::{prelude::wasm_bindgen, JsValue};
 
 #[derive(Parser)]
 #[grammar = "liquid.pest"]
@@ -55,7 +54,7 @@ pub fn visit(
     }
 }
 
-pub(crate) fn parse_liquid_string(
+pub fn parse_liquid_string(
     input: &str,
     position_offset: Option<usize>,
 ) -> Option<LiquidAST> {
@@ -69,10 +68,4 @@ pub(crate) fn parse_liquid_string(
     }
 
     Some(ast)
-}
-
-#[wasm_bindgen]
-pub fn parse_liquid(input: &str) -> JsValue {
-    serde_wasm_bindgen::to_value(&parse_liquid_string(input, None))
-        .expect("The LiquidAst was not in the correct format")
 }

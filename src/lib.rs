@@ -1,6 +1,3 @@
-mod ast;
-mod parser;
-
 use serde::{Deserialize, Serialize};
 use wasm_bindgen::prelude::*;
 
@@ -38,4 +35,15 @@ pub fn add_numbers(a: i32, b: i32) -> JsValue {
     serde_wasm_bindgen::to_value(&result).expect("The struct must be serializable")
 }
 
-pub use parser::parse_liquid;
+#[wasm_bindgen]
+pub fn parse_liquid(input: &str) -> JsValue {
+    match liquid_doc_parser::parse_liquid_string(input, None) {
+        Some(ast) => {
+            serde_wasm_bindgen::to_value(&ast).expect("The LiquidAst was not in the correct format")
+        }
+        None => JsValue::NULL,
+    }
+}
+
+// Re-export the parser function for other Rust crates
+pub use liquid_doc_parser::parse_liquid_string;

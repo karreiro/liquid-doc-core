@@ -1,0 +1,63 @@
+---
+source: parser/src/ast/description_node.rs
+expression: "@description kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter"
+---
+[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
+    "position": {
+      "start": 10,
+      "end": 29
+    },
+    "source": "@description kdkd\n\n",
+    "content": {
+      "type": "TextNode",
+      "value": "kdkd\n\n",
+      "position": {
+        "start": 23,
+        "end": 29
+      },
+      "source": "@description kdkd\n\n"
+    },
+    "isImplicit": false,
+    "isInline": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 29,
+      "end": 99
+    },
+    "source": "@param {sometype} requiredParamWithSomeType - This is a cool parameter",
+    "paramName": {
+      "type": "TextNode",
+      "value": "requiredParamWithSomeType",
+      "position": {
+        "start": 47,
+        "end": 72
+      },
+      "source": "requiredParamWithSomeType"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "This is a cool parameter",
+      "position": {
+        "start": 75,
+        "end": 99
+      },
+      "source": "This is a cool parameter"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "sometype",
+      "position": {
+        "start": 37,
+        "end": 45
+      },
+      "source": "{sometype}"
+    },
+    "required": true
+  }
+]

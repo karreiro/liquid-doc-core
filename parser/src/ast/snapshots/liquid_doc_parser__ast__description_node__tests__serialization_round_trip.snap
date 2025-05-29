@@ -1,0 +1,26 @@
+---
+source: parser/src/ast/description_node.rs
+expression: "@description kdkd\n"
+---
+[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
+    "position": {
+      "start": 10,
+      "end": 28
+    },
+    "source": "@description kdkd\n",
+    "content": {
+      "type": "TextNode",
+      "value": "kdkd\n",
+      "position": {
+        "start": 23,
+        "end": 28
+      },
+      "source": "@description kdkd\n"
+    },
+    "isImplicit": false,
+    "isInline": true
+  }
+]

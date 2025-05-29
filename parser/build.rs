@@ -6,7 +6,7 @@ fn main() {
     let out_dir = env::var("OUT_DIR").unwrap();
     let dest_path = Path::new(&out_dir).join("fixtures_macro.rs");
 
-    let fixtures_dir = Path::new("web/fixtures");
+    let fixtures_dir = Path::new("../web/fixtures");
     let entries = fs::read_dir(fixtures_dir)
         .expect("Failed to read fixtures directory")
         .filter_map(|entry| {

@@ -1,0 +1,72 @@
+---
+source: parser/src/ast/fixture_tests.rs
+expression: "this block was AI generated\n        @prompt\n          First prompt\n        @param {String} paramName - param description"
+---
+[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
+    "position": {
+      "start": 10,
+      "end": 38
+    },
+    "source": "this block was AI generated\n",
+    "content": {
+      "type": "TextNode",
+      "value": "this block was AI generated\n",
+      "position": {
+        "start": 10,
+        "end": 38
+      },
+      "source": "this block was AI generated\n"
+    },
+    "isImplicit": true,
+    "isInline": true
+  },
+  {
+    "type": "TextNode",
+    "value": "@prompt\n          First prompt\n",
+    "position": {
+      "start": 46,
+      "end": 77
+    },
+    "source": "@prompt\n          First prompt\n"
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 85,
+      "end": 130
+    },
+    "source": "@param {String} paramName - param description",
+    "paramName": {
+      "type": "TextNode",
+      "value": "paramName",
+      "position": {
+        "start": 101,
+        "end": 110
+      },
+      "source": "paramName"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "param description",
+      "position": {
+        "start": 113,
+        "end": 130
+      },
+      "source": "param description"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "String",
+      "position": {
+        "start": 93,
+        "end": 99
+      },
+      "source": "{String}"
+    },
+    "required": true
+  }
+]

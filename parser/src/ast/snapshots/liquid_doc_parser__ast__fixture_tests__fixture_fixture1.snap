@@ -1,0 +1,304 @@
+---
+source: parser/src/ast/fixture_tests.rs
+expression: "Renders a card for displaying various resource types (products, collections, articles, pages).\n\n@param {object} resource - The product or collection resource to render\n@param {string} resource_type - The type of resource to render.\n@param {string} [collection_thumbnails] - The style of the collection card. Can be 'single' or 'multiple'. Defaults to 'single'\n@param {string} [style] - The style of the card. Can be 'default' or 'overlay'\n@param {number} [image_width] - The width of the image\n@param {string} [image_aspect_ratio] - The aspect ratio to display the image. Defaults to image's natural ratio\n@param {boolean} [image_hover] - Whether to show a secondary image on hover and focus\n\n@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n"
+---
+[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
+    "position": {
+      "start": 10,
+      "end": 106
+    },
+    "source": "Renders a card for displaying various resource types (products, collections, articles, pages).\n\n",
+    "content": {
+      "type": "TextNode",
+      "value": "Renders a card for displaying various resource types (products, collections, articles, pages).\n\n",
+      "position": {
+        "start": 10,
+        "end": 106
+      },
+      "source": "Renders a card for displaying various resource types (products, collections, articles, pages).\n\n"
+    },
+    "isImplicit": true,
+    "isInline": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 106,
+      "end": 177
+    },
+    "source": "@param {object} resource - The product or collection resource to render",
+    "paramName": {
+      "type": "TextNode",
+      "value": "resource",
+      "position": {
+        "start": 122,
+        "end": 130
+      },
+      "source": "resource"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "The product or collection resource to render",
+      "position": {
+        "start": 133,
+        "end": 177
+      },
+      "source": "The product or collection resource to render"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 114,
+        "end": 120
+      },
+      "source": "{object}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 178,
+      "end": 241
+    },
+    "source": "@param {string} resource_type - The type of resource to render.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "resource_type",
+      "position": {
+        "start": 194,
+        "end": 207
+      },
+      "source": "resource_type"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "The type of resource to render.",
+      "position": {
+        "start": 210,
+        "end": 241
+      },
+      "source": "The type of resource to render."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 186,
+        "end": 192
+      },
+      "source": "{string}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 242,
+      "end": 369
+    },
+    "source": "@param {string} [collection_thumbnails] - The style of the collection card. Can be 'single' or 'multiple'. Defaults to 'single'",
+    "paramName": {
+      "type": "TextNode",
+      "value": "collection_thumbnails",
+      "position": {
+        "start": 259,
+        "end": 280
+      },
+      "source": "[collection_thumbnails]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "The style of the collection card. Can be 'single' or 'multiple'. Defaults to 'single'",
+      "position": {
+        "start": 284,
+        "end": 369
+      },
+      "source": "The style of the collection card. Can be 'single' or 'multiple'. Defaults to 'single'"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 250,
+        "end": 256
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 370,
+      "end": 448
+    },
+    "source": "@param {string} [style] - The style of the card. Can be 'default' or 'overlay'",
+    "paramName": {
+      "type": "TextNode",
+      "value": "style",
+      "position": {
+        "start": 387,
+        "end": 392
+      },
+      "source": "[style]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "The style of the card. Can be 'default' or 'overlay'",
+      "position": {
+        "start": 396,
+        "end": 448
+      },
+      "source": "The style of the card. Can be 'default' or 'overlay'"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 378,
+        "end": 384
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 449,
+      "end": 503
+    },
+    "source": "@param {number} [image_width] - The width of the image",
+    "paramName": {
+      "type": "TextNode",
+      "value": "image_width",
+      "position": {
+        "start": 466,
+        "end": 477
+      },
+      "source": "[image_width]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "The width of the image",
+      "position": {
+        "start": 481,
+        "end": 503
+      },
+      "source": "The width of the image"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 457,
+        "end": 463
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 504,
+      "end": 615
+    },
+    "source": "@param {string} [image_aspect_ratio] - The aspect ratio to display the image. Defaults to image's natural ratio",
+    "paramName": {
+      "type": "TextNode",
+      "value": "image_aspect_ratio",
+      "position": {
+        "start": 521,
+        "end": 539
+      },
+      "source": "[image_aspect_ratio]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "The aspect ratio to display the image. Defaults to image's natural ratio",
+      "position": {
+        "start": 543,
+        "end": 615
+      },
+      "source": "The aspect ratio to display the image. Defaults to image's natural ratio"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 512,
+        "end": 518
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 616,
+      "end": 701
+    },
+    "source": "@param {boolean} [image_hover] - Whether to show a secondary image on hover and focus",
+    "paramName": {
+      "type": "TextNode",
+      "value": "image_hover",
+      "position": {
+        "start": 634,
+        "end": 645
+      },
+      "source": "[image_hover]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Whether to show a secondary image on hover and focus",
+      "position": {
+        "start": 649,
+        "end": 701
+      },
+      "source": "Whether to show a secondary image on hover and focus"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 624,
+        "end": 631
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocExampleNode",
+    "name": "example",
+    "position": {
+      "start": 703,
+      "end": 831
+    },
+    "source": "@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n",
+    "content": {
+      "type": "TextNode",
+      "value": "@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n",
+      "position": {
+        "start": 703,
+        "end": 831
+      },
+      "source": "@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n"
+    },
+    "isInline": true
+  }
+]

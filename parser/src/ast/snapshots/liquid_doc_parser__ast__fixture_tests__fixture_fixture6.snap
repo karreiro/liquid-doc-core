@@ -1,0 +1,82 @@
+---
+source: parser/src/ast/fixture_tests.rs
+expression: "@description This is a description\n@example This is an example\n@param {String} paramWithDescription - param with description"
+---
+[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
+    "position": {
+      "start": 10,
+      "end": 45
+    },
+    "source": "@description This is a description\n",
+    "content": {
+      "type": "TextNode",
+      "value": "This is a description\n",
+      "position": {
+        "start": 23,
+        "end": 45
+      },
+      "source": "@description This is a description\n"
+    },
+    "isImplicit": false,
+    "isInline": true
+  },
+  {
+    "type": "LiquidDocExampleNode",
+    "name": "example",
+    "position": {
+      "start": 45,
+      "end": 73
+    },
+    "source": "@example This is an example\n",
+    "content": {
+      "type": "TextNode",
+      "value": "This is an example\n",
+      "position": {
+        "start": 54,
+        "end": 73
+      },
+      "source": "@example This is an example\n"
+    },
+    "isInline": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 73,
+      "end": 134
+    },
+    "source": "@param {String} paramWithDescription - param with description",
+    "paramName": {
+      "type": "TextNode",
+      "value": "paramWithDescription",
+      "position": {
+        "start": 89,
+        "end": 109
+      },
+      "source": "paramWithDescription"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "param with description",
+      "position": {
+        "start": 112,
+        "end": 134
+      },
+      "source": "param with description"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "String",
+      "position": {
+        "start": 81,
+        "end": 87
+      },
+      "source": "{String}"
+    },
+    "required": true
+  }
+]
