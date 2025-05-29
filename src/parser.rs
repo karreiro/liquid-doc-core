@@ -35,7 +35,8 @@ pub fn visit(
                     ast.add_node(LiquidNode::LiquidDocParamNode(node));
                 }
                 Rule::exampleNode => {
-                    // Process example node
+                    let node = LiquidDocExampleNode::from_pair(&next, position_offset);
+                    ast.add_node(LiquidNode::LiquidDocExampleNode(node));
                 }
                 Rule::descriptionNode => {
                     let node = LiquidDocDescriptionNode::explicit(&next, position_offset);
@@ -43,11 +44,13 @@ pub fn visit(
                 }
                 Rule::promptNode => {
                     // Process prompt node
+                    unimplemented!("Prompt nodes are not yet implemented");
                 }
                 Rule::fallbackNode => {
                     // Process fallback node
+                    unimplemented!("Fallback nodes are not yet implemented");
                 }
-                _ => {}
+                _ => unreachable!("Unexpected rule in LiquidDocNode: {:?}", next.as_rule()),
             }
         }
         Rule::TextNode => {
@@ -56,20 +59,7 @@ pub fn visit(
                 ast.add_node(LiquidNode::TextNode(text_node));
             }
         }
-        // Rule::descriptionContent => {
-        //     // This is a special case where we have a description content
-        //     // that can contain multiple text nodes
-
-        //     let text_node = TextNode::from_pair(&pair, position_offset);
-        //     if !text_node.is_empty() {
-        //         ast.add_node(LiquidNode::TextNode(text_node));
-        //     }
-
-        //     for inner_pair in pair.into_inner() {
-        //         visit(ast, inner_pair, position_offset);
-        //     }
-        // }
-        _ => todo!("Handle rule: {:?}", pair.as_rule()),
+        _ => unimplemented!("Handle rule: {:?}", pair.as_rule()),
     }
 }
 

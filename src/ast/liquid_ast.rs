@@ -1,13 +1,16 @@
 use crate::ast::{LiquidDocDescriptionNode, LiquidDocParamNode, LiquidRawTagNode, TextNode};
 use serde::{Deserialize, Serialize};
 
+use super::LiquidDocExampleNode;
+
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 #[serde(tag = "type")]
 pub enum LiquidNode {
-    LiquidDocDescriptionNode(LiquidDocDescriptionNode),
     LiquidRawTag(LiquidRawTagNode),
+    LiquidDocDescriptionNode(LiquidDocDescriptionNode),
     TextNode(TextNode),
     LiquidDocParamNode(LiquidDocParamNode),
+    LiquidDocExampleNode(LiquidDocExampleNode),
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]

@@ -22,4 +22,8 @@ impl Position {
         let span = pair.as_span();
         Position::new(span.start(), span.end(), offset)
     }
+
+    pub fn shift_start(&mut self, offset: usize) {
+        self.start += offset;
+    }
 }

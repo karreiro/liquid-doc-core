@@ -112,6 +112,7 @@ mod tests {
             panic!("Expected a LiquidDocParamNode");
         }
     }
+
     #[test]
     fn test_parse_optional_param_with_type_and_description() {
         let input =
