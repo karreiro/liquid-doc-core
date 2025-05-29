@@ -1,92 +1,62 @@
 ---
 source: src/ast/fixture_tests.rs
-expression: "@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and \\`punctation\\`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n@unsupported this node falls back to a text node"
+expression: "Renders a card for displaying various resource types (products, collections, articles, pages).\n\n@param {object} resource - The product or collection resource to render\n@param {string} resource_type - The type of resource to render.\n@param {string} [collection_thumbnails] - The style of the collection card. Can be 'single' or 'multiple'. Defaults to 'single'\n@param {string} [style] - The style of the card. Can be 'default' or 'overlay'\n@param {number} [image_width] - The width of the image\n@param {string} [image_aspect_ratio] - The aspect ratio to display the image. Defaults to image's natural ratio\n@param {boolean} [image_hover] - Whether to show a secondary image on hover and focus\n\n@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n"
 ---
 [
   {
-    "type": "LiquidDocParamNode",
-    "name": "param",
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
     "position": {
       "start": 10,
-      "end": 40
+      "end": 106
     },
-    "source": "@param requiredParamWithNoType",
-    "paramName": {
+    "source": "Renders a card for displaying various resource types (products, collections, articles, pages).\n\n",
+    "content": {
       "type": "TextNode",
-      "value": "requiredParamWithNoType",
+      "value": "Renders a card for displaying various resource types (products, collections, articles, pages).\n\n",
       "position": {
-        "start": 17,
-        "end": 40
+        "start": 10,
+        "end": 106
       },
-      "source": "requiredParamWithNoType"
+      "source": "Renders a card for displaying various resource types (products, collections, articles, pages).\n\n"
     },
-    "paramDescription": null,
-    "paramType": null,
-    "required": true
+    "isImplicit": true,
+    "isInline": true
   },
   {
     "type": "LiquidDocParamNode",
     "name": "param",
     "position": {
-      "start": 41,
-      "end": 163
+      "start": 106,
+      "end": 177
     },
-    "source": "@param {String} paramWithDescription - param with description and \\`punctation\\`. This is still a valid param description.",
+    "source": "@param {object} resource - The product or collection resource to render",
     "paramName": {
       "type": "TextNode",
-      "value": "paramWithDescription",
+      "value": "resource",
       "position": {
-        "start": 57,
-        "end": 77
+        "start": 122,
+        "end": 130
       },
-      "source": "paramWithDescription"
+      "source": "resource"
     },
     "paramDescription": {
       "type": "TextNode",
-      "value": "param with description and \\`punctation\\`. This is still a valid param description.",
+      "value": "The product or collection resource to render",
       "position": {
-        "start": 80,
-        "end": 163
+        "start": 133,
+        "end": 177
       },
-      "source": "param with description and \\`punctation\\`. This is still a valid param description."
+      "source": "The product or collection resource to render"
     },
     "paramType": {
       "type": "TextNode",
-      "value": "String",
+      "value": "object",
       "position": {
-        "start": 49,
-        "end": 55
+        "start": 114,
+        "end": 120
       },
-      "source": "{String}"
-    },
-    "required": true
-  },
-  {
-    "type": "LiquidDocParamNode",
-    "name": "param",
-    "position": {
-      "start": 164,
-      "end": 202
-    },
-    "source": "@param {String} paramWithNoDescription",
-    "paramName": {
-      "type": "TextNode",
-      "value": "paramWithNoDescription",
-      "position": {
-        "start": 180,
-        "end": 202
-      },
-      "source": "paramWithNoDescription"
-    },
-    "paramDescription": null,
-    "paramType": {
-      "type": "TextNode",
-      "value": "String",
-      "position": {
-        "start": 172,
-        "end": 178
-      },
-      "source": "{String}"
+      "source": "{object}"
     },
     "required": true
   },
@@ -94,36 +64,73 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
     "type": "LiquidDocParamNode",
     "name": "param",
     "position": {
-      "start": 203,
-      "end": 307
+      "start": 178,
+      "end": 241
     },
-    "source": "@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description",
+    "source": "@param {string} resource_type - The type of resource to render.",
     "paramName": {
       "type": "TextNode",
-      "value": "optionalParameterWithTypeAndDescription",
+      "value": "resource_type",
       "position": {
-        "start": 220,
-        "end": 259
+        "start": 194,
+        "end": 207
       },
-      "source": "[optionalParameterWithTypeAndDescription]"
+      "source": "resource_type"
     },
     "paramDescription": {
       "type": "TextNode",
-      "value": "optional parameter with type and description",
+      "value": "The type of resource to render.",
       "position": {
-        "start": 263,
-        "end": 307
+        "start": 210,
+        "end": 241
       },
-      "source": "optional parameter with type and description"
+      "source": "The type of resource to render."
     },
     "paramType": {
       "type": "TextNode",
-      "value": "String",
+      "value": "string",
       "position": {
-        "start": 211,
-        "end": 217
+        "start": 186,
+        "end": 192
       },
-      "source": "{String}"
+      "source": "{string}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 242,
+      "end": 369
+    },
+    "source": "@param {string} [collection_thumbnails] - The style of the collection card. Can be 'single' or 'multiple'. Defaults to 'single'",
+    "paramName": {
+      "type": "TextNode",
+      "value": "collection_thumbnails",
+      "position": {
+        "start": 259,
+        "end": 280
+      },
+      "source": "[collection_thumbnails]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "The style of the collection card. Can be 'single' or 'multiple'. Defaults to 'single'",
+      "position": {
+        "start": 284,
+        "end": 369
+      },
+      "source": "The style of the collection card. Can be 'single' or 'multiple'. Defaults to 'single'"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 250,
+        "end": 256
+      },
+      "source": "{string}"
     },
     "required": false
   },
@@ -131,67 +138,167 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
     "type": "LiquidDocParamNode",
     "name": "param",
     "position": {
-      "start": 308,
-      "end": 382
+      "start": 370,
+      "end": 448
     },
-    "source": "@param [optionalParameterWithDescription] - optional parameter description",
+    "source": "@param {string} [style] - The style of the card. Can be 'default' or 'overlay'",
     "paramName": {
       "type": "TextNode",
-      "value": "optionalParameterWithDescription",
+      "value": "style",
       "position": {
-        "start": 316,
-        "end": 348
+        "start": 387,
+        "end": 392
       },
-      "source": "[optionalParameterWithDescription]"
+      "source": "[style]"
     },
     "paramDescription": {
       "type": "TextNode",
-      "value": "optional parameter description",
+      "value": "The style of the card. Can be 'default' or 'overlay'",
       "position": {
-        "start": 352,
-        "end": 382
+        "start": 396,
+        "end": 448
       },
-      "source": "optional parameter description"
+      "source": "The style of the card. Can be 'default' or 'overlay'"
     },
-    "paramType": null,
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 378,
+        "end": 384
+      },
+      "source": "{string}"
+    },
     "required": false
   },
   {
     "type": "LiquidDocParamNode",
     "name": "param",
     "position": {
-      "start": 383,
-      "end": 426
+      "start": 449,
+      "end": 503
     },
-    "source": "@param {String} [optionalParameterWithType]",
+    "source": "@param {number} [image_width] - The width of the image",
     "paramName": {
       "type": "TextNode",
-      "value": "optionalParameterWithType",
+      "value": "image_width",
       "position": {
-        "start": 400,
-        "end": 425
+        "start": 466,
+        "end": 477
       },
-      "source": "[optionalParameterWithType]"
+      "source": "[image_width]"
     },
-    "paramDescription": null,
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "The width of the image",
+      "position": {
+        "start": 481,
+        "end": 503
+      },
+      "source": "The width of the image"
+    },
     "paramType": {
       "type": "TextNode",
-      "value": "String",
+      "value": "number",
       "position": {
-        "start": 391,
-        "end": 397
+        "start": 457,
+        "end": 463
       },
-      "source": "{String}"
+      "source": "{number}"
     },
     "required": false
   },
   {
-    "type": "TextNode",
-    "value": "@unsupported this node falls back to a text node",
+    "type": "LiquidDocParamNode",
+    "name": "param",
     "position": {
-      "start": 427,
-      "end": 475
+      "start": 504,
+      "end": 615
     },
-    "source": "@unsupported this node falls back to a text node"
+    "source": "@param {string} [image_aspect_ratio] - The aspect ratio to display the image. Defaults to image's natural ratio",
+    "paramName": {
+      "type": "TextNode",
+      "value": "image_aspect_ratio",
+      "position": {
+        "start": 521,
+        "end": 539
+      },
+      "source": "[image_aspect_ratio]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "The aspect ratio to display the image. Defaults to image's natural ratio",
+      "position": {
+        "start": 543,
+        "end": 615
+      },
+      "source": "The aspect ratio to display the image. Defaults to image's natural ratio"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 512,
+        "end": 518
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 616,
+      "end": 701
+    },
+    "source": "@param {boolean} [image_hover] - Whether to show a secondary image on hover and focus",
+    "paramName": {
+      "type": "TextNode",
+      "value": "image_hover",
+      "position": {
+        "start": 634,
+        "end": 645
+      },
+      "source": "[image_hover]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Whether to show a secondary image on hover and focus",
+      "position": {
+        "start": 649,
+        "end": 701
+      },
+      "source": "Whether to show a secondary image on hover and focus"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 624,
+        "end": 631
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocExampleNode",
+    "name": "example",
+    "position": {
+      "start": 703,
+      "end": 831
+    },
+    "source": "@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n",
+    "content": {
+      "type": "TextNode",
+      "value": "@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n",
+      "position": {
+        "start": 703,
+        "end": 831
+      },
+      "source": "@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n"
+    },
+    "isInline": true
   }
 ]
