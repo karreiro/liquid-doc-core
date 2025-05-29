@@ -6,8 +6,6 @@ use super::position::Position;
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct TextNode {
-    #[serde(rename = "type", skip_deserializing)]
-    pub type_: &'static str,
     pub value: String,
     pub position: Position,
     pub source: String,
@@ -19,7 +17,6 @@ impl TextNode {
             value,
             position,
             source,
-            type_: "TextNode",
         }
     }
     pub fn from_pair(pair: &pest::iterators::Pair<Rule>, position_offset: Option<usize>) -> Self {

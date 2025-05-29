@@ -1,13 +1,13 @@
 use serde::{Deserialize, Serialize};
 
-use super::{position::Position, TextNode};
+use super::{position::Position, LiquidNode, TextNode};
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocExampleNode {
     pub name: String,
     pub position: Position,
     pub source: String,
-    pub content: TextNode,
+    pub content: Box<LiquidNode>,
     #[serde(rename = "isInline")]
     pub is_inline: bool,
 }
@@ -15,7 +15,7 @@ pub struct LiquidDocExampleNode {
 impl LiquidDocExampleNode {
     pub fn new(content: TextNode, is_inline: bool, position: Position, source: String) -> Self {
         LiquidDocExampleNode {
-            content,
+            content: Box::new(LiquidNode::TextNode(content)),
             is_inline,
             position,
             source,
@@ -56,7 +56,10 @@ mod test {
         assert!(result.is_some());
         let node = result.unwrap().head();
         if let LiquidNode::LiquidDocExampleNode(example_node) = node {
-            assert_eq!(example_node.content.as_str(), "simple inline example\n");
+            assert_eq!(
+                example_node.content.as_text_node_unsafe().as_str(),
+                "simple inline example\n"
+            );
             assert!(example_node.is_inline);
         } else {
             panic!("Expected a LiquidDocExampleNode");

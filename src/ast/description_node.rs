@@ -1,13 +1,13 @@
 use serde::{Deserialize, Serialize};
 
-use super::{position::Position, TextNode};
+use super::{position::Position, LiquidNode, TextNode};
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocDescriptionNode {
     pub name: String,
     pub position: Position,
     pub source: String,
-    pub content: TextNode,
+    pub content: Box<LiquidNode>,
     #[serde(rename = "isImplicit")]
     pub is_implicit: bool,
     #[serde(rename = "isInline")]
@@ -23,7 +23,7 @@ impl LiquidDocDescriptionNode {
         source: String,
     ) -> Self {
         LiquidDocDescriptionNode {
-            content,
+            content: Box::new(LiquidNode::TextNode(content)),
             is_implicit,
             is_inline,
             position,
@@ -76,6 +76,12 @@ impl LiquidDocDescriptionNode {
             source_str.to_string(),
         )
     }
+    pub fn value(&self) -> &str {
+        match self.content.as_ref() {
+            LiquidNode::TextNode(text_node) => text_node.value.as_str(),
+            _ => unreachable!("Expected content to be a TextNode"),
+        }
+    }
 }
 
 #[cfg(test)]
@@ -96,7 +102,7 @@ mod tests {
         assert_eq!(description_node.name, "description");
         assert!(description_node.is_implicit);
         assert!(description_node.is_inline);
-        assert_eq!(description_node.content.value, "kdkd\n\n");
+        assert_eq!(description_node.value(), "kdkd\n\n");
     }
     #[test]
     fn test_liquid_doc_explicit_description_node() {
@@ -111,7 +117,7 @@ mod tests {
         assert_eq!(description_node.name, "description");
         assert!(!description_node.is_implicit);
         assert!(description_node.is_inline);
-        assert_eq!(description_node.content.value, "kdkd\n");
+        assert_eq!(description_node.value(), "kdkd\n");
     }
 
     #[test]

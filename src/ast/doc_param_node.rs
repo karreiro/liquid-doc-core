@@ -4,6 +4,7 @@ use crate::parser::Rule;
 
 use super::position::Position;
 use super::text_node::TextNode;
+use super::LiquidNode;
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocParamNode {
@@ -12,14 +13,32 @@ pub struct LiquidDocParamNode {
     pub source: String,
     pub required: bool,
     #[serde(rename = "paramName")]
-    pub param_name: TextNode,
+    pub param_name: Box<LiquidNode>,
     #[serde(rename = "paramDescription")]
-    pub param_description: Option<TextNode>,
+    pub param_description: Option<Box<LiquidNode>>,
     #[serde(rename = "paramType")]
-    pub param_type: Option<TextNode>,
+    pub param_type: Option<Box<LiquidNode>>,
 }
 impl LiquidDocParamNode {
-    pub fn new(pair: &pest::iterators::Pair<Rule>, position_offset: Option<usize>) -> Self {
+    fn new(
+        position: Position,
+        source: String,
+        param_type: Option<TextNode>,
+        param_name: TextNode,
+        param_description: Option<TextNode>,
+        required: bool,
+    ) -> Self {
+        LiquidDocParamNode {
+            name: "param".to_string(), // The node name is always "param"
+            position,
+            source,
+            param_type: param_type.map(|t| Box::new(LiquidNode::TextNode(t))),
+            param_name: Box::new(LiquidNode::TextNode(param_name)),
+            param_description: param_description.map(|d| Box::new(LiquidNode::TextNode(d))),
+            required,
+        }
+    }
+    pub fn from_pair(pair: &pest::iterators::Pair<Rule>, position_offset: Option<usize>) -> Self {
         assert!(
             pair.as_rule() == Rule::paramNode,
             "Expected a paramNode, found {:?}",
@@ -49,17 +68,15 @@ impl LiquidDocParamNode {
             }
         });
 
-        // let pair = pair.next
         let source_str = pair.as_str();
-        LiquidDocParamNode {
-            name: "param".to_string(), // The node name is always "param"
-            position: Position::from_pair(pair, position_offset),
-            source: source_str.to_string(),
-            param_type, // Default to None, can be set later
+        LiquidDocParamNode::new(
+            Position::from_pair(pair, position_offset),
+            source_str.to_string(),
+            param_type,
             param_name,
-            param_description: description,
-            required: !source_str.starts_with('[') && !source_str.ends_with(']'),
-        }
+            description,
+            !source_str.starts_with('[') && !source_str.ends_with(']'),
+        )
     }
 }
 
@@ -79,10 +96,20 @@ mod tests {
         let node = result.unwrap().head();
 
         if let LiquidNode::LiquidDocParamNode(param_node) = node {
-            assert_eq!(param_node.param_name.as_str(), "requiredParamWithNoType");
+            assert_eq!(
+                param_node.param_name.as_text_node_unsafe().as_str(),
+                "requiredParamWithNoType"
+            );
             assert!(param_node.param_description.is_none());
             assert!(param_node.param_type.is_some());
-            assert_eq!(param_node.param_type.unwrap().as_str(), "sometype");
+            assert_eq!(
+                param_node
+                    .param_type
+                    .unwrap()
+                    .as_text_node_unsafe()
+                    .as_str(),
+                "sometype"
+            );
         } else {
             panic!("Expected a LiquidDocParamNode");
         }
@@ -95,9 +122,16 @@ mod tests {
         assert!(result.is_some());
         let node = result.unwrap().head();
         if let LiquidNode::LiquidDocParamNode(param_node) = node {
-            assert_eq!(param_node.param_name.as_str(), "requiredParamWithNoType");
             assert_eq!(
-                param_node.param_description.unwrap().as_str(),
+                param_node.param_name.as_text_node_unsafe().as_str(),
+                "requiredParamWithNoType"
+            );
+            assert_eq!(
+                param_node
+                    .param_description
+                    .unwrap()
+                    .as_text_node_unsafe()
+                    .as_str(),
                 "This is a cool parameter"
             );
         } else {
@@ -115,11 +149,15 @@ mod tests {
         let node = result.unwrap().head();
         if let LiquidNode::LiquidDocParamNode(param_node) = node {
             assert_eq!(
-                param_node.param_name.as_str(),
+                param_node.param_name.as_text_node_unsafe().as_str(),
                 "optionalParamWithTypeAndDescription"
             );
             assert_eq!(
-                param_node.param_description.unwrap().as_str(),
+                param_node
+                    .param_description
+                    .unwrap()
+                    .as_text_node_unsafe()
+                    .as_str(),
                 "This is a cool parameter"
             );
             assert!(param_node.required)

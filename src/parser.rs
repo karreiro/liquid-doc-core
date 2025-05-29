@@ -21,8 +21,17 @@ pub fn visit(
         }
         Rule::ImplicitDescription => {
             let node = LiquidDocDescriptionNode::implicit(&pair, position_offset);
-            if !node.content.is_empty() {
-                ast.add_node(LiquidNode::LiquidDocDescriptionNode(node));
+            if !node.value().is_empty() {
+                // If the description starts with '@', it's a fallback, treat it as a text node
+                if node.value().starts_with("@") {
+                    ast.add_node(LiquidNode::TextNode(TextNode::new(
+                        node.value().to_string(),
+                        node.position,
+                        node.source.clone(),
+                    )));
+                } else {
+                    ast.add_node(LiquidNode::LiquidDocDescriptionNode(node));
+                }
             }
         }
         Rule::LiquidDocNode => {
@@ -30,7 +39,7 @@ pub fn visit(
             let next = content.next().unwrap();
             match next.as_rule() {
                 Rule::paramNode => {
-                    let node = LiquidDocParamNode::new(&next, position_offset);
+                    let node = LiquidDocParamNode::from_pair(&next, position_offset);
 
                     ast.add_node(LiquidNode::LiquidDocParamNode(node));
                 }
