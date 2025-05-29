@@ -29,3 +29,7 @@ features = ["console"]
 
 [profile.release]
 opt-level = "s"
+
+[workspace]
+members = ["./ext/liquid_doc_core"]
+resolver = "2"
