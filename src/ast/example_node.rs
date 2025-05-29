@@ -29,7 +29,7 @@ impl LiquidDocExampleNode {
         position_offset: Option<usize>,
     ) -> Self {
         assert!(
-            pair.as_rule() == crate::parser::Rule::exampleNode,
+            pair.as_rule() == crate::parser::Rule::ExampleNode,
             "Expected a exampleNode, found {:?}",
             pair.as_rule()
         );

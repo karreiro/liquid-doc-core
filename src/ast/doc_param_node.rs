@@ -41,7 +41,7 @@ impl LiquidDocParamNode {
     }
     pub fn from_pair(pair: &pest::iterators::Pair<Rule>, position_offset: Option<usize>) -> Self {
         assert!(
-            pair.as_rule() == Rule::paramNode,
+            pair.as_rule() == Rule::ParamNode,
             "Expected a paramNode, found {:?}",
             pair.as_rule()
         );

@@ -2,11 +2,11 @@
 Document = { ImplicitDescription ~ (WhitespaceNode | LiquidDocNode | TextNode)* }
 
 LiquidDocNode = {
-    paramNode
-  | exampleNode
-  | descriptionNode
-  | promptNode
-  | fallbackNode
+    ParamNode
+  | ExampleNode
+  | DescriptionNode
+  | PromptNode
+  | FallbackNode
 }
 
 endOfDescription = { strictSpace* ~ openControl }
@@ -22,7 +22,7 @@ tagStart = { supportedTags | ("@" ~ identifierCharacter) }
 WhitespaceNode = _{ space+ }
 
 // Parameter node rules
-paramNode = { "@param" ~ strictSpace* ~ paramType? ~ strictSpace* ~ (optionalParamName | paramName) ~ (strictSpace* ~ "-")? ~ strictSpace* ~ paramDescription }
+ParamNode = { "@param" ~ strictSpace* ~ paramType? ~ strictSpace* ~ (optionalParamName | paramName) ~ (strictSpace* ~ "-")? ~ strictSpace* ~ paramDescription }
 paramType = { "{" ~ strictSpace* ~ paramTypeContent ~ strictSpace* ~ "}" }
 paramTypeContent = { (!(("}" | strictSpace)) ~ ANY)* }
 
@@ -34,14 +34,14 @@ paramDescription = { (!"]" ~ (!endOfParam ~ ANY)*) }
 endOfParam = { strictSpace* ~ (NEWLINE | EOI) }
 
 // Content node rules
-promptNode = { "@prompt" ~ multilineTextContent }
-exampleNode = { "@example" ~ space* ~ multilineTextContent }
-descriptionNode = { "@description" ~ space* ~ multilineTextContent }
+PromptNode = { "@prompt" ~ multilineTextContent }
+ExampleNode = { "@example" ~ space* ~ multilineTextContent }
+DescriptionNode = { "@description" ~ space* ~ multilineTextContent }
 
 multilineTextContent = { (!endOfMultilineText ~ ANY)* }
 endOfMultilineText = { strictSpace* ~ (supportedTags | EOI) }
 
-fallbackNode = { "@" ~ (!endOfParam ~ ANY)* }
+FallbackNode = { "@" ~ (!endOfParam ~ ANY)* }
 
 // Helper rules (assuming these are defined in the Helpers parent grammar)
 TextNode = { (!openControl ~ ANY)+ }

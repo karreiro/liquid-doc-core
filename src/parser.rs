@@ -13,7 +13,7 @@ pub fn visit(
     position_offset: Option<usize>,
 ) {
     match pair.as_rule() {
-        Rule::Document => {
+        Rule::LiquidDocNode | Rule::Document => {
             for inner_pair in pair.into_inner() {
                 visit(ast, inner_pair, position_offset);
             }
@@ -33,30 +33,23 @@ pub fn visit(
                 }
             }
         }
-        Rule::LiquidDocNode => {
-            let mut content = pair.into_inner();
-            let next = content.next().unwrap();
-            match next.as_rule() {
-                Rule::paramNode => {
-                    let node = LiquidDocParamNode::from_pair(&next, position_offset);
+        Rule::ParamNode => {
+            let node = LiquidDocParamNode::from_pair(&pair, position_offset);
 
-                    ast.add_node(LiquidNode::LiquidDocParamNode(node));
-                }
-                Rule::exampleNode => {
-                    let node = LiquidDocExampleNode::from_pair(&next, position_offset);
-                    ast.add_node(LiquidNode::LiquidDocExampleNode(node));
-                }
-                Rule::descriptionNode => {
-                    let node = LiquidDocDescriptionNode::explicit(&next, position_offset);
-                    ast.add_node(LiquidNode::LiquidDocDescriptionNode(node));
-                }
-                Rule::promptNode | Rule::fallbackNode => {
-                    let text_node = TextNode::from_pair(&next, position_offset);
-                    if !text_node.is_empty() {
-                        ast.add_node(LiquidNode::TextNode(text_node));
-                    }
-                }
-                _ => unreachable!("Unexpected rule in LiquidDocNode: {:?}", next.as_rule()),
+            ast.add_node(LiquidNode::LiquidDocParamNode(node));
+        }
+        Rule::ExampleNode => {
+            let node = LiquidDocExampleNode::from_pair(&pair, position_offset);
+            ast.add_node(LiquidNode::LiquidDocExampleNode(node));
+        }
+        Rule::DescriptionNode => {
+            let node = LiquidDocDescriptionNode::explicit(&pair, position_offset);
+            ast.add_node(LiquidNode::LiquidDocDescriptionNode(node));
+        }
+        Rule::PromptNode | Rule::FallbackNode => {
+            let text_node = TextNode::from_pair(&pair, position_offset);
+            if !text_node.is_empty() {
+                ast.add_node(LiquidNode::TextNode(text_node));
             }
         }
         Rule::TextNode => {

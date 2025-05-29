@@ -38,7 +38,7 @@ impl LiquidDocDescriptionNode {
         position_offset: Option<usize>,
     ) -> Self {
         assert!(
-            pair.as_rule() == crate::parser::Rule::descriptionNode,
+            pair.as_rule() == crate::parser::Rule::DescriptionNode,
             "Expected a descriptionNode, found {:?}",
             pair.as_rule()
         );
