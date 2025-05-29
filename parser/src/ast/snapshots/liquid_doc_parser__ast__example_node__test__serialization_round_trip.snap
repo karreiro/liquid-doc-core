@@ -1,0 +1,25 @@
+---
+source: parser/src/ast/example_node.rs
+expression: "@example simple inline example\n"
+---
+[
+  {
+    "type": "LiquidDocExampleNode",
+    "name": "example",
+    "position": {
+      "start": 10,
+      "end": 41
+    },
+    "source": "@example simple inline example\n",
+    "content": {
+      "type": "TextNode",
+      "value": "simple inline example\n",
+      "position": {
+        "start": 19,
+        "end": 41
+      },
+      "source": "@example simple inline example\n"
+    },
+    "isInline": true
+  }
+]

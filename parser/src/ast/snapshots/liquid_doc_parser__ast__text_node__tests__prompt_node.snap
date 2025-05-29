@@ -1,0 +1,15 @@
+---
+source: parser/src/ast/text_node.rs
+expression: "@prompt Make something pretty"
+---
+[
+  {
+    "type": "TextNode",
+    "value": "@prompt Make something pretty",
+    "position": {
+      "start": 10,
+      "end": 39
+    },
+    "source": "@prompt Make something pretty"
+  }
+]

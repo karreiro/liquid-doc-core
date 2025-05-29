@@ -1,0 +1,43 @@
+---
+source: parser/src/ast/doc_param_node.rs
+expression: "@param {sometype} requiredParamWithSomeType - This is a cool parameter"
+---
+[
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 10,
+      "end": 80
+    },
+    "source": "@param {sometype} requiredParamWithSomeType - This is a cool parameter",
+    "paramName": {
+      "type": "TextNode",
+      "value": "requiredParamWithSomeType",
+      "position": {
+        "start": 28,
+        "end": 53
+      },
+      "source": "requiredParamWithSomeType"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "This is a cool parameter",
+      "position": {
+        "start": 56,
+        "end": 80
+      },
+      "source": "This is a cool parameter"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "sometype",
+      "position": {
+        "start": 18,
+        "end": 26
+      },
+      "source": "{sometype}"
+    },
+    "required": true
+  }
+]

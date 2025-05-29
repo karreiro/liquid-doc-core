@@ -1,0 +1,3856 @@
+---
+source: parser/src/ast/fixture_tests.rs
+expression: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. This ultra-advanced component represents the pinnacle of modern web development, incorporating cutting-edge technologies, sophisticated state management, real-time data synchronization, advanced caching strategies, progressive enhancement techniques, and seamless integration with multiple third-party services to deliver an unparalleled user experience that adapts intelligently to user behavior and system capabilities.\n\n@param {string} primary_identifier - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.\n@param {number} container_max_width - In reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit sed do eiusmod.\n@param {boolean} [enable_smooth_transitions] - Tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum.\n@param {object} master_configuration - Dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.\n@param {string} [primary_color_scheme] - Laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur.\n@param {array} main_data_collection - Magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.\n@param {string} [layout_display_mode] - Aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit.\n@param {number} [horizontal_padding_value] - Esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.\n@param {boolean} responsive_design_enabled - Quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita.\n@param {string} [custom_class_names] - Distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut.\n@param {number} [vertical_padding_value] - Officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias.\n@param {string} header_content_text - Consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation.\n@param {boolean} [display_header_section] - Ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui.\n@param {object} [metadata_configuration] - Officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto.\n@param {array} [navigation_menu_items] - Beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem.\n@param {string} footer_content_text - Ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis.\n@param {boolean} [display_footer_section] - Suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla.\n@param {number} border_radius_pixels - Pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt.\n@param {string} [border_style_property] - In culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus.\n@param {object} animation_configuration - Id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et.\n@param {boolean} [enable_shadow_rendering] - Molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus.\n@param {string} [shadow_color_rgba] - Error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur.\n@param {number} [shadow_blur_amount] - Aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi.\n@param {array} content_section_blocks - Tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum.\n@param {string} [section_divider_style] - Iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.\n@param {boolean} accessibility_enabled - Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et.\n@param {object} [accessibility_settings] - Harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor.\n@param {string} [aria_label_attribute] - Repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut.\n@param {number} tab_index_attribute - Reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.\n@param {boolean} [keyboard_nav_enabled] - Ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.\n@param {string} loading_message_text - Cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab.\n@param {boolean} [display_loading_state] - Illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi.\n@param {object} [loading_spinner_config] - Nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima.\n@param {string} error_display_message - Veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.\n@param {boolean} [display_error_state] - Qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint.\n@param {string} [error_icon_graphic] - Occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis.\n@param {number} maximum_content_width - Est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.\n@param {boolean} [center_align_content] - Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores.\n@param {array} [responsive_breakpoints] - Repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n@param {string} mobile_display_layout - Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet.\n@param {string} [tablet_display_layout] - Consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam.\n@param {string} [desktop_display_layout] - Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero.\n@param {object} theme_config_object - Eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui.\n@param {string} [font_family_stack] - Officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod.\n@param {number} [base_font_size] - Maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae.\n@param {string} [primary_text_color] - Non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit.\n@param {boolean} [enable_custom_fonts] - Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate.\n@param {string} component_version_number - Velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem.\n@param {object} [debug_config_settings] - Accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.\n@param {boolean} [enable_performance_mode] - Fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt.\n@param {number} [cache_duration_seconds] - Ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.\n@param {string} [cache_strategy_type] - Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.\n@param {array} [preload_resources] - Deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum.\n@param {boolean} [lazy_load_enabled] - Facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus.\n@param {object} [lazy_load_config] - Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis.\n@param {string} [intersection_threshold] - Voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo.\n@param {number} [debounce_delay_ms] - Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi.\n@param {boolean} [enable_event_tracking] - Nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima.\n@param {object} [analytics_configuration] - Veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel.\n@param {string} [tracking_identifier] - Illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.\n@param {array} [custom_event_handlers] - Sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta.\n@param {boolean} [enable_state_persistence] - Nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.\n@param {string} [storage_mechanism] - Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores.\n@param {object} [state_management_config] - Repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.\n@param {number} [state_update_interval] - Commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est.\n@param {boolean} [enable_offline_mode] - Laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\n@param {object} [offline_config_settings] - Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet.\n@param {string} [service_worker_path] - Consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam.\n@param {array} [offline_cache_routes] - Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos.\n@param {boolean} [enable_pwa_features] - Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia.\n@param {object} [manifest_configuration] - Deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime.\n@param {string} [app_name_display] - Placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non.\n@param {string} [app_short_name] - Recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit.\n@param {array} [app_icon_sizes] - Voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.\n@param {boolean} [enable_push_notifications] - Odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora.\n@param {object} [notification_settings] - Incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure.\n@param {string} [notification_permission] - Reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.\n@param {number} [notification_timeout] - Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga.\n@param {boolean} [enable_geolocation] - Et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis.\n@param {object} [geolocation_options] - Dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus.\n@param {boolean} [high_accuracy_mode] - Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n@param {number} [location_timeout_ms] - Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur.\n@param {boolean} [enable_web_workers] - Sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.\n@param {string} [worker_script_path] - Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui.\n@param {object} [worker_configuration] - Ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.\n@param {number} [worker_pool_size] - Voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.\n@param {boolean} [enable_websockets] - Nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos.\n@param {string} [websocket_endpoint] - Dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio.\n@param {object} [websocket_options] - Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis.\n@param {number} [reconnect_interval_ms] - Debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur.\n@param {boolean} [enable_internationalization] - Aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi.\n@param {string} [default_locale_code] - Architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam.\n@param {array} [supported_locales] - Est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem.\n@param {object} [translation_resources] - Ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo.\n@param {boolean} [enable_rtl_support] - Voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non.\n@param {string} [text_direction_default] - Provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque.\n@param {object} [security_configuration] - Nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.\n@param {boolean} [enable_csrf_protection] - Repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit.\n@param {string} [csrf_token_header] - Amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.\n@param {array} [allowed_origins_list] - Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde.\n@param {boolean} [enable_content_security] - Omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia.\n@param {object} [csp_policy_config] - Voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia.\n@param {string} final_build_version - Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur.\n\n@example\n{% render 'ultra-advanced-component',\n  primary_identifier: 'main-application-widget',\n  container_max_width: 1920,\n  enable_smooth_transitions: true,\n  master_configuration: global_settings,\n  primary_color_scheme: '#2c3e50',\n  main_data_collection: all_products,\n  layout_display_mode: 'masonry-grid',\n  horizontal_padding_value: 32,\n  responsive_design_enabled: true,\n  custom_class_names: 'ultra-widget enhanced-features responsive-grid advanced-styling',\n  vertical_padding_value: 40,\n  header_content_text: 'Advanced Dashboard Overview',\n  display_header_section: true,\n  metadata_configuration: meta_config,\n  navigation_menu_items: navigation_links,\n  footer_content_text: 'Copyright 2024 - All Rights Reserved',\n  display_footer_section: true,\n  border_radius_pixels: 12,\n  border_style_property: 'solid',\n  animation_configuration: animation_settings,\n  enable_shadow_rendering: true,\n  shadow_color_rgba: 'rgba(0,0,0,0.15)',\n  shadow_blur_amount: 15,\n  content_section_blocks: page_sections,\n  section_divider_style: 'gradient-fade',\n  accessibility_enabled: true,\n  accessibility_settings: a11y_config,\n  aria_label_attribute: 'Main application widget',\n  tab_index_attribute: 0,\n  keyboard_nav_enabled: true,\n  loading_message_text: 'Loading application data...',\n  display_loading_state: false,\n  loading_spinner_config: spinner_settings,\n  error_display_message: 'Unable to load application data',\n  display_error_state: false,\n  error_icon_graphic: 'exclamation-triangle',\n  maximum_content_width: 1400,\n  center_align_content: true,\n  responsive_breakpoints: breakpoint_config,\n  mobile_display_layout: 'stack-vertical',\n  tablet_display_layout: 'grid-2-columns',\n  desktop_display_layout: 'grid-4-columns',\n  theme_config_object: theme_settings,\n  font_family_stack: 'Inter, system-ui, sans-serif',\n  base_font_size: 16,\n  primary_text_color: '#2c3e50',\n  enable_custom_fonts: true,\n  component_version_number: '3.0.0',\n  debug_config_settings: debug_settings,\n  enable_performance_mode: true,\n  cache_duration_seconds: 3600,\n  cache_strategy_type: 'stale-while-revalidate',\n  preload_resources: preload_list,\n  lazy_load_enabled: true,\n  lazy_load_config: lazy_settings,\n  intersection_threshold: '0.1',\n  debounce_delay_ms: 300,\n  enable_event_tracking: true,\n  analytics_configuration: analytics_config,\n  tracking_identifier: 'UA-123456789',\n  custom_event_handlers: event_handlers,\n  enable_state_persistence: true,\n  storage_mechanism: 'localStorage',\n  state_management_config: state_config,\n  state_update_interval: 5000,\n  enable_offline_mode: true,\n  offline_config_settings: offline_config,\n  service_worker_path: '/sw.js',\n  offline_cache_routes: cache_routes,\n  enable_pwa_features: true,\n  manifest_configuration: manifest_config,\n  app_name_display: 'Ultra Advanced App',\n  app_short_name: 'Ultra App',\n  app_icon_sizes: icon_sizes,\n  enable_push_notifications: true,\n  notification_settings: notification_config,\n  notification_permission: 'default',\n  notification_timeout: 5000,\n  enable_geolocation: true,\n  geolocation_options: geo_config,\n  high_accuracy_mode: true,\n  location_timeout_ms: 10000,\n  enable_web_workers: true,\n  worker_script_path: '/worker.js',\n  worker_configuration: worker_config,\n  worker_pool_size: 4,\n  enable_websockets: true,\n  websocket_endpoint: 'wss://api.example.com/ws',\n  websocket_options: ws_config,\n  reconnect_interval_ms: 5000,\n  enable_internationalization: true,\n  default_locale_code: 'en-US',\n  supported_locales: locale_list,\n  translation_resources: translations,\n  enable_rtl_support: true,\n  text_direction_default: 'ltr',\n  security_configuration: security_config,\n  enable_csrf_protection: true,\n  csrf_token_header: 'X-CSRF-Token',\n  allowed_origins_list: allowed_origins,\n  enable_content_security: true,\n  csp_policy_config: csp_config,\n  final_build_version: '3.0.0-stable'\n%}\n"
+---
+[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
+    "position": {
+      "start": 10,
+      "end": 669
+    },
+    "source": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. This ultra-advanced component represents the pinnacle of modern web development, incorporating cutting-edge technologies, sophisticated state management, real-time data synchronization, advanced caching strategies, progressive enhancement techniques, and seamless integration with multiple third-party services to deliver an unparalleled user experience that adapts intelligently to user behavior and system capabilities.\n\n",
+    "content": {
+      "type": "TextNode",
+      "value": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. This ultra-advanced component represents the pinnacle of modern web development, incorporating cutting-edge technologies, sophisticated state management, real-time data synchronization, advanced caching strategies, progressive enhancement techniques, and seamless integration with multiple third-party services to deliver an unparalleled user experience that adapts intelligently to user behavior and system capabilities.\n\n",
+      "position": {
+        "start": 10,
+        "end": 669
+      },
+      "source": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. This ultra-advanced component represents the pinnacle of modern web development, incorporating cutting-edge technologies, sophisticated state management, real-time data synchronization, advanced caching strategies, progressive enhancement techniques, and seamless integration with multiple third-party services to deliver an unparalleled user experience that adapts intelligently to user behavior and system capabilities.\n\n"
+    },
+    "isImplicit": true,
+    "isInline": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 669,
+      "end": 959
+    },
+    "source": "@param {string} primary_identifier - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "primary_identifier",
+      "position": {
+        "start": 685,
+        "end": 703
+      },
+      "source": "primary_identifier"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.",
+      "position": {
+        "start": 706,
+        "end": 959
+      },
+      "source": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 677,
+        "end": 683
+      },
+      "source": "{string}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 960,
+      "end": 1231
+    },
+    "source": "@param {number} container_max_width - In reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit sed do eiusmod.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "container_max_width",
+      "position": {
+        "start": 976,
+        "end": 995
+      },
+      "source": "container_max_width"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "In reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit sed do eiusmod.",
+      "position": {
+        "start": 998,
+        "end": 1231
+      },
+      "source": "In reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit sed do eiusmod."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 968,
+        "end": 974
+      },
+      "source": "{number}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 1232,
+      "end": 1506
+    },
+    "source": "@param {boolean} [enable_smooth_transitions] - Tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_smooth_transitions",
+      "position": {
+        "start": 1250,
+        "end": 1275
+      },
+      "source": "[enable_smooth_transitions]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+      "position": {
+        "start": 1279,
+        "end": 1506
+      },
+      "source": "Tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 1240,
+        "end": 1247
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 1507,
+      "end": 1773
+    },
+    "source": "@param {object} master_configuration - Dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "master_configuration",
+      "position": {
+        "start": 1523,
+        "end": 1543
+      },
+      "source": "master_configuration"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.",
+      "position": {
+        "start": 1546,
+        "end": 1773
+      },
+      "source": "Dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 1515,
+        "end": 1521
+      },
+      "source": "{object}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 1774,
+      "end": 2039
+    },
+    "source": "@param {string} [primary_color_scheme] - Laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "primary_color_scheme",
+      "position": {
+        "start": 1791,
+        "end": 1811
+      },
+      "source": "[primary_color_scheme]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur.",
+      "position": {
+        "start": 1815,
+        "end": 2039
+      },
+      "source": "Laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 1782,
+        "end": 1788
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 2040,
+      "end": 2299
+    },
+    "source": "@param {array} main_data_collection - Magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "main_data_collection",
+      "position": {
+        "start": 2055,
+        "end": 2075
+      },
+      "source": "main_data_collection"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.",
+      "position": {
+        "start": 2078,
+        "end": 2299
+      },
+      "source": "Magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "array",
+      "position": {
+        "start": 2048,
+        "end": 2053
+      },
+      "source": "{array}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 2300,
+      "end": 2561
+    },
+    "source": "@param {string} [layout_display_mode] - Aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "layout_display_mode",
+      "position": {
+        "start": 2317,
+        "end": 2336
+      },
+      "source": "[layout_display_mode]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit.",
+      "position": {
+        "start": 2340,
+        "end": 2561
+      },
+      "source": "Aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 2308,
+        "end": 2314
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 2562,
+      "end": 2827
+    },
+    "source": "@param {number} [horizontal_padding_value] - Esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "horizontal_padding_value",
+      "position": {
+        "start": 2579,
+        "end": 2603
+      },
+      "source": "[horizontal_padding_value]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.",
+      "position": {
+        "start": 2607,
+        "end": 2827
+      },
+      "source": "Esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 2570,
+        "end": 2576
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 2828,
+      "end": 3091
+    },
+    "source": "@param {boolean} responsive_design_enabled - Quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "responsive_design_enabled",
+      "position": {
+        "start": 2845,
+        "end": 2870
+      },
+      "source": "responsive_design_enabled"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita.",
+      "position": {
+        "start": 2873,
+        "end": 3091
+      },
+      "source": "Quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 2836,
+        "end": 2843
+      },
+      "source": "{boolean}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 3092,
+      "end": 3354
+    },
+    "source": "@param {string} [custom_class_names] - Distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "custom_class_names",
+      "position": {
+        "start": 3109,
+        "end": 3127
+      },
+      "source": "[custom_class_names]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut.",
+      "position": {
+        "start": 3131,
+        "end": 3354
+      },
+      "source": "Distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 3100,
+        "end": 3106
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 3355,
+      "end": 3612
+    },
+    "source": "@param {number} [vertical_padding_value] - Officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "vertical_padding_value",
+      "position": {
+        "start": 3372,
+        "end": 3394
+      },
+      "source": "[vertical_padding_value]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias.",
+      "position": {
+        "start": 3398,
+        "end": 3612
+      },
+      "source": "Officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 3363,
+        "end": 3369
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 3613,
+      "end": 3880
+    },
+    "source": "@param {string} header_content_text - Consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "header_content_text",
+      "position": {
+        "start": 3629,
+        "end": 3648
+      },
+      "source": "header_content_text"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation.",
+      "position": {
+        "start": 3651,
+        "end": 3880
+      },
+      "source": "Consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 3621,
+        "end": 3627
+      },
+      "source": "{string}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 3881,
+      "end": 4148
+    },
+    "source": "@param {boolean} [display_header_section] - Ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "display_header_section",
+      "position": {
+        "start": 3899,
+        "end": 3921
+      },
+      "source": "[display_header_section]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui.",
+      "position": {
+        "start": 3925,
+        "end": 4148
+      },
+      "source": "Ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 3889,
+        "end": 3896
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 4149,
+      "end": 4415
+    },
+    "source": "@param {object} [metadata_configuration] - Officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "metadata_configuration",
+      "position": {
+        "start": 4166,
+        "end": 4188
+      },
+      "source": "[metadata_configuration]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto.",
+      "position": {
+        "start": 4192,
+        "end": 4415
+      },
+      "source": "Officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 4157,
+        "end": 4163
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 4416,
+      "end": 4681
+    },
+    "source": "@param {array} [navigation_menu_items] - Beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "navigation_menu_items",
+      "position": {
+        "start": 4432,
+        "end": 4453
+      },
+      "source": "[navigation_menu_items]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem.",
+      "position": {
+        "start": 4457,
+        "end": 4681
+      },
+      "source": "Beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "array",
+      "position": {
+        "start": 4424,
+        "end": 4429
+      },
+      "source": "{array}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 4682,
+      "end": 4943
+    },
+    "source": "@param {string} footer_content_text - Ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "footer_content_text",
+      "position": {
+        "start": 4698,
+        "end": 4717
+      },
+      "source": "footer_content_text"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis.",
+      "position": {
+        "start": 4720,
+        "end": 4943
+      },
+      "source": "Ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 4690,
+        "end": 4696
+      },
+      "source": "{string}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 4944,
+      "end": 5204
+    },
+    "source": "@param {boolean} [display_footer_section] - Suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "display_footer_section",
+      "position": {
+        "start": 4962,
+        "end": 4984
+      },
+      "source": "[display_footer_section]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla.",
+      "position": {
+        "start": 4988,
+        "end": 5204
+      },
+      "source": "Suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 4952,
+        "end": 4959
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 5205,
+      "end": 5470
+    },
+    "source": "@param {number} border_radius_pixels - Pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "border_radius_pixels",
+      "position": {
+        "start": 5221,
+        "end": 5241
+      },
+      "source": "border_radius_pixels"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt.",
+      "position": {
+        "start": 5244,
+        "end": 5470
+      },
+      "source": "Pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 5213,
+        "end": 5219
+      },
+      "source": "{number}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 5471,
+      "end": 5732
+    },
+    "source": "@param {string} [border_style_property] - In culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "border_style_property",
+      "position": {
+        "start": 5488,
+        "end": 5509
+      },
+      "source": "[border_style_property]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "In culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus.",
+      "position": {
+        "start": 5513,
+        "end": 5732
+      },
+      "source": "In culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 5479,
+        "end": 5485
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 5733,
+      "end": 5994
+    },
+    "source": "@param {object} animation_configuration - Id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "animation_configuration",
+      "position": {
+        "start": 5749,
+        "end": 5772
+      },
+      "source": "animation_configuration"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et.",
+      "position": {
+        "start": 5775,
+        "end": 5994
+      },
+      "source": "Id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 5741,
+        "end": 5747
+      },
+      "source": "{object}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 5995,
+      "end": 6261
+    },
+    "source": "@param {boolean} [enable_shadow_rendering] - Molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_shadow_rendering",
+      "position": {
+        "start": 6013,
+        "end": 6036
+      },
+      "source": "[enable_shadow_rendering]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus.",
+      "position": {
+        "start": 6040,
+        "end": 6261
+      },
+      "source": "Molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 6003,
+        "end": 6010
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 6262,
+      "end": 6527
+    },
+    "source": "@param {string} [shadow_color_rgba] - Error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "shadow_color_rgba",
+      "position": {
+        "start": 6279,
+        "end": 6296
+      },
+      "source": "[shadow_color_rgba]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur.",
+      "position": {
+        "start": 6300,
+        "end": 6527
+      },
+      "source": "Error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 6270,
+        "end": 6276
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 6528,
+      "end": 6785
+    },
+    "source": "@param {number} [shadow_blur_amount] - Aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "shadow_blur_amount",
+      "position": {
+        "start": 6545,
+        "end": 6563
+      },
+      "source": "[shadow_blur_amount]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi.",
+      "position": {
+        "start": 6567,
+        "end": 6785
+      },
+      "source": "Aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 6536,
+        "end": 6542
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 6786,
+      "end": 7046
+    },
+    "source": "@param {array} content_section_blocks - Tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "content_section_blocks",
+      "position": {
+        "start": 6801,
+        "end": 6823
+      },
+      "source": "content_section_blocks"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum.",
+      "position": {
+        "start": 6826,
+        "end": 7046
+      },
+      "source": "Tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "array",
+      "position": {
+        "start": 6794,
+        "end": 6799
+      },
+      "source": "{array}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 7047,
+      "end": 7307
+    },
+    "source": "@param {string} [section_divider_style] - Iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "section_divider_style",
+      "position": {
+        "start": 7064,
+        "end": 7085
+      },
+      "source": "[section_divider_style]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",
+      "position": {
+        "start": 7089,
+        "end": 7307
+      },
+      "source": "Iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 7055,
+        "end": 7061
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 7308,
+      "end": 7571
+    },
+    "source": "@param {boolean} accessibility_enabled - Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "accessibility_enabled",
+      "position": {
+        "start": 7325,
+        "end": 7346
+      },
+      "source": "accessibility_enabled"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et.",
+      "position": {
+        "start": 7349,
+        "end": 7571
+      },
+      "source": "Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 7316,
+        "end": 7323
+      },
+      "source": "{boolean}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 7572,
+      "end": 7835
+    },
+    "source": "@param {object} [accessibility_settings] - Harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "accessibility_settings",
+      "position": {
+        "start": 7589,
+        "end": 7611
+      },
+      "source": "[accessibility_settings]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor.",
+      "position": {
+        "start": 7615,
+        "end": 7835
+      },
+      "source": "Harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 7580,
+        "end": 7586
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 7836,
+      "end": 8099
+    },
+    "source": "@param {string} [aria_label_attribute] - Repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "aria_label_attribute",
+      "position": {
+        "start": 7853,
+        "end": 7873
+      },
+      "source": "[aria_label_attribute]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut.",
+      "position": {
+        "start": 7877,
+        "end": 8099
+      },
+      "source": "Repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 7844,
+        "end": 7850
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 8100,
+      "end": 8363
+    },
+    "source": "@param {number} tab_index_attribute - Reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "tab_index_attribute",
+      "position": {
+        "start": 8116,
+        "end": 8135
+      },
+      "source": "tab_index_attribute"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.",
+      "position": {
+        "start": 8138,
+        "end": 8363
+      },
+      "source": "Reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 8108,
+        "end": 8114
+      },
+      "source": "{number}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 8364,
+      "end": 8630
+    },
+    "source": "@param {boolean} [keyboard_nav_enabled] - Ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "keyboard_nav_enabled",
+      "position": {
+        "start": 8382,
+        "end": 8402
+      },
+      "source": "[keyboard_nav_enabled]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.",
+      "position": {
+        "start": 8406,
+        "end": 8630
+      },
+      "source": "Ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 8372,
+        "end": 8379
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 8631,
+      "end": 8889
+    },
+    "source": "@param {string} loading_message_text - Cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "loading_message_text",
+      "position": {
+        "start": 8647,
+        "end": 8667
+      },
+      "source": "loading_message_text"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab.",
+      "position": {
+        "start": 8670,
+        "end": 8889
+      },
+      "source": "Cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 8639,
+        "end": 8645
+      },
+      "source": "{string}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 8890,
+      "end": 9156
+    },
+    "source": "@param {boolean} [display_loading_state] - Illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "display_loading_state",
+      "position": {
+        "start": 8908,
+        "end": 8929
+      },
+      "source": "[display_loading_state]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi.",
+      "position": {
+        "start": 8933,
+        "end": 9156
+      },
+      "source": "Illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 8898,
+        "end": 8905
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 9157,
+      "end": 9419
+    },
+    "source": "@param {object} [loading_spinner_config] - Nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "loading_spinner_config",
+      "position": {
+        "start": 9174,
+        "end": 9196
+      },
+      "source": "[loading_spinner_config]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima.",
+      "position": {
+        "start": 9200,
+        "end": 9419
+      },
+      "source": "Nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 9165,
+        "end": 9171
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 9420,
+      "end": 9684
+    },
+    "source": "@param {string} error_display_message - Veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "error_display_message",
+      "position": {
+        "start": 9436,
+        "end": 9457
+      },
+      "source": "error_display_message"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum.",
+      "position": {
+        "start": 9460,
+        "end": 9684
+      },
+      "source": "Veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 9428,
+        "end": 9434
+      },
+      "source": "{string}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 9685,
+      "end": 9944
+    },
+    "source": "@param {boolean} [display_error_state] - Qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "display_error_state",
+      "position": {
+        "start": 9703,
+        "end": 9722
+      },
+      "source": "[display_error_state]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint.",
+      "position": {
+        "start": 9726,
+        "end": 9944
+      },
+      "source": "Qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 9693,
+        "end": 9700
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 9945,
+      "end": 10203
+    },
+    "source": "@param {string} [error_icon_graphic] - Occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "error_icon_graphic",
+      "position": {
+        "start": 9962,
+        "end": 9980
+      },
+      "source": "[error_icon_graphic]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis.",
+      "position": {
+        "start": 9984,
+        "end": 10203
+      },
+      "source": "Occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 9953,
+        "end": 9959
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 10204,
+      "end": 10462
+    },
+    "source": "@param {number} maximum_content_width - Est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "maximum_content_width",
+      "position": {
+        "start": 10220,
+        "end": 10241
+      },
+      "source": "maximum_content_width"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
+      "position": {
+        "start": 10244,
+        "end": 10462
+      },
+      "source": "Est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 10212,
+        "end": 10218
+      },
+      "source": "{number}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 10463,
+      "end": 10726
+    },
+    "source": "@param {boolean} [center_align_content] - Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "center_align_content",
+      "position": {
+        "start": 10481,
+        "end": 10501
+      },
+      "source": "[center_align_content]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores.",
+      "position": {
+        "start": 10505,
+        "end": 10726
+      },
+      "source": "Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 10471,
+        "end": 10478
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 10727,
+      "end": 10991
+    },
+    "source": "@param {array} [responsive_breakpoints] - Repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "responsive_breakpoints",
+      "position": {
+        "start": 10743,
+        "end": 10765
+      },
+      "source": "[responsive_breakpoints]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      "position": {
+        "start": 10769,
+        "end": 10991
+      },
+      "source": "Repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "array",
+      "position": {
+        "start": 10735,
+        "end": 10740
+      },
+      "source": "{array}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 10992,
+      "end": 11248
+    },
+    "source": "@param {string} mobile_display_layout - Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "mobile_display_layout",
+      "position": {
+        "start": 11008,
+        "end": 11029
+      },
+      "source": "mobile_display_layout"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet.",
+      "position": {
+        "start": 11032,
+        "end": 11248
+      },
+      "source": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 11000,
+        "end": 11006
+      },
+      "source": "{string}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 11249,
+      "end": 11508
+    },
+    "source": "@param {string} [tablet_display_layout] - Consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "tablet_display_layout",
+      "position": {
+        "start": 11266,
+        "end": 11287
+      },
+      "source": "[tablet_display_layout]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+      "position": {
+        "start": 11291,
+        "end": 11508
+      },
+      "source": "Consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 11257,
+        "end": 11263
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 11509,
+      "end": 11765
+    },
+    "source": "@param {string} [desktop_display_layout] - Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "desktop_display_layout",
+      "position": {
+        "start": 11526,
+        "end": 11548
+      },
+      "source": "[desktop_display_layout]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero.",
+      "position": {
+        "start": 11552,
+        "end": 11765
+      },
+      "source": "Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 11517,
+        "end": 11523
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 11766,
+      "end": 12026
+    },
+    "source": "@param {object} theme_config_object - Eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "theme_config_object",
+      "position": {
+        "start": 11782,
+        "end": 11801
+      },
+      "source": "theme_config_object"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui.",
+      "position": {
+        "start": 11804,
+        "end": 12026
+      },
+      "source": "Eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 11774,
+        "end": 11780
+      },
+      "source": "{object}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 12027,
+      "end": 12279
+    },
+    "source": "@param {string} [font_family_stack] - Officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "font_family_stack",
+      "position": {
+        "start": 12044,
+        "end": 12061
+      },
+      "source": "[font_family_stack]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod.",
+      "position": {
+        "start": 12065,
+        "end": 12279
+      },
+      "source": "Officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 12035,
+        "end": 12041
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 12280,
+      "end": 12536
+    },
+    "source": "@param {number} [base_font_size] - Maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "base_font_size",
+      "position": {
+        "start": 12297,
+        "end": 12311
+      },
+      "source": "[base_font_size]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae.",
+      "position": {
+        "start": 12315,
+        "end": 12536
+      },
+      "source": "Maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 12288,
+        "end": 12294
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 12537,
+      "end": 12800
+    },
+    "source": "@param {string} [primary_text_color] - Non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "primary_text_color",
+      "position": {
+        "start": 12554,
+        "end": 12572
+      },
+      "source": "[primary_text_color]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit.",
+      "position": {
+        "start": 12576,
+        "end": 12800
+      },
+      "source": "Non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 12545,
+        "end": 12551
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 12801,
+      "end": 13066
+    },
+    "source": "@param {boolean} [enable_custom_fonts] - Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_custom_fonts",
+      "position": {
+        "start": 12819,
+        "end": 12838
+      },
+      "source": "[enable_custom_fonts]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate.",
+      "position": {
+        "start": 12842,
+        "end": 13066
+      },
+      "source": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 12809,
+        "end": 12816
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 13067,
+      "end": 13332
+    },
+    "source": "@param {string} component_version_number - Velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "component_version_number",
+      "position": {
+        "start": 13083,
+        "end": 13107
+      },
+      "source": "component_version_number"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
+      "position": {
+        "start": 13110,
+        "end": 13332
+      },
+      "source": "Velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 13075,
+        "end": 13081
+      },
+      "source": "{string}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 13333,
+      "end": 13594
+    },
+    "source": "@param {object} [debug_config_settings] - Accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "debug_config_settings",
+      "position": {
+        "start": 13350,
+        "end": 13371
+      },
+      "source": "[debug_config_settings]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.",
+      "position": {
+        "start": 13375,
+        "end": 13594
+      },
+      "source": "Accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 13341,
+        "end": 13347
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 13595,
+      "end": 13862
+    },
+    "source": "@param {boolean} [enable_performance_mode] - Fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_performance_mode",
+      "position": {
+        "start": 13613,
+        "end": 13636
+      },
+      "source": "[enable_performance_mode]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt.",
+      "position": {
+        "start": 13640,
+        "end": 13862
+      },
+      "source": "Fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 13603,
+        "end": 13610
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 13863,
+      "end": 14128
+    },
+    "source": "@param {number} [cache_duration_seconds] - Ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "cache_duration_seconds",
+      "position": {
+        "start": 13880,
+        "end": 13902
+      },
+      "source": "[cache_duration_seconds]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.",
+      "position": {
+        "start": 13906,
+        "end": 14128
+      },
+      "source": "Ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 13871,
+        "end": 13877
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 14129,
+      "end": 14391
+    },
+    "source": "@param {string} [cache_strategy_type] - Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "cache_strategy_type",
+      "position": {
+        "start": 14146,
+        "end": 14165
+      },
+      "source": "[cache_strategy_type]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.",
+      "position": {
+        "start": 14169,
+        "end": 14391
+      },
+      "source": "Qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 14137,
+        "end": 14143
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 14392,
+      "end": 14647
+    },
+    "source": "@param {array} [preload_resources] - Deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "preload_resources",
+      "position": {
+        "start": 14408,
+        "end": 14425
+      },
+      "source": "[preload_resources]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum.",
+      "position": {
+        "start": 14429,
+        "end": 14647
+      },
+      "source": "Deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "array",
+      "position": {
+        "start": 14400,
+        "end": 14405
+      },
+      "source": "{array}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 14648,
+      "end": 14900
+    },
+    "source": "@param {boolean} [lazy_load_enabled] - Facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "lazy_load_enabled",
+      "position": {
+        "start": 14666,
+        "end": 14683
+      },
+      "source": "[lazy_load_enabled]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus.",
+      "position": {
+        "start": 14687,
+        "end": 14900
+      },
+      "source": "Facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 14656,
+        "end": 14663
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 14901,
+      "end": 15159
+    },
+    "source": "@param {object} [lazy_load_config] - Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "lazy_load_config",
+      "position": {
+        "start": 14918,
+        "end": 14934
+      },
+      "source": "[lazy_load_config]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis.",
+      "position": {
+        "start": 14938,
+        "end": 15159
+      },
+      "source": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 14909,
+        "end": 14915
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 15160,
+      "end": 15427
+    },
+    "source": "@param {string} [intersection_threshold] - Voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "intersection_threshold",
+      "position": {
+        "start": 15177,
+        "end": 15199
+      },
+      "source": "[intersection_threshold]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo.",
+      "position": {
+        "start": 15203,
+        "end": 15427
+      },
+      "source": "Voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 15168,
+        "end": 15174
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 15428,
+      "end": 15684
+    },
+    "source": "@param {number} [debounce_delay_ms] - Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "debounce_delay_ms",
+      "position": {
+        "start": 15445,
+        "end": 15462
+      },
+      "source": "[debounce_delay_ms]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi.",
+      "position": {
+        "start": 15466,
+        "end": 15684
+      },
+      "source": "Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 15436,
+        "end": 15442
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 15685,
+      "end": 15947
+    },
+    "source": "@param {boolean} [enable_event_tracking] - Nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_event_tracking",
+      "position": {
+        "start": 15703,
+        "end": 15724
+      },
+      "source": "[enable_event_tracking]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima.",
+      "position": {
+        "start": 15728,
+        "end": 15947
+      },
+      "source": "Nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 15693,
+        "end": 15700
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 15948,
+      "end": 16210
+    },
+    "source": "@param {object} [analytics_configuration] - Veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "analytics_configuration",
+      "position": {
+        "start": 15965,
+        "end": 15988
+      },
+      "source": "[analytics_configuration]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel.",
+      "position": {
+        "start": 15992,
+        "end": 16210
+      },
+      "source": "Veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 15956,
+        "end": 15962
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 16211,
+      "end": 16470
+    },
+    "source": "@param {string} [tracking_identifier] - Illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "tracking_identifier",
+      "position": {
+        "start": 16228,
+        "end": 16247
+      },
+      "source": "[tracking_identifier]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.",
+      "position": {
+        "start": 16251,
+        "end": 16470
+      },
+      "source": "Illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 16219,
+        "end": 16225
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 16471,
+      "end": 16730
+    },
+    "source": "@param {array} [custom_event_handlers] - Sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "custom_event_handlers",
+      "position": {
+        "start": 16487,
+        "end": 16508
+      },
+      "source": "[custom_event_handlers]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta.",
+      "position": {
+        "start": 16512,
+        "end": 16730
+      },
+      "source": "Sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "array",
+      "position": {
+        "start": 16479,
+        "end": 16484
+      },
+      "source": "{array}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 16731,
+      "end": 17001
+    },
+    "source": "@param {boolean} [enable_state_persistence] - Nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_state_persistence",
+      "position": {
+        "start": 16749,
+        "end": 16773
+      },
+      "source": "[enable_state_persistence]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
+      "position": {
+        "start": 16777,
+        "end": 17001
+      },
+      "source": "Nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 16739,
+        "end": 16746
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 17002,
+      "end": 17261
+    },
+    "source": "@param {string} [storage_mechanism] - Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "storage_mechanism",
+      "position": {
+        "start": 17019,
+        "end": 17036
+      },
+      "source": "[storage_mechanism]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores.",
+      "position": {
+        "start": 17040,
+        "end": 17261
+      },
+      "source": "Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 17010,
+        "end": 17016
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 17262,
+      "end": 17524
+    },
+    "source": "@param {object} [state_management_config] - Repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "state_management_config",
+      "position": {
+        "start": 17279,
+        "end": 17302
+      },
+      "source": "[state_management_config]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+      "position": {
+        "start": 17306,
+        "end": 17524
+      },
+      "source": "Repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 17270,
+        "end": 17276
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 17525,
+      "end": 17788
+    },
+    "source": "@param {number} [state_update_interval] - Commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "state_update_interval",
+      "position": {
+        "start": 17542,
+        "end": 17563
+      },
+      "source": "[state_update_interval]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est.",
+      "position": {
+        "start": 17567,
+        "end": 17788
+      },
+      "source": "Commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 17533,
+        "end": 17539
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 17789,
+      "end": 18051
+    },
+    "source": "@param {boolean} [enable_offline_mode] - Laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_offline_mode",
+      "position": {
+        "start": 17807,
+        "end": 17826
+      },
+      "source": "[enable_offline_mode]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      "position": {
+        "start": 17830,
+        "end": 18051
+      },
+      "source": "Laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 17797,
+        "end": 17804
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 18052,
+      "end": 18312
+    },
+    "source": "@param {object} [offline_config_settings] - Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "offline_config_settings",
+      "position": {
+        "start": 18069,
+        "end": 18092
+      },
+      "source": "[offline_config_settings]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet.",
+      "position": {
+        "start": 18096,
+        "end": 18312
+      },
+      "source": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 18060,
+        "end": 18066
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 18313,
+      "end": 18570
+    },
+    "source": "@param {string} [service_worker_path] - Consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "service_worker_path",
+      "position": {
+        "start": 18330,
+        "end": 18349
+      },
+      "source": "[service_worker_path]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+      "position": {
+        "start": 18353,
+        "end": 18570
+      },
+      "source": "Consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 18321,
+        "end": 18327
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 18571,
+      "end": 18828
+    },
+    "source": "@param {array} [offline_cache_routes] - Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "offline_cache_routes",
+      "position": {
+        "start": 18587,
+        "end": 18607
+      },
+      "source": "[offline_cache_routes]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos.",
+      "position": {
+        "start": 18611,
+        "end": 18828
+      },
+      "source": "Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "array",
+      "position": {
+        "start": 18579,
+        "end": 18584
+      },
+      "source": "{array}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 18829,
+      "end": 19096
+    },
+    "source": "@param {boolean} [enable_pwa_features] - Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_pwa_features",
+      "position": {
+        "start": 18847,
+        "end": 18866
+      },
+      "source": "[enable_pwa_features]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia.",
+      "position": {
+        "start": 18870,
+        "end": 19096
+      },
+      "source": "Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 18837,
+        "end": 18844
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 19097,
+      "end": 19353
+    },
+    "source": "@param {object} [manifest_configuration] - Deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "manifest_configuration",
+      "position": {
+        "start": 19114,
+        "end": 19136
+      },
+      "source": "[manifest_configuration]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime.",
+      "position": {
+        "start": 19140,
+        "end": 19353
+      },
+      "source": "Deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 19105,
+        "end": 19111
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 19354,
+      "end": 19609
+    },
+    "source": "@param {string} [app_name_display] - Placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "app_name_display",
+      "position": {
+        "start": 19371,
+        "end": 19387
+      },
+      "source": "[app_name_display]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non.",
+      "position": {
+        "start": 19391,
+        "end": 19609
+      },
+      "source": "Placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 19362,
+        "end": 19368
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 19610,
+      "end": 19862
+    },
+    "source": "@param {string} [app_short_name] - Recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "app_short_name",
+      "position": {
+        "start": 19627,
+        "end": 19641
+      },
+      "source": "[app_short_name]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit.",
+      "position": {
+        "start": 19645,
+        "end": 19862
+      },
+      "source": "Recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 19618,
+        "end": 19624
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 19863,
+      "end": 20118
+    },
+    "source": "@param {array} [app_icon_sizes] - Voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "app_icon_sizes",
+      "position": {
+        "start": 19879,
+        "end": 19893
+      },
+      "source": "[app_icon_sizes]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.",
+      "position": {
+        "start": 19897,
+        "end": 20118
+      },
+      "source": "Voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "array",
+      "position": {
+        "start": 19871,
+        "end": 19876
+      },
+      "source": "{array}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 20119,
+      "end": 20388
+    },
+    "source": "@param {boolean} [enable_push_notifications] - Odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_push_notifications",
+      "position": {
+        "start": 20137,
+        "end": 20162
+      },
+      "source": "[enable_push_notifications]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora.",
+      "position": {
+        "start": 20166,
+        "end": 20388
+      },
+      "source": "Odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 20127,
+        "end": 20134
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 20389,
+      "end": 20648
+    },
+    "source": "@param {object} [notification_settings] - Incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "notification_settings",
+      "position": {
+        "start": 20406,
+        "end": 20427
+      },
+      "source": "[notification_settings]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure.",
+      "position": {
+        "start": 20431,
+        "end": 20648
+      },
+      "source": "Incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 20397,
+        "end": 20403
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 20649,
+      "end": 20906
+    },
+    "source": "@param {string} [notification_permission] - Reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "notification_permission",
+      "position": {
+        "start": 20666,
+        "end": 20689
+      },
+      "source": "[notification_permission]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",
+      "position": {
+        "start": 20693,
+        "end": 20906
+      },
+      "source": "Reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 20657,
+        "end": 20663
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 20907,
+      "end": 21167
+    },
+    "source": "@param {number} [notification_timeout] - Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "notification_timeout",
+      "position": {
+        "start": 20924,
+        "end": 20944
+      },
+      "source": "[notification_timeout]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga.",
+      "position": {
+        "start": 20948,
+        "end": 21167
+      },
+      "source": "Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 20915,
+        "end": 20921
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 21168,
+      "end": 21425
+    },
+    "source": "@param {boolean} [enable_geolocation] - Et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_geolocation",
+      "position": {
+        "start": 21186,
+        "end": 21204
+      },
+      "source": "[enable_geolocation]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis.",
+      "position": {
+        "start": 21208,
+        "end": 21425
+      },
+      "source": "Et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 21176,
+        "end": 21183
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 21426,
+      "end": 21687
+    },
+    "source": "@param {object} [geolocation_options] - Dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "geolocation_options",
+      "position": {
+        "start": 21443,
+        "end": 21462
+      },
+      "source": "[geolocation_options]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus.",
+      "position": {
+        "start": 21466,
+        "end": 21687
+      },
+      "source": "Dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 21434,
+        "end": 21440
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 21688,
+      "end": 21952
+    },
+    "source": "@param {boolean} [high_accuracy_mode] - Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "high_accuracy_mode",
+      "position": {
+        "start": 21706,
+        "end": 21724
+      },
+      "source": "[high_accuracy_mode]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "position": {
+        "start": 21728,
+        "end": 21952
+      },
+      "source": "Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 21696,
+        "end": 21703
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 21953,
+      "end": 22211
+    },
+    "source": "@param {number} [location_timeout_ms] - Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "location_timeout_ms",
+      "position": {
+        "start": 21970,
+        "end": 21989
+      },
+      "source": "[location_timeout_ms]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur.",
+      "position": {
+        "start": 21993,
+        "end": 22211
+      },
+      "source": "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 21961,
+        "end": 21967
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 22212,
+      "end": 22466
+    },
+    "source": "@param {boolean} [enable_web_workers] - Sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_web_workers",
+      "position": {
+        "start": 22230,
+        "end": 22248
+      },
+      "source": "[enable_web_workers]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.",
+      "position": {
+        "start": 22252,
+        "end": 22466
+      },
+      "source": "Sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 22220,
+        "end": 22227
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 22467,
+      "end": 22723
+    },
+    "source": "@param {string} [worker_script_path] - Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "worker_script_path",
+      "position": {
+        "start": 22484,
+        "end": 22502
+      },
+      "source": "[worker_script_path]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui.",
+      "position": {
+        "start": 22506,
+        "end": 22723
+      },
+      "source": "Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 22475,
+        "end": 22481
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 22724,
+      "end": 22980
+    },
+    "source": "@param {object} [worker_configuration] - Ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "worker_configuration",
+      "position": {
+        "start": 22741,
+        "end": 22761
+      },
+      "source": "[worker_configuration]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.",
+      "position": {
+        "start": 22765,
+        "end": 22980
+      },
+      "source": "Ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 22732,
+        "end": 22738
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 22981,
+      "end": 23233
+    },
+    "source": "@param {number} [worker_pool_size] - Voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "worker_pool_size",
+      "position": {
+        "start": 22998,
+        "end": 23014
+      },
+      "source": "[worker_pool_size]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.",
+      "position": {
+        "start": 23018,
+        "end": 23233
+      },
+      "source": "Voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 22989,
+        "end": 22995
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 23234,
+      "end": 23488
+    },
+    "source": "@param {boolean} [enable_websockets] - Nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_websockets",
+      "position": {
+        "start": 23252,
+        "end": 23269
+      },
+      "source": "[enable_websockets]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos.",
+      "position": {
+        "start": 23273,
+        "end": 23488
+      },
+      "source": "Nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 23242,
+        "end": 23249
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 23489,
+      "end": 23752
+    },
+    "source": "@param {string} [websocket_endpoint] - Dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "websocket_endpoint",
+      "position": {
+        "start": 23506,
+        "end": 23524
+      },
+      "source": "[websocket_endpoint]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio.",
+      "position": {
+        "start": 23528,
+        "end": 23752
+      },
+      "source": "Dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 23497,
+        "end": 23503
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 23753,
+      "end": 24012
+    },
+    "source": "@param {object} [websocket_options] - Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "websocket_options",
+      "position": {
+        "start": 23770,
+        "end": 23787
+      },
+      "source": "[websocket_options]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis.",
+      "position": {
+        "start": 23791,
+        "end": 24012
+      },
+      "source": "Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 23761,
+        "end": 23767
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 24013,
+      "end": 24272
+    },
+    "source": "@param {number} [reconnect_interval_ms] - Debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "reconnect_interval_ms",
+      "position": {
+        "start": 24030,
+        "end": 24051
+      },
+      "source": "[reconnect_interval_ms]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur.",
+      "position": {
+        "start": 24055,
+        "end": 24272
+      },
+      "source": "Debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 24021,
+        "end": 24027
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 24273,
+      "end": 24536
+    },
+    "source": "@param {boolean} [enable_internationalization] - Aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_internationalization",
+      "position": {
+        "start": 24291,
+        "end": 24318
+      },
+      "source": "[enable_internationalization]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi.",
+      "position": {
+        "start": 24322,
+        "end": 24536
+      },
+      "source": "Aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 24281,
+        "end": 24288
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 24537,
+      "end": 24796
+    },
+    "source": "@param {string} [default_locale_code] - Architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "default_locale_code",
+      "position": {
+        "start": 24554,
+        "end": 24573
+      },
+      "source": "[default_locale_code]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam.",
+      "position": {
+        "start": 24577,
+        "end": 24796
+      },
+      "source": "Architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 24545,
+        "end": 24551
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 24797,
+      "end": 25058
+    },
+    "source": "@param {array} [supported_locales] - Est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "supported_locales",
+      "position": {
+        "start": 24813,
+        "end": 24830
+      },
+      "source": "[supported_locales]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem.",
+      "position": {
+        "start": 24834,
+        "end": 25058
+      },
+      "source": "Est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "array",
+      "position": {
+        "start": 24805,
+        "end": 24810
+      },
+      "source": "{array}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 25059,
+      "end": 25317
+    },
+    "source": "@param {object} [translation_resources] - Ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "translation_resources",
+      "position": {
+        "start": 25076,
+        "end": 25097
+      },
+      "source": "[translation_resources]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo.",
+      "position": {
+        "start": 25101,
+        "end": 25317
+      },
+      "source": "Ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 25067,
+        "end": 25073
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 25318,
+      "end": 25574
+    },
+    "source": "@param {boolean} [enable_rtl_support] - Voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_rtl_support",
+      "position": {
+        "start": 25336,
+        "end": 25354
+      },
+      "source": "[enable_rtl_support]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non.",
+      "position": {
+        "start": 25358,
+        "end": 25574
+      },
+      "source": "Voluptas nulla pariatur at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 25326,
+        "end": 25333
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 25575,
+      "end": 25838
+    },
+    "source": "@param {string} [text_direction_default] - Provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "text_direction_default",
+      "position": {
+        "start": 25592,
+        "end": 25614
+      },
+      "source": "[text_direction_default]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque.",
+      "position": {
+        "start": 25618,
+        "end": 25838
+      },
+      "source": "Provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio nam libero tempore cum soluta nobis est eligendi optio cumque."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 25583,
+        "end": 25589
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 25839,
+      "end": 26105
+    },
+    "source": "@param {object} [security_configuration] - Nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "security_configuration",
+      "position": {
+        "start": 25856,
+        "end": 25878
+      },
+      "source": "[security_configuration]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.",
+      "position": {
+        "start": 25882,
+        "end": 26105
+      },
+      "source": "Nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 25847,
+        "end": 25853
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 26106,
+      "end": 26371
+    },
+    "source": "@param {boolean} [enable_csrf_protection] - Repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_csrf_protection",
+      "position": {
+        "start": 26124,
+        "end": 26146
+      },
+      "source": "[enable_csrf_protection]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit.",
+      "position": {
+        "start": 26150,
+        "end": 26371
+      },
+      "source": "Repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat lorem ipsum dolor sit."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 26114,
+        "end": 26121
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 26372,
+      "end": 26631
+    },
+    "source": "@param {string} [csrf_token_header] - Amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "csrf_token_header",
+      "position": {
+        "start": 26389,
+        "end": 26406
+      },
+      "source": "[csrf_token_header]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.",
+      "position": {
+        "start": 26410,
+        "end": 26631
+      },
+      "source": "Amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 26380,
+        "end": 26386
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 26632,
+      "end": 26892
+    },
+    "source": "@param {array} [allowed_origins_list] - Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "allowed_origins_list",
+      "position": {
+        "start": 26648,
+        "end": 26668
+      },
+      "source": "[allowed_origins_list]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde.",
+      "position": {
+        "start": 26672,
+        "end": 26892
+      },
+      "source": "Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "array",
+      "position": {
+        "start": 26640,
+        "end": 26645
+      },
+      "source": "{array}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 26893,
+      "end": 27158
+    },
+    "source": "@param {boolean} [enable_content_security] - Omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_content_security",
+      "position": {
+        "start": 26911,
+        "end": 26934
+      },
+      "source": "[enable_content_security]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia.",
+      "position": {
+        "start": 26938,
+        "end": 27158
+      },
+      "source": "Omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 26901,
+        "end": 26908
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 27159,
+      "end": 27417
+    },
+    "source": "@param {object} [csp_policy_config] - Voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "csp_policy_config",
+      "position": {
+        "start": 27176,
+        "end": 27193
+      },
+      "source": "[csp_policy_config]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia.",
+      "position": {
+        "start": 27197,
+        "end": 27417
+      },
+      "source": "Voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 27167,
+        "end": 27173
+      },
+      "source": "{object}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 27418,
+      "end": 27679
+    },
+    "source": "@param {string} final_build_version - Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "final_build_version",
+      "position": {
+        "start": 27434,
+        "end": 27453
+      },
+      "source": "final_build_version"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur.",
+      "position": {
+        "start": 27456,
+        "end": 27679
+      },
+      "source": "Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 27426,
+        "end": 27432
+      },
+      "source": "{string}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocExampleNode",
+    "name": "example",
+    "position": {
+      "start": 27681,
+      "end": 31555
+    },
+    "source": "@example\n{% render 'ultra-advanced-component',\n  primary_identifier: 'main-application-widget',\n  container_max_width: 1920,\n  enable_smooth_transitions: true,\n  master_configuration: global_settings,\n  primary_color_scheme: '#2c3e50',\n  main_data_collection: all_products,\n  layout_display_mode: 'masonry-grid',\n  horizontal_padding_value: 32,\n  responsive_design_enabled: true,\n  custom_class_names: 'ultra-widget enhanced-features responsive-grid advanced-styling',\n  vertical_padding_value: 40,\n  header_content_text: 'Advanced Dashboard Overview',\n  display_header_section: true,\n  metadata_configuration: meta_config,\n  navigation_menu_items: navigation_links,\n  footer_content_text: 'Copyright 2024 - All Rights Reserved',\n  display_footer_section: true,\n  border_radius_pixels: 12,\n  border_style_property: 'solid',\n  animation_configuration: animation_settings,\n  enable_shadow_rendering: true,\n  shadow_color_rgba: 'rgba(0,0,0,0.15)',\n  shadow_blur_amount: 15,\n  content_section_blocks: page_sections,\n  section_divider_style: 'gradient-fade',\n  accessibility_enabled: true,\n  accessibility_settings: a11y_config,\n  aria_label_attribute: 'Main application widget',\n  tab_index_attribute: 0,\n  keyboard_nav_enabled: true,\n  loading_message_text: 'Loading application data...',\n  display_loading_state: false,\n  loading_spinner_config: spinner_settings,\n  error_display_message: 'Unable to load application data',\n  display_error_state: false,\n  error_icon_graphic: 'exclamation-triangle',\n  maximum_content_width: 1400,\n  center_align_content: true,\n  responsive_breakpoints: breakpoint_config,\n  mobile_display_layout: 'stack-vertical',\n  tablet_display_layout: 'grid-2-columns',\n  desktop_display_layout: 'grid-4-columns',\n  theme_config_object: theme_settings,\n  font_family_stack: 'Inter, system-ui, sans-serif',\n  base_font_size: 16,\n  primary_text_color: '#2c3e50',\n  enable_custom_fonts: true,\n  component_version_number: '3.0.0',\n  debug_config_settings: debug_settings,\n  enable_performance_mode: true,\n  cache_duration_seconds: 3600,\n  cache_strategy_type: 'stale-while-revalidate',\n  preload_resources: preload_list,\n  lazy_load_enabled: true,\n  lazy_load_config: lazy_settings,\n  intersection_threshold: '0.1',\n  debounce_delay_ms: 300,\n  enable_event_tracking: true,\n  analytics_configuration: analytics_config,\n  tracking_identifier: 'UA-123456789',\n  custom_event_handlers: event_handlers,\n  enable_state_persistence: true,\n  storage_mechanism: 'localStorage',\n  state_management_config: state_config,\n  state_update_interval: 5000,\n  enable_offline_mode: true,\n  offline_config_settings: offline_config,\n  service_worker_path: '/sw.js',\n  offline_cache_routes: cache_routes,\n  enable_pwa_features: true,\n  manifest_configuration: manifest_config,\n  app_name_display: 'Ultra Advanced App',\n  app_short_name: 'Ultra App',\n  app_icon_sizes: icon_sizes,\n  enable_push_notifications: true,\n  notification_settings: notification_config,\n  notification_permission: 'default',\n  notification_timeout: 5000,\n  enable_geolocation: true,\n  geolocation_options: geo_config,\n  high_accuracy_mode: true,\n  location_timeout_ms: 10000,\n  enable_web_workers: true,\n  worker_script_path: '/worker.js',\n  worker_configuration: worker_config,\n  worker_pool_size: 4,\n  enable_websockets: true,\n  websocket_endpoint: 'wss://api.example.com/ws',\n  websocket_options: ws_config,\n  reconnect_interval_ms: 5000,\n  enable_internationalization: true,\n  default_locale_code: 'en-US',\n  supported_locales: locale_list,\n  translation_resources: translations,\n  enable_rtl_support: true,\n  text_direction_default: 'ltr',\n  security_configuration: security_config,\n  enable_csrf_protection: true,\n  csrf_token_header: 'X-CSRF-Token',\n  allowed_origins_list: allowed_origins,\n  enable_content_security: true,\n  csp_policy_config: csp_config,\n  final_build_version: '3.0.0-stable'\n%}\n",
+    "content": {
+      "type": "TextNode",
+      "value": "@example\n{% render 'ultra-advanced-component',\n  primary_identifier: 'main-application-widget',\n  container_max_width: 1920,\n  enable_smooth_transitions: true,\n  master_configuration: global_settings,\n  primary_color_scheme: '#2c3e50',\n  main_data_collection: all_products,\n  layout_display_mode: 'masonry-grid',\n  horizontal_padding_value: 32,\n  responsive_design_enabled: true,\n  custom_class_names: 'ultra-widget enhanced-features responsive-grid advanced-styling',\n  vertical_padding_value: 40,\n  header_content_text: 'Advanced Dashboard Overview',\n  display_header_section: true,\n  metadata_configuration: meta_config,\n  navigation_menu_items: navigation_links,\n  footer_content_text: 'Copyright 2024 - All Rights Reserved',\n  display_footer_section: true,\n  border_radius_pixels: 12,\n  border_style_property: 'solid',\n  animation_configuration: animation_settings,\n  enable_shadow_rendering: true,\n  shadow_color_rgba: 'rgba(0,0,0,0.15)',\n  shadow_blur_amount: 15,\n  content_section_blocks: page_sections,\n  section_divider_style: 'gradient-fade',\n  accessibility_enabled: true,\n  accessibility_settings: a11y_config,\n  aria_label_attribute: 'Main application widget',\n  tab_index_attribute: 0,\n  keyboard_nav_enabled: true,\n  loading_message_text: 'Loading application data...',\n  display_loading_state: false,\n  loading_spinner_config: spinner_settings,\n  error_display_message: 'Unable to load application data',\n  display_error_state: false,\n  error_icon_graphic: 'exclamation-triangle',\n  maximum_content_width: 1400,\n  center_align_content: true,\n  responsive_breakpoints: breakpoint_config,\n  mobile_display_layout: 'stack-vertical',\n  tablet_display_layout: 'grid-2-columns',\n  desktop_display_layout: 'grid-4-columns',\n  theme_config_object: theme_settings,\n  font_family_stack: 'Inter, system-ui, sans-serif',\n  base_font_size: 16,\n  primary_text_color: '#2c3e50',\n  enable_custom_fonts: true,\n  component_version_number: '3.0.0',\n  debug_config_settings: debug_settings,\n  enable_performance_mode: true,\n  cache_duration_seconds: 3600,\n  cache_strategy_type: 'stale-while-revalidate',\n  preload_resources: preload_list,\n  lazy_load_enabled: true,\n  lazy_load_config: lazy_settings,\n  intersection_threshold: '0.1',\n  debounce_delay_ms: 300,\n  enable_event_tracking: true,\n  analytics_configuration: analytics_config,\n  tracking_identifier: 'UA-123456789',\n  custom_event_handlers: event_handlers,\n  enable_state_persistence: true,\n  storage_mechanism: 'localStorage',\n  state_management_config: state_config,\n  state_update_interval: 5000,\n  enable_offline_mode: true,\n  offline_config_settings: offline_config,\n  service_worker_path: '/sw.js',\n  offline_cache_routes: cache_routes,\n  enable_pwa_features: true,\n  manifest_configuration: manifest_config,\n  app_name_display: 'Ultra Advanced App',\n  app_short_name: 'Ultra App',\n  app_icon_sizes: icon_sizes,\n  enable_push_notifications: true,\n  notification_settings: notification_config,\n  notification_permission: 'default',\n  notification_timeout: 5000,\n  enable_geolocation: true,\n  geolocation_options: geo_config,\n  high_accuracy_mode: true,\n  location_timeout_ms: 10000,\n  enable_web_workers: true,\n  worker_script_path: '/worker.js',\n  worker_configuration: worker_config,\n  worker_pool_size: 4,\n  enable_websockets: true,\n  websocket_endpoint: 'wss://api.example.com/ws',\n  websocket_options: ws_config,\n  reconnect_interval_ms: 5000,\n  enable_internationalization: true,\n  default_locale_code: 'en-US',\n  supported_locales: locale_list,\n  translation_resources: translations,\n  enable_rtl_support: true,\n  text_direction_default: 'ltr',\n  security_configuration: security_config,\n  enable_csrf_protection: true,\n  csrf_token_header: 'X-CSRF-Token',\n  allowed_origins_list: allowed_origins,\n  enable_content_security: true,\n  csp_policy_config: csp_config,\n  final_build_version: '3.0.0-stable'\n%}\n",
+      "position": {
+        "start": 27681,
+        "end": 31555
+      },
+      "source": "@example\n{% render 'ultra-advanced-component',\n  primary_identifier: 'main-application-widget',\n  container_max_width: 1920,\n  enable_smooth_transitions: true,\n  master_configuration: global_settings,\n  primary_color_scheme: '#2c3e50',\n  main_data_collection: all_products,\n  layout_display_mode: 'masonry-grid',\n  horizontal_padding_value: 32,\n  responsive_design_enabled: true,\n  custom_class_names: 'ultra-widget enhanced-features responsive-grid advanced-styling',\n  vertical_padding_value: 40,\n  header_content_text: 'Advanced Dashboard Overview',\n  display_header_section: true,\n  metadata_configuration: meta_config,\n  navigation_menu_items: navigation_links,\n  footer_content_text: 'Copyright 2024 - All Rights Reserved',\n  display_footer_section: true,\n  border_radius_pixels: 12,\n  border_style_property: 'solid',\n  animation_configuration: animation_settings,\n  enable_shadow_rendering: true,\n  shadow_color_rgba: 'rgba(0,0,0,0.15)',\n  shadow_blur_amount: 15,\n  content_section_blocks: page_sections,\n  section_divider_style: 'gradient-fade',\n  accessibility_enabled: true,\n  accessibility_settings: a11y_config,\n  aria_label_attribute: 'Main application widget',\n  tab_index_attribute: 0,\n  keyboard_nav_enabled: true,\n  loading_message_text: 'Loading application data...',\n  display_loading_state: false,\n  loading_spinner_config: spinner_settings,\n  error_display_message: 'Unable to load application data',\n  display_error_state: false,\n  error_icon_graphic: 'exclamation-triangle',\n  maximum_content_width: 1400,\n  center_align_content: true,\n  responsive_breakpoints: breakpoint_config,\n  mobile_display_layout: 'stack-vertical',\n  tablet_display_layout: 'grid-2-columns',\n  desktop_display_layout: 'grid-4-columns',\n  theme_config_object: theme_settings,\n  font_family_stack: 'Inter, system-ui, sans-serif',\n  base_font_size: 16,\n  primary_text_color: '#2c3e50',\n  enable_custom_fonts: true,\n  component_version_number: '3.0.0',\n  debug_config_settings: debug_settings,\n  enable_performance_mode: true,\n  cache_duration_seconds: 3600,\n  cache_strategy_type: 'stale-while-revalidate',\n  preload_resources: preload_list,\n  lazy_load_enabled: true,\n  lazy_load_config: lazy_settings,\n  intersection_threshold: '0.1',\n  debounce_delay_ms: 300,\n  enable_event_tracking: true,\n  analytics_configuration: analytics_config,\n  tracking_identifier: 'UA-123456789',\n  custom_event_handlers: event_handlers,\n  enable_state_persistence: true,\n  storage_mechanism: 'localStorage',\n  state_management_config: state_config,\n  state_update_interval: 5000,\n  enable_offline_mode: true,\n  offline_config_settings: offline_config,\n  service_worker_path: '/sw.js',\n  offline_cache_routes: cache_routes,\n  enable_pwa_features: true,\n  manifest_configuration: manifest_config,\n  app_name_display: 'Ultra Advanced App',\n  app_short_name: 'Ultra App',\n  app_icon_sizes: icon_sizes,\n  enable_push_notifications: true,\n  notification_settings: notification_config,\n  notification_permission: 'default',\n  notification_timeout: 5000,\n  enable_geolocation: true,\n  geolocation_options: geo_config,\n  high_accuracy_mode: true,\n  location_timeout_ms: 10000,\n  enable_web_workers: true,\n  worker_script_path: '/worker.js',\n  worker_configuration: worker_config,\n  worker_pool_size: 4,\n  enable_websockets: true,\n  websocket_endpoint: 'wss://api.example.com/ws',\n  websocket_options: ws_config,\n  reconnect_interval_ms: 5000,\n  enable_internationalization: true,\n  default_locale_code: 'en-US',\n  supported_locales: locale_list,\n  translation_resources: translations,\n  enable_rtl_support: true,\n  text_direction_default: 'ltr',\n  security_configuration: security_config,\n  enable_csrf_protection: true,\n  csrf_token_header: 'X-CSRF-Token',\n  allowed_origins_list: allowed_origins,\n  enable_content_security: true,\n  csp_policy_config: csp_config,\n  final_build_version: '3.0.0-stable'\n%}\n"
+    },
+    "isInline": true
+  }
+]

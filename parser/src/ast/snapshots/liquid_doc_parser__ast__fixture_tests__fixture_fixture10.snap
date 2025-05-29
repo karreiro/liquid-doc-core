@@ -1,0 +1,415 @@
+---
+source: parser/src/ast/fixture_tests.rs
+expression: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. This component handles the intricate rendering of various UI elements with sophisticated state management and responsive design patterns that adapt seamlessly across different viewport sizes and device capabilities.\n\n@param {string} primary_text - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero.\n@param {number} container_width - Fusce vulputate eleifend sapien vestibulum purus augue, vestibulum tincidunt nulla quis libero. Nullam dictum felis eu pede mollis pretium integer tincidunt cras dapibus vivamus elementum semper nisi aenean vulputate eleifend tellus.\n@param {boolean} [enable_animations] - Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean imperdiet etiam ultricies.\n@param {object} configuration_settings - Etiam rhoncus maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem maecenas nec odio et ante.\n@param {string} [background_color] - Tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum.\n@param {array} data_collection - Nunc sed blandit libero volutpat sed cras ornare arcu dui vivamus arcu felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet.\n@param {string} [layout_mode] - Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi est.\n@param {number} [margin_spacing] - Sit amet luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non enim praesent elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque.\n@param {boolean} responsive_design - Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel pretium lectus quam id leo.\n@param {string} [custom_class_names] - In ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus viverra vitae.\n\n@example\n{% render 'complex-component', primary_text: 'Welcome to our application', container_width: 1200, enable_animations: true, configuration_settings: settings, background_color: '#f5f5f5', data_collection: products, layout_mode: 'grid', margin_spacing: 20, responsive_design: true, custom_class_names: 'custom-styling enhanced-features' %}\n"
+---
+[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
+    "position": {
+      "start": 10,
+      "end": 351
+    },
+    "source": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. This component handles the intricate rendering of various UI elements with sophisticated state management and responsive design patterns that adapt seamlessly across different viewport sizes and device capabilities.\n\n",
+    "content": {
+      "type": "TextNode",
+      "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. This component handles the intricate rendering of various UI elements with sophisticated state management and responsive design patterns that adapt seamlessly across different viewport sizes and device capabilities.\n\n",
+      "position": {
+        "start": 10,
+        "end": 351
+      },
+      "source": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. This component handles the intricate rendering of various UI elements with sophisticated state management and responsive design patterns that adapt seamlessly across different viewport sizes and device capabilities.\n\n"
+    },
+    "isImplicit": true,
+    "isInline": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 351,
+      "end": 625
+    },
+    "source": "@param {string} primary_text - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "primary_text",
+      "position": {
+        "start": 367,
+        "end": 379
+      },
+      "source": "primary_text"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero.",
+      "position": {
+        "start": 382,
+        "end": 625
+      },
+      "source": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 359,
+        "end": 365
+      },
+      "source": "{string}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 626,
+      "end": 893
+    },
+    "source": "@param {number} container_width - Fusce vulputate eleifend sapien vestibulum purus augue, vestibulum tincidunt nulla quis libero. Nullam dictum felis eu pede mollis pretium integer tincidunt cras dapibus vivamus elementum semper nisi aenean vulputate eleifend tellus.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "container_width",
+      "position": {
+        "start": 642,
+        "end": 657
+      },
+      "source": "container_width"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Fusce vulputate eleifend sapien vestibulum purus augue, vestibulum tincidunt nulla quis libero. Nullam dictum felis eu pede mollis pretium integer tincidunt cras dapibus vivamus elementum semper nisi aenean vulputate eleifend tellus.",
+      "position": {
+        "start": 660,
+        "end": 893
+      },
+      "source": "Fusce vulputate eleifend sapien vestibulum purus augue, vestibulum tincidunt nulla quis libero. Nullam dictum felis eu pede mollis pretium integer tincidunt cras dapibus vivamus elementum semper nisi aenean vulputate eleifend tellus."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 634,
+        "end": 640
+      },
+      "source": "{number}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 894,
+      "end": 1163
+    },
+    "source": "@param {boolean} [enable_animations] - Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean imperdiet etiam ultricies.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "enable_animations",
+      "position": {
+        "start": 912,
+        "end": 929
+      },
+      "source": "[enable_animations]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean imperdiet etiam ultricies.",
+      "position": {
+        "start": 933,
+        "end": 1163
+      },
+      "source": "Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean imperdiet etiam ultricies."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 902,
+        "end": 909
+      },
+      "source": "{boolean}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 1164,
+      "end": 1425
+    },
+    "source": "@param {object} configuration_settings - Etiam rhoncus maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem maecenas nec odio et ante.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "configuration_settings",
+      "position": {
+        "start": 1180,
+        "end": 1202
+      },
+      "source": "configuration_settings"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Etiam rhoncus maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem maecenas nec odio et ante.",
+      "position": {
+        "start": 1205,
+        "end": 1425
+      },
+      "source": "Etiam rhoncus maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem maecenas nec odio et ante."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "object",
+      "position": {
+        "start": 1172,
+        "end": 1178
+      },
+      "source": "{object}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 1426,
+      "end": 1679
+    },
+    "source": "@param {string} [background_color] - Tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "background_color",
+      "position": {
+        "start": 1443,
+        "end": 1459
+      },
+      "source": "[background_color]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum.",
+      "position": {
+        "start": 1463,
+        "end": 1679
+      },
+      "source": "Tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor sed viverra ipsum."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 1434,
+        "end": 1440
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 1680,
+      "end": 1936
+    },
+    "source": "@param {array} data_collection - Nunc sed blandit libero volutpat sed cras ornare arcu dui vivamus arcu felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "data_collection",
+      "position": {
+        "start": 1695,
+        "end": 1710
+      },
+      "source": "data_collection"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Nunc sed blandit libero volutpat sed cras ornare arcu dui vivamus arcu felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet.",
+      "position": {
+        "start": 1713,
+        "end": 1936
+      },
+      "source": "Nunc sed blandit libero volutpat sed cras ornare arcu dui vivamus arcu felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "array",
+      "position": {
+        "start": 1688,
+        "end": 1693
+      },
+      "source": "{array}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 1937,
+      "end": 2190
+    },
+    "source": "@param {string} [layout_mode] - Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi est.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "layout_mode",
+      "position": {
+        "start": 1954,
+        "end": 1965
+      },
+      "source": "[layout_mode]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi est.",
+      "position": {
+        "start": 1969,
+        "end": 2190
+      },
+      "source": "Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi est."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 1945,
+        "end": 1951
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 2191,
+      "end": 2454
+    },
+    "source": "@param {number} [margin_spacing] - Sit amet luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non enim praesent elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "margin_spacing",
+      "position": {
+        "start": 2208,
+        "end": 2222
+      },
+      "source": "[margin_spacing]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Sit amet luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non enim praesent elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque.",
+      "position": {
+        "start": 2226,
+        "end": 2454
+      },
+      "source": "Sit amet luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non enim praesent elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "number",
+      "position": {
+        "start": 2199,
+        "end": 2205
+      },
+      "source": "{number}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 2455,
+      "end": 2717
+    },
+    "source": "@param {boolean} responsive_design - Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel pretium lectus quam id leo.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "responsive_design",
+      "position": {
+        "start": 2472,
+        "end": 2489
+      },
+      "source": "responsive_design"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel pretium lectus quam id leo.",
+      "position": {
+        "start": 2492,
+        "end": 2717
+      },
+      "source": "Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel pretium lectus quam id leo."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "boolean",
+      "position": {
+        "start": 2463,
+        "end": 2470
+      },
+      "source": "{boolean}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 2718,
+      "end": 2979
+    },
+    "source": "@param {string} [custom_class_names] - In ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus viverra vitae.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "custom_class_names",
+      "position": {
+        "start": 2735,
+        "end": 2753
+      },
+      "source": "[custom_class_names]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "In ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus viverra vitae.",
+      "position": {
+        "start": 2757,
+        "end": 2979
+      },
+      "source": "In ornare quam viverra orci sagittis eu volutpat odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus viverra vitae."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "string",
+      "position": {
+        "start": 2726,
+        "end": 2732
+      },
+      "source": "{string}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocExampleNode",
+    "name": "example",
+    "position": {
+      "start": 2981,
+      "end": 3327
+    },
+    "source": "@example\n{% render 'complex-component', primary_text: 'Welcome to our application', container_width: 1200, enable_animations: true, configuration_settings: settings, background_color: '#f5f5f5', data_collection: products, layout_mode: 'grid', margin_spacing: 20, responsive_design: true, custom_class_names: 'custom-styling enhanced-features' %}\n",
+    "content": {
+      "type": "TextNode",
+      "value": "@example\n{% render 'complex-component', primary_text: 'Welcome to our application', container_width: 1200, enable_animations: true, configuration_settings: settings, background_color: '#f5f5f5', data_collection: products, layout_mode: 'grid', margin_spacing: 20, responsive_design: true, custom_class_names: 'custom-styling enhanced-features' %}\n",
+      "position": {
+        "start": 2981,
+        "end": 3327
+      },
+      "source": "@example\n{% render 'complex-component', primary_text: 'Welcome to our application', container_width: 1200, enable_animations: true, configuration_settings: settings, background_color: '#f5f5f5', data_collection: products, layout_mode: 'grid', margin_spacing: 20, responsive_design: true, custom_class_names: 'custom-styling enhanced-features' %}\n"
+    },
+    "isInline": true
+  }
+]

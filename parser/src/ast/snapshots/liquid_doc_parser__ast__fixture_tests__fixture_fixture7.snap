@@ -1,0 +1,46 @@
+---
+source: parser/src/ast/fixture_tests.rs
+expression: "this is an implicit description\nin a header\n\n@description with a description annotation"
+---
+[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
+    "position": {
+      "start": 10,
+      "end": 55
+    },
+    "source": "this is an implicit description\nin a header\n\n",
+    "content": {
+      "type": "TextNode",
+      "value": "this is an implicit description\nin a header\n\n",
+      "position": {
+        "start": 10,
+        "end": 55
+      },
+      "source": "this is an implicit description\nin a header\n\n"
+    },
+    "isImplicit": true,
+    "isInline": true
+  },
+  {
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
+    "position": {
+      "start": 55,
+      "end": 97
+    },
+    "source": "@description with a description annotation",
+    "content": {
+      "type": "TextNode",
+      "value": "with a description annotation",
+      "position": {
+        "start": 68,
+        "end": 97
+      },
+      "source": "@description with a description annotation"
+    },
+    "isImplicit": false,
+    "isInline": true
+  }
+]

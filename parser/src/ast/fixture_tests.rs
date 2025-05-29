@@ -5,7 +5,7 @@ macro_rules! generate_fixture_test {
         paste::paste! {
             #[test]
             fn [<test_fixture_ $fixture_name>]() {
-                let content = include_str!(concat!("../../web/fixtures/", $fixture_name, ".liquid"));
+                let content = include_str!(concat!("../../../web/fixtures/", $fixture_name, ".liquid"));
 
                 crate::assert_json_output!(content);
             }

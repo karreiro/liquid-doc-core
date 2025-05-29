@@ -1,0 +1,62 @@
+---
+source: parser/src/ast/fixture_tests.rs
+expression: "@example\nThis is a valid example\nIt can have multiple lines\n@param {String} paramWithDescription - param with description"
+---
+[
+  {
+    "type": "LiquidDocExampleNode",
+    "name": "example",
+    "position": {
+      "start": 10,
+      "end": 70
+    },
+    "source": "@example\nThis is a valid example\nIt can have multiple lines\n",
+    "content": {
+      "type": "TextNode",
+      "value": "@example\nThis is a valid example\nIt can have multiple lines\n",
+      "position": {
+        "start": 10,
+        "end": 70
+      },
+      "source": "@example\nThis is a valid example\nIt can have multiple lines\n"
+    },
+    "isInline": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 70,
+      "end": 131
+    },
+    "source": "@param {String} paramWithDescription - param with description",
+    "paramName": {
+      "type": "TextNode",
+      "value": "paramWithDescription",
+      "position": {
+        "start": 86,
+        "end": 106
+      },
+      "source": "paramWithDescription"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "param with description",
+      "position": {
+        "start": 109,
+        "end": 131
+      },
+      "source": "param with description"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "String",
+      "position": {
+        "start": 78,
+        "end": 84
+      },
+      "source": "{String}"
+    },
+    "required": true
+  }
+]

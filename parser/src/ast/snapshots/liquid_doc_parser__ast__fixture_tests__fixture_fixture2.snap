@@ -1,0 +1,25 @@
+---
+source: parser/src/ast/fixture_tests.rs
+expression: "@example simple inline example"
+---
+[
+  {
+    "type": "LiquidDocExampleNode",
+    "name": "example",
+    "position": {
+      "start": 10,
+      "end": 40
+    },
+    "source": "@example simple inline example",
+    "content": {
+      "type": "TextNode",
+      "value": "simple inline example",
+      "position": {
+        "start": 19,
+        "end": 40
+      },
+      "source": "@example simple inline example"
+    },
+    "isInline": true
+  }
+]
