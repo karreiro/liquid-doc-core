@@ -1,5 +1,5 @@
 // Main rule
-Document = { ImplicitDescription ~ (LiquidDocNode | TextNode)* }
+Document = { (TextNode | ImplicitDescription) ~ (LiquidDocNode | TextNode)* }
 
 LiquidDocNode = {
     paramNode

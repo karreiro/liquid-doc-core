@@ -61,7 +61,18 @@ impl TextNode {
     pub fn as_str(&self) -> &str {
         &self.value
     }
+
     pub fn is_empty(&self) -> bool {
         self.value.is_empty()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::assert_json_output;
+
+    #[test]
+    fn fallback_node() {
+        assert_json_output!("@unsupported this node falls back to a text node")
     }
 }

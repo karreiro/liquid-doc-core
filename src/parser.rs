@@ -48,7 +48,8 @@ pub fn visit(
                 }
                 Rule::fallbackNode => {
                     // Process fallback node
-                    unimplemented!("Fallback nodes are not yet implemented");
+                    let node = TextNode::from_pair(&next, position_offset);
+                    ast.add_node(LiquidNode::TextNode(node));
                 }
                 _ => unreachable!("Unexpected rule in LiquidDocNode: {:?}", next.as_rule()),
             }
