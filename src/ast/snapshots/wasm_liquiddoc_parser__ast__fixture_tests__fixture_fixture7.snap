@@ -28,15 +28,15 @@ expression: "this is an implicit description\nin a header\n\n@description with a
     "name": "description",
     "position": {
       "start": 55,
-      "end": 97
+      "end": 98
     },
     "source": "@description with a description annotation",
     "content": {
       "type": "TextNode",
-      "value": "with a description annotation",
+      "value": "with a description annotation\n",
       "position": {
         "start": 68,
-        "end": 97
+        "end": 98
       },
       "source": "@description with a description annotation"
     },

@@ -18,7 +18,7 @@ strictSpace = _{ " " | "\t" }
 space = _{ strictSpace | NEWLINE }
 openControl = { strictSpace* ~ (tagStart | EOI) }
 supportedTags = { "@prompt" | "@example" | "@description" | "@param" }
-tagStart = { "@prompt" | "@example" | "@description" | "@param"| "@" ~ !ASCII_ALPHANUMERIC }
+tagStart = { supportedTags | ("@" ~ identifierCharacter) }
 WhitespaceNode = _{ space+ }
 
 // Parameter node rules
