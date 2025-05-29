@@ -65,6 +65,7 @@ jobs:
         path: |
           web/*.log
           web/results.txt
+          web/benchmark-summary.json
         retention-days: 30
 
   benchmark-comparison:
@@ -100,12 +101,38 @@ jobs:
       run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
     - name: Run base benchmark
-      working-directory: base/web
+      working-directory: base
       run: |
-        npm install
-        wasm-pack build --target web --out-dir pkg --manifest-path ../Cargo.toml
-        chmod +x test-all-fixtures.sh
-        ./test-all-fixtures.sh 50 > ../base-results.txt 2>&1
+        # Check if package.json exists, if not create a minimal one
+        if [ ! -f web/package.json ]; then
+          echo "Creating minimal package.json for base branch..."
+          mkdir -p web
+          echo '{
+            "name": "liquid-doc-benchmarks",
+            "version": "1.0.0",
+            "type": "module",
+            "dependencies": {
+              "@shopify/liquid-html-parser": "^2.0.0",
+              "ohm-js": "^17.1.0"
+            }
+          }' > web/package.json
+        fi
+
+        cd web
+        npm install || echo "npm install failed, continuing..."
+
+        # Build WASM if possible
+        cd ..
+        wasm-pack build --target web --out-dir web/pkg || echo "WASM build failed, continuing..."
+
+        cd web
+        # Check if test script exists
+        if [ -f test-all-fixtures.sh ]; then
+          chmod +x test-all-fixtures.sh
+          ./test-all-fixtures.sh 50 > ../base-results.txt 2>&1
+        else
+          echo "Benchmark script not found in base branch" > ../base-results.txt
+        fi
 
     - name: Run head benchmark
       working-directory: head/web
