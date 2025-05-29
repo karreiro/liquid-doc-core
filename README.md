@@ -92,3 +92,19 @@ The parser returns JavaScript objects representing the LiquidDoc AST:
 - **serde**: JSON serialization for WASM ↔ JS objects
 
 Happy documenting! 📚🚀
+
+
+## Snapshot testing
+To test the json output from the parser, we use snapshot testing via [cargo-insta](https://insta.rs/docs/cli/).
+To test something you just need to do something like this:
+
+```rust
+#[test]
+pub fn test_serialization_round_trip() {
+    assert_json_output!("@example simple inline example\n");
+}
+```
+
+This will create a file in the `snapshots` folder. You can use the command `cargo insta review` to see the difference if a change you make alters the snapshots. This will allow you to simply accept or reject changes as applicable.
+
+To make this even nicer, you can install the `insta snapshots` extension to show an even richer diff when comparing snapshot changes.

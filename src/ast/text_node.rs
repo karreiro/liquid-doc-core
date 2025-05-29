@@ -6,11 +6,11 @@ use super::position::Position;
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct TextNode {
+    #[serde(rename = "type", skip_deserializing)]
+    pub type_: &'static str,
     pub value: String,
     pub position: Position,
     pub source: String,
-    #[serde(rename = "type", skip_deserializing)]
-    pub type_: &'static str,
 }
 
 impl TextNode {

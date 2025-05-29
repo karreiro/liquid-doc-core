@@ -1,4 +1,8 @@
 {
-  "recommendations": ["pest.pest-ide-tools", "xoronic.pestfile"]
+  "recommendations": [
+    "pest.pest-ide-tools",
+    "xoronic.pestfile",
+    "mitsuhiko.insta"
+  ]
 }
 

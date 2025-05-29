@@ -4,12 +4,12 @@ use super::{position::Position, TextNode};
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocExampleNode {
+    pub name: String,
+    pub position: Position,
+    pub source: String,
     pub content: TextNode,
     #[serde(rename = "isInline")]
     pub is_inline: bool,
-    pub position: Position,
-    pub source: String,
-    pub name: String,
 }
 
 impl LiquidDocExampleNode {
@@ -44,7 +44,8 @@ impl LiquidDocExampleNode {
 
 #[cfg(test)]
 mod test {
-    use crate::{ast::LiquidNode, parser::parse_liquid_string};
+    use crate::{assert_json_output, ast::LiquidNode, parser::parse_liquid_string};
+
     use pretty_assertions::assert_eq;
 
     #[test]
@@ -64,33 +65,6 @@ mod test {
 
     #[test]
     pub fn test_serialization_round_trip() {
-        let input = "@example simple inline example\n";
-        let ast = parse_liquid_string(input, Some(10)).unwrap();
-
-        let expected = r#"[
-  {
-    "type": "LiquidDocExampleNode",
-    "content": {
-      "value": "simple inline example\n",
-      "position": {
-        "start": 19,
-        "end": 41
-      },
-      "source": "{% doc %}\n@example simple inline example\n{% enddoc %}",
-      "type": "TextNode"
-    },
-    "isInline": true,
-    "position": {
-      "start": 10,
-      "end": 41
-    },
-    "source": "{% doc %}\n@example simple inline example\n{% enddoc %}",
-    "name": "example"
-  }
-]"#;
-
-        let actual = serde_json::to_string_pretty(&ast.nodes).unwrap();
-
-        assert_eq!(expected, actual);
+        assert_json_output!("@example simple inline example\n");
     }
 }

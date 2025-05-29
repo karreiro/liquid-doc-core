@@ -4,6 +4,7 @@ mod example_node;
 mod liquid_ast;
 mod position;
 mod raw_tag_node;
+pub(crate) mod test_utils;
 mod text_node;
 
 pub use description_node::*;

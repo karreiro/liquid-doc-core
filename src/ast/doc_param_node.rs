@@ -11,12 +11,12 @@ pub struct LiquidDocParamNode {
     pub position: Position,
     pub source: String,
     pub required: bool,
-    #[serde(rename = "paramType")]
-    pub param_type: Option<TextNode>,
     #[serde(rename = "paramName")]
     pub param_name: TextNode,
     #[serde(rename = "paramDescription")]
     pub param_description: Option<TextNode>,
+    #[serde(rename = "paramType")]
+    pub param_type: Option<TextNode>,
 }
 impl LiquidDocParamNode {
     pub fn new(pair: &pest::iterators::Pair<Rule>, position_offset: Option<usize>) -> Self {
@@ -65,20 +65,11 @@ impl LiquidDocParamNode {
 
 #[cfg(test)]
 mod tests {
+    use crate::assert_json_output;
     use crate::ast::LiquidNode;
     use crate::parser::parse_liquid_string;
     use pretty_assertions::assert_eq;
 
-    /*
-        """@param requiredParamWithNoType
-            @param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.
-            @param {String} paramWithNoDescription
-            @param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description
-            @param [optionalParameterWithDescription] - optional parameter description
-            @param {String} [optionalParameterWithType]
-            @unsupported this node falls back to a text node
-    """
-         */
     #[test]
     fn test_parse_param_with_type() {
         let input = "@param {sometype} requiredParamWithNoType";
@@ -139,52 +130,8 @@ mod tests {
 
     #[test]
     pub fn test_serialization_round_trip() {
-        let input = "@param {sometype} requiredParamWithSomeType - This is a cool parameter";
-        let ast = parse_liquid_string(input, Some(10)).unwrap();
-
-        let expected = r#"[
-  {
-    "type": "LiquidDocParamNode",
-    "name": "param",
-    "position": {
-      "start": 10,
-      "end": 80
-    },
-    "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
-    "required": true,
-    "paramType": {
-      "value": "sometype",
-      "position": {
-        "start": 18,
-        "end": 26
-      },
-      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
-      "type": "TextNode"
-    },
-    "paramName": {
-      "value": "requiredParamWithSomeType",
-      "position": {
-        "start": 28,
-        "end": 53
-      },
-      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
-      "type": "TextNode"
-    },
-    "paramDescription": {
-      "value": "This is a cool parameter",
-      "position": {
-        "start": 56,
-        "end": 80
-      },
-      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
-      "type": "TextNode"
-    }
-  }
-]"#;
-
-        // prettify json string
-        let actual = serde_json::to_string_pretty(&ast.nodes).unwrap();
-
-        assert_eq!(expected, actual);
+        assert_json_output!(
+            "@param {sometype} requiredParamWithSomeType - This is a cool parameter"
+        );
     }
 }
