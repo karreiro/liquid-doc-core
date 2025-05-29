@@ -48,10 +48,15 @@
         .error { color: #d32f2f; background: #ffebee; padding: 10px; border-radius: 4px; }
         .success { color: #388e3c; background: #e8f5e9; padding: 10px; border-radius: 4px; }
     </style>
+    <!-- Load Ohm.js dependencies first -->
+    <script src="https://unpkg.com/ohm-js@17/dist/ohm.js"></script>
+    <script src="https://unpkg.com/ohm-js@17/dist/ohm-extras.js"></script>
+    <!-- Then load our minified parser -->
+    <script src="./ohm-parser.js"></script>
 </head>
 <body>
     <h1>🧪 Fixture Benchmark Testing</h1>
-    
+
     <div>
         <label>Iterations per test: <input id="iterations" type="number" value="100" min="10" max="1000"></label>
         <button onclick="runAllTests()">🚀 Run All Fixture Tests</button>
@@ -63,19 +68,19 @@
     <script type="module">
         import { benchmarkComparison } from './benchmark.js';
 
-        let toLiquidHtmlAST, NodeTypes;
+        let toLiquidHtmlAST;
         let pestParser = null;
         let fixtures = [];
 
         // Load parsers
         async function loadParsers() {
             try {
-                console.log("Loading Ohm.js parser...");
-                const ohmModule = await import("https://esm.sh/@shopify/liquid-html-parser");
-                toLiquidHtmlAST = ohmModule.toLiquidHtmlAST;
-                NodeTypes = ohmModule.NodeTypes;
-                console.log("✅ Ohm.js parser loaded");
-
+                console.log("Loading minified Ohm parser")
+                toLiquidHtmlAST = window.toLiquidHtmlAST
+                if (!toLiquidHtmlAST) {
+                    throw new Error("Minified parser not found on window.toLiquidHtmlAST");
+                }
+                console.log("✅ minified Ohm parser loaded");
                 try {
                     const wasmModule = await import('./pkg/wasm_liquiddoc_parser.js');
                     await wasmModule.default();
@@ -111,7 +116,7 @@
                     console.warn(`Could not load ${filename}:`, error.message);
                 }
             }
-            
+
             console.log(`📁 Loaded ${fixtures.length} fixtures`);
             return fixtures.length > 0;
         }
@@ -119,18 +124,18 @@
         // Test a single fixture
         function testFixture(fixture, iterations) {
             console.log(`\n🧪 Testing ${fixture.name}`);
-            
+
             const ohmInput = `{% doc %}\n${fixture.content}\n{% enddoc %}`;
             const pestInput = fixture.content;
-            
+
             const benchmarks = [
-                ["Ohm.js", () => toLiquidHtmlAST(ohmInput)]
+                ["Minified Ohm.js", () => toLiquidHtmlAST(ohmInput)]
             ];
-            
+
             if (pestParser && pestParser.parse_liquid) {
                 benchmarks.push(["Pest.rs", () => pestParser.parse_liquid(pestInput)]);
             }
-            
+
             return benchmarkComparison(benchmarks, iterations);
         }
 
@@ -154,7 +159,7 @@
                 `;
 
                 if (result.length >= 1) {
-                    html += `<div>Ohm.js: ${result[0].avgTime.toFixed(4)} ms (${result[0].throughput.toFixed(2)} ops/sec)</div>`;
+                    html += `<div>Minified Ohm.js: ${result[0].avgTime.toFixed(4)} ms (${result[0].throughput.toFixed(2)} ops/sec)</div>`;
                 }
                 if (result.length >= 2) {
                     html += `<div>Pest.rs: ${result[1].avgTime.toFixed(4)} ms (${result[1].throughput.toFixed(2)} ops/sec)</div>`;
@@ -175,7 +180,7 @@
 
                 html += `<div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 4px;">
                     <h3>🏆 Overall Results</h3>
-                    <div>Ohm.js average: ${ohmAvg.toFixed(4)} ms</div>
+                    <div>Minified Ohm.js average: ${ohmAvg.toFixed(4)} ms</div>
                     <div>Pest.rs average: ${pestAvg.toFixed(4)} ms</div>
                     <div><strong>Overall speedup: ${overallSpeedup.toFixed(2)}x</strong></div>
                 </div>`;
@@ -193,7 +198,7 @@
 
             try {
                 showStatus("🔧 Loading parsers and fixtures...");
-                
+
                 const parsersLoaded = await loadParsers();
                 if (!parsersLoaded) {
                     showStatus("❌ Failed to load parsers", 'error');
@@ -207,12 +212,12 @@
                 }
 
                 showStatus(`🚀 Testing ${fixtures.length} fixtures with ${iterations} iterations each...`);
-                
+
                 const allResults = [];
                 for (let i = 0; i < fixtures.length; i++) {
                     const fixture = fixtures[i];
                     showStatus(`Testing ${fixture.name} (${i + 1}/${fixtures.length})...`);
-                    
+
                     try {
                         const result = testFixture(fixture, iterations);
                         allResults.push(result);
@@ -236,4 +241,4 @@
         console.log("🔧 Fixture test page ready");
     </script>
 </body>
-</html> 
+</html>
