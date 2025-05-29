@@ -161,7 +161,7 @@ mod tests {
                     .as_str(),
                 "This is a cool parameter"
             );
-            assert!(param_node.required)
+            assert!(!param_node.required)
         } else {
             panic!("Expected a LiquidDocParamNode");
         }
