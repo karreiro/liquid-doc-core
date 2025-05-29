@@ -1,0 +1,25 @@
+---
+source: src/ast/example_node.rs
+expression: "@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n"
+---
+[
+  {
+    "type": "LiquidDocExampleNode",
+    "name": "example",
+    "position": {
+      "start": 10,
+      "end": 138
+    },
+    "source": "@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n",
+    "content": {
+      "type": "TextNode",
+      "value": "@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n",
+      "position": {
+        "start": 10,
+        "end": 138
+      },
+      "source": "@example\n{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}\n"
+    },
+    "isInline": true
+  }
+]

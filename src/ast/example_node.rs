@@ -70,4 +70,11 @@ mod test {
     pub fn test_serialization_round_trip() {
         assert_json_output!("@example simple inline example\n");
     }
+
+    #[test]
+    pub fn complex_example() {
+        assert_json_output!("@example
+{% render 'resource-card', resource: product, resource_type: 'product', image_width: 300, image_aspect_ratio: '1/1' %}
+");
+    }
 }
