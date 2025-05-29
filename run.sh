@@ -3,6 +3,10 @@
 echo "🚀 Running WebAssembly LiquidDoc Parser Project"
 echo ""
 
+echo "1️⃣  Installing Rust tools..."
+echo "----------------------------------------"
+cargo install cargo-insta
+
 echo "1️⃣  Running CLI version:"
 echo "----------------------------------------"
 cargo run --bin cli
