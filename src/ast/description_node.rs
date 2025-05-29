@@ -9,7 +9,7 @@ use super::{position::Position, TextNode};
 //       "start": 10,
 //       "end": 16
 //     },
-//     "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
+//     "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
 //     "content": {
 //       "type": "TextNode",
 //       "value": "kdkd\n\n",
@@ -17,7 +17,7 @@ use super::{position::Position, TextNode};
 //         "start": 10,
 //         "end": 16
 //       },
-//       "source": "{% doc %}\nkdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}"
+//       "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n"
 //     },
 //     "isImplicit": true,
 //     "isInline": true
@@ -130,7 +130,7 @@ mod tests {
         assert_eq!(description_node.name, "description");
         assert!(!description_node.is_implicit);
         assert!(description_node.is_inline);
-        assert_eq!(description_node.content.value, "@description kdkd\n");
+        assert_eq!(description_node.content.value, "kdkd\n");
     }
 
     #[test]
@@ -147,8 +147,8 @@ mod tests {
         "start": 23,
         "end": 28
       },
-      "source": "{% doc %}\n@description kdkd\n{% enddoc %}",
-      "type": "TextNode",
+      "source": "@description kdkd\n",
+      "type": "TextNode"
     },
     "isImplicit": false,
     "isInline": true,
@@ -161,6 +161,152 @@ mod tests {
   }
 ]"#;
 
+        let actual = serde_json::to_string_pretty(&ast.nodes).unwrap();
+
+        assert_eq!(expected, actual);
+    }
+
+    #[test]
+    pub fn test_serialization_round_trip_with_implicit_description() {
+        let input = "kdkd
+
+@param {sometype} requiredParamWithSomeType - This is a cool parameter";
+        let ast = parse_liquid_string(input, Some(10)).unwrap();
+
+        let expected = r#"[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "content": {
+      "value": "kdkd\n\n",
+      "position": {
+        "start": 10,
+        "end": 16
+      },
+      "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+      "type": "TextNode"
+    },
+    "isImplicit": true,
+    "isInline": true,
+    "position": {
+      "start": 10,
+      "end": 16
+    },
+    "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+    "name": "description"
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 16,
+      "end": 86
+    },
+    "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+    "required": true,
+    "paramType": {
+      "value": "sometype",
+      "position": {
+        "start": 24,
+        "end": 32
+      },
+      "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+      "type": "TextNode"
+    },
+    "paramName": {
+      "value": "requiredParamWithSomeType",
+      "position": {
+        "start": 34,
+        "end": 59
+      },
+      "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+      "type": "TextNode"
+    },
+    "paramDescription": {
+      "value": "This is a cool parameter",
+      "position": {
+        "start": 62,
+        "end": 86
+      },
+      "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+      "type": "TextNode"
+    }
+  }
+]"#;
+
+        // prettify json string
+        let actual = serde_json::to_string_pretty(&ast.nodes).unwrap();
+
+        assert_eq!(expected, actual);
+    }
+
+    #[test]
+    pub fn test_serialization_round_trip_with_explicit_description() {
+        let input = "@description kdkd
+
+@param {sometype} requiredParamWithSomeType - This is a cool parameter";
+        let ast = parse_liquid_string(input, Some(10)).unwrap();
+
+        let expected = r#"[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "content": {
+      "value": "@description kdkd\n\n",
+      "position": {
+        "start": 23,
+        "end": 29
+      },
+      "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+      "type": "TextNode"
+    },
+    "isImplicit": false,
+    "isInline": true,
+    "position": {
+      "start": 10,
+      "end": 29
+    },
+    "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+    "name": "description"
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 29,
+      "end": 99
+    },
+    "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+    "required": true,
+    "paramType": {
+      "value": "sometype",
+      "position": {
+        "start": 36,
+        "end": 46
+      },
+      "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+      "type": "TextNode"
+    },
+    "paramName": {
+      "value": "requiredParamWithSomeType",
+      "position": {
+        "start": 47,
+        "end": 72
+      },
+      "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+      "type": "TextNode"
+    },
+    "paramDescription": {
+      "value": "This is a cool parameter",
+      "position": {
+        "start": 75,
+        "end": 99
+      },
+      "source": "kdkd\n\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n",
+      "type": "TextNode"
+    }
+  }
+]"#;
+
+        // prettify json string
         let actual = serde_json::to_string_pretty(&ast.nodes).unwrap();
 
         assert_eq!(expected, actual);
