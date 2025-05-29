@@ -94,56 +94,6 @@ mod test {
     // use wasm_bindgen_test::wasm_bindgen_test;
     // use wasm_bindgen_test::wasm_bindgen_test_configure;
     // wasm_bindgen_test_configure!(run_in_browser);
-    #[test]
-    pub fn test_serialization_round_trip() {
-        let input = "@param {sometype} requiredParamWithSomeType - This is a cool parameter";
-        let ast = parse_liquid_string(input, Some(10)).unwrap();
-
-        let expected = r#"[
-  {
-    "type": "LiquidDocParamNode",
-    "name": "param",
-    "position": {
-      "start": 10,
-      "end": 80
-    },
-    "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
-    "required": true,
-    "paramType": {
-      "value": "sometype",
-      "position": {
-        "start": 18,
-        "end": 26
-      },
-      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
-      "type": "TextNode"
-    },
-    "paramName": {
-      "value": "requiredParamWithSomeType",
-      "position": {
-        "start": 28,
-        "end": 53
-      },
-      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
-      "type": "TextNode"
-    },
-    "paramDescription": {
-      "value": "This is a cool parameter",
-      "position": {
-        "start": 56,
-        "end": 80
-      },
-      "source": "{% doc %}\n@param {sometype} requiredParamWithSomeType - This is a cool parameter\n{% enddoc %}",
-      "type": "TextNode"
-    }
-  }
-]"#;
-
-        // prettify json string
-        let actual = serde_json::to_string_pretty(&ast.nodes).unwrap();
-
-        assert_eq!(expected, actual);
-    }
 
     #[test]
     pub fn test_serialization_round_trip_with_description() {

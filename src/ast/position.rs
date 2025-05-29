@@ -26,4 +26,7 @@ impl Position {
     pub fn shift_start(&mut self, offset: usize) {
         self.start += offset;
     }
+    pub fn shift_end_down(&mut self, offset: usize) {
+        self.end -= offset;
+    }
 }

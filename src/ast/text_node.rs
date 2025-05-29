@@ -36,10 +36,17 @@ impl TextNode {
         position_offset: Option<usize>,
     ) -> Self {
         let mut text_node = Self::from_pair(pair, position_offset);
-        text_node.value = text_node
+        let new_value = text_node
             .value
             .trim_matches(|c| c == '{' || c == '}' || c == '[' || c == ']')
             .to_string();
+        if new_value == text_node.value {
+            return text_node; // No change needed
+        }
+        text_node.value = new_value;
+
+        text_node.position.shift_start(1); // Adjust position to account for removed brackets
+        text_node.position.shift_end_down(1); // Adjust end position as well
         text_node
     }
 
