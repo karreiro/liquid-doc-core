@@ -131,26 +131,19 @@
 
     <div id="status"></div>
 
+    <script src="https://unpkg.com/ohm-js@17/dist/ohm.js"></script>
+    <script src="https://unpkg.com/ohm-js@17/dist/ohm-extras.js"></script>
+    <script src="./ohm-parser.js"></script>
     <script type="module">
       // Import our clean benchmark utilities
       import { benchmarkComparison } from './benchmark.js';
-      
+
       // Add error handling for module loading
-      let toLiquidHtmlAST, NodeTypes;
+      let toLiquidHtmlAST = window.toLiquidHtmlAST;
       let pestParser = null;
-      
+
       try {
         console.log("Starting to load parser modules...");
-
-        // Import Ohm.js parser from esm.sh CDN
-        const ohmModule = await import(
-          "https://esm.sh/@shopify/liquid-html-parser"
-        );
-        console.log("Ohm.js module loaded:", ohmModule);
-
-        toLiquidHtmlAST = ohmModule.toLiquidHtmlAST;
-        NodeTypes = ohmModule.NodeTypes;
-        console.log("Ohm.js functions extracted:", { toLiquidHtmlAST, NodeTypes });
 
         // Import Pest.rs WASM parser
         try {
@@ -164,16 +157,16 @@
 
         // Clean benchmark function using our benchmark module
         window.runSimpleBenchmark = function() {
-          const ohmInput = `{% doc %}\n${document.getElementById("input").value}\n{% enddoc %}`;
+          const ohmInput = document.getElementById("input").value;
           const pestInput = document.getElementById("input").value;
           const iterations = 100;
-          
+
           console.log(`Input: ${ohmInput.substring(0, 100)}...`);
-          
+
           const benchmarks = [
             ["Ohm.js (@shopify/liquid-html-parser)", () => toLiquidHtmlAST(ohmInput)]
           ];
-          
+
           if (pestParser && pestParser.parse_liquid) {
             benchmarks.push(["Pest.rs (WASM)", () => pestParser.parse_liquid(pestInput)]);
           } else {
@@ -182,24 +175,23 @@
             console.log("   1. Build WASM: wasm-pack build --target web --out-dir web/pkg");
             console.log("   2. Ensure parse_liquid function is exposed in src/lib.rs");
           }
-          
+
           benchmarkComparison(benchmarks, iterations);
           showStatus(`Benchmark complete!`, "success");
         };
 
         // Make parseInput available globally for onclick handlers
         window.parseInput = function () {
-          const input = `{% doc %}\n${document.getElementById("input").value}\n{% enddoc %}`;
+          const input = document.getElementById("input").value;
           const output = document.getElementById("output");
 
           try {
             console.log("Parsing Liquid HTML...");
             const ast = toLiquidHtmlAST(input);
-            const liquidDocAst = ast.children[0].body.nodes;
 
             // Display the AST with circular reference handling
             output.innerHTML = `<pre>${JSON.stringify(
-              liquidDocAst,
+              ast,
               (key, value) => {
                 // Prevent circular references
                 if (
@@ -284,9 +276,6 @@
 
         // Parse initial content
         window.parseInput();
-
-        // Log available NodeTypes for reference
-        console.log("Available NodeTypes:", NodeTypes);
       } catch (error) {
         console.error("Failed to load parser module:", error);
         document.getElementById(
