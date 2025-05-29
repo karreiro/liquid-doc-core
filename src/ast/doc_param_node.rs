@@ -6,6 +6,7 @@ use super::position::Position;
 use super::text_node::TextNode;
 use super::LiquidNode;
 
+const NODE_NAME: &str = "param";
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocParamNode {
     pub name: String,
@@ -29,7 +30,7 @@ impl LiquidDocParamNode {
         required: bool,
     ) -> Self {
         LiquidDocParamNode {
-            name: "param".to_string(), // The node name is always "param"
+            name: NODE_NAME.to_string(),
             position,
             source,
             param_type: param_type.map(|t| Box::new(LiquidNode::TextNode(t))),

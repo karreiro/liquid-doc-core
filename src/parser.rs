@@ -14,7 +14,6 @@ pub fn visit(
 ) {
     match pair.as_rule() {
         Rule::Document => {
-            // The Document rule is the root of the AST, so we can just ignore it
             for inner_pair in pair.into_inner() {
                 visit(ast, inner_pair, position_offset);
             }

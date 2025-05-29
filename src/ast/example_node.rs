@@ -2,6 +2,7 @@ use serde::{Deserialize, Serialize};
 
 use super::{position::Position, LiquidNode, TextNode};
 
+const NODE_NAME: &str = "example";
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocExampleNode {
     pub name: String,
@@ -19,7 +20,7 @@ impl LiquidDocExampleNode {
             is_inline,
             position,
             source,
-            name: "example".to_string(), // The node name is always "example"
+            name: NODE_NAME.to_string(),
         }
     }
 

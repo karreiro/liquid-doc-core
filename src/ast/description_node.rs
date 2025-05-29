@@ -2,6 +2,8 @@ use serde::{Deserialize, Serialize};
 
 use super::{position::Position, LiquidNode, TextNode};
 
+const NODE_NAME: &str = "description";
+
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocDescriptionNode {
     pub name: String,
@@ -28,7 +30,7 @@ impl LiquidDocDescriptionNode {
             is_inline,
             position,
             source,
-            name: "description".to_string(), // The node name is always "description"
+            name: NODE_NAME.to_string(),
         }
     }
     pub fn explicit(
