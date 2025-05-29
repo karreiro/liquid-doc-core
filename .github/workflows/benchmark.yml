@@ -1,0 +1,144 @@
+name: Parser Benchmark
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      iterations:
+        description: 'Number of iterations per test'
+        required: false
+        default: '100'
+        type: string
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: web/package.json
+
+    - name: Setup Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: wasm32-unknown-unknown
+        override: true
+
+    - name: Install wasm-pack
+      run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+    - name: Install Node dependencies
+      working-directory: web
+      run: npm install
+
+    - name: Build WASM parser
+      run: |
+        wasm-pack build --target web --out-dir web/pkg
+
+    - name: Make benchmark script executable
+      working-directory: web
+      run: chmod +x test-all-fixtures.sh
+
+    - name: Run benchmark tests
+      working-directory: web
+      run: |
+        ITERATIONS=${{ github.event.inputs.iterations || '100' }}
+        echo "Running benchmarks with $ITERATIONS iterations..."
+        ./test-all-fixtures.sh $ITERATIONS
+
+    - name: Archive benchmark results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: benchmark-results-${{ github.run_number }}
+        path: |
+          web/*.log
+          web/results.txt
+        retention-days: 30
+
+  benchmark-comparison:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+    - name: Checkout repository (base)
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.base_ref }}
+        path: base
+
+    - name: Checkout repository (head)
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.head_ref }}
+        path: head
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Setup Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: wasm32-unknown-unknown
+        override: true
+
+    - name: Install wasm-pack
+      run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+    - name: Run base benchmark
+      working-directory: base/web
+      run: |
+        npm install
+        wasm-pack build --target web --out-dir pkg --manifest-path ../Cargo.toml
+        chmod +x test-all-fixtures.sh
+        ./test-all-fixtures.sh 50 > ../base-results.txt 2>&1
+
+    - name: Run head benchmark
+      working-directory: head/web
+      run: |
+        npm install
+        wasm-pack build --target web --out-dir pkg --manifest-path ../Cargo.toml
+        chmod +x test-all-fixtures.sh
+        ./test-all-fixtures.sh 50 > ../head-results.txt 2>&1
+
+    - name: Compare results
+      run: |
+        echo "## Benchmark Comparison Results" >> comparison.md
+        echo "" >> comparison.md
+        echo "### Base Branch Results:" >> comparison.md
+        echo '```' >> comparison.md
+        cat base-results.txt >> comparison.md
+        echo '```' >> comparison.md
+        echo "" >> comparison.md
+        echo "### PR Branch Results:" >> comparison.md
+        echo '```' >> comparison.md
+        cat head-results.txt >> comparison.md
+        echo '```' >> comparison.md
+
+    - name: Comment PR
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const comparison = fs.readFileSync('comparison.md', 'utf8');
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comparison
+          });
