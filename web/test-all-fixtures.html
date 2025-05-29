@@ -99,21 +99,20 @@
 
         // Load fixture files
         async function loadFixtures() {
-            const fixtureFiles = [
-                'fixture1.liquid', 'fixture2.liquid', 'fixture3.liquid', 'fixture4.liquid',
-                'fixture5.liquid', 'fixture6.liquid', 'fixture7.liquid', 'fixture8.liquid', 'fixture9.liquid'
-            ];
-
             fixtures = [];
-            for (const filename of fixtureFiles) {
+            let i = 1;
+
+            while (true) {
+                const filename = `fixture${i}.liquid`;
                 try {
                     const response = await fetch(`./fixtures/${filename}`);
-                    if (response.ok) {
-                        const content = await response.text();
-                        fixtures.push({ name: filename, content: content.trim() });
-                    }
-                } catch (error) {
-                    console.warn(`Could not load ${filename}:`, error.message);
+                    if (!response.ok) break;
+
+                    const content = await response.text();
+                    fixtures.push({ name: filename, content: content.trim() });
+                    i++;
+                } catch {
+                    break;
                 }
             }
 
