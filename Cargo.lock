@@ -71,6 +71,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "ecow"
+version = "0.2.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b92b481eb5d59fd8e80e92ff11d057d1ca8d144b2cd8c66cc8d5bd177a3c0dc5"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "encode_unicode"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -405,6 +414,7 @@ dependencies = [
 name = "wasm-liquiddoc-parser"
 version = "0.1.0"
 dependencies = [
+ "ecow",
  "insta",
  "paste",
  "pest",

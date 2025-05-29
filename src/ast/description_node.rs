@@ -1,12 +1,14 @@
+use ecow::EcoString;
 use serde::{Deserialize, Serialize};
 
 use super::{position::Position, LiquidNode, TextNode};
+const NODE_NAME: &str = "description";
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocDescriptionNode {
-    pub name: String,
+    pub name: EcoString,
     pub position: Position,
-    pub source: String,
+    pub source: EcoString,
     pub content: Box<LiquidNode>,
     #[serde(rename = "isImplicit")]
     pub is_implicit: bool,
@@ -20,7 +22,7 @@ impl LiquidDocDescriptionNode {
         is_implicit: bool,
         is_inline: bool,
         position: Position,
-        source: String,
+        source: EcoString,
     ) -> Self {
         LiquidDocDescriptionNode {
             content: Box::new(LiquidNode::TextNode(content)),
@@ -28,7 +30,7 @@ impl LiquidDocDescriptionNode {
             is_inline,
             position,
             source,
-            name: "description".to_string(), // The node name is always "description"
+            name: NODE_NAME.into(), // The node name is always "description"
         }
     }
     pub fn explicit(
@@ -50,7 +52,7 @@ impl LiquidDocDescriptionNode {
             false,
             true,
             Position::from_pair(pair, position_offset),
-            source_str.to_string(),
+            source_str.into(),
         )
     }
     pub fn implicit(
@@ -73,12 +75,12 @@ impl LiquidDocDescriptionNode {
             true,
             true,
             Position::from_pair(pair, position_offset),
-            source_str.to_string(),
+            source_str.into(),
         )
     }
-    pub fn value(&self) -> &str {
+    pub fn value(&self) -> &EcoString {
         match self.content.as_ref() {
-            LiquidNode::TextNode(text_node) => text_node.value.as_str(),
+            LiquidNode::TextNode(text_node) => &text_node.value,
             _ => unreachable!("Expected content to be a TextNode"),
         }
     }

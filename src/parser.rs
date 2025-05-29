@@ -25,7 +25,7 @@ pub fn visit(
                 // If the description starts with '@', it's a fallback, treat it as a text node
                 if node.value().starts_with("@") {
                     ast.add_node(LiquidNode::TextNode(TextNode::new(
-                        node.value().to_string(),
+                        node.value(),
                         node.position,
                         node.source.clone(),
                     )));

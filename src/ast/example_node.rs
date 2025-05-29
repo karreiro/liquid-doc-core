@@ -1,25 +1,28 @@
+use ecow::EcoString;
 use serde::{Deserialize, Serialize};
 
 use super::{position::Position, LiquidNode, TextNode};
 
+const NODE_NAME: &str = "example";
+
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocExampleNode {
-    pub name: String,
+    pub name: EcoString,
     pub position: Position,
-    pub source: String,
+    pub source: EcoString,
     pub content: Box<LiquidNode>,
     #[serde(rename = "isInline")]
     pub is_inline: bool,
 }
 
 impl LiquidDocExampleNode {
-    pub fn new(content: TextNode, is_inline: bool, position: Position, source: String) -> Self {
+    pub fn new(content: TextNode, is_inline: bool, position: Position, source: EcoString) -> Self {
         LiquidDocExampleNode {
             content: Box::new(LiquidNode::TextNode(content)),
             is_inline,
             position,
             source,
-            name: "example".to_string(), // The node name is always "example"
+            name: NODE_NAME.into(), // The node name is always "example"
         }
     }
 
@@ -37,7 +40,7 @@ impl LiquidDocExampleNode {
         content.trim_content_start("@example ");
 
         let position = Position::from_pair(pair, position_offset);
-        let source = pair.as_str().to_string();
+        let source = pair.as_str().into();
         LiquidDocExampleNode::new(content, true, position, source)
     }
 }
@@ -54,7 +57,8 @@ mod test {
         let result = parse_liquid_string(input, Some(10));
 
         assert!(result.is_some());
-        let node = result.unwrap().head();
+        let binding = &result.unwrap();
+        let node = binding.head();
         if let LiquidNode::LiquidDocExampleNode(example_node) = node {
             assert_eq!(
                 example_node.content.as_text_node_unsafe().as_str(),

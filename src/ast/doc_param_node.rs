@@ -1,3 +1,4 @@
+use ecow::EcoString;
 use serde::{Deserialize, Serialize};
 
 use crate::parser::Rule;
@@ -6,11 +7,13 @@ use super::position::Position;
 use super::text_node::TextNode;
 use super::LiquidNode;
 
+const NODE_NAME: &str = "param";
+
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct LiquidDocParamNode {
-    pub name: String,
+    pub name: EcoString,
     pub position: Position,
-    pub source: String,
+    pub source: EcoString,
     #[serde(rename = "paramName")]
     pub param_name: Box<LiquidNode>,
     #[serde(rename = "paramDescription")]
@@ -22,14 +25,14 @@ pub struct LiquidDocParamNode {
 impl LiquidDocParamNode {
     fn new(
         position: Position,
-        source: String,
+        source: EcoString,
         param_type: Option<TextNode>,
         param_name: TextNode,
         param_description: Option<TextNode>,
         required: bool,
     ) -> Self {
         LiquidDocParamNode {
-            name: "param".to_string(), // The node name is always "param"
+            name: NODE_NAME.into(), // The node name is always "param"
             position,
             source,
             param_type: param_type.map(|t| Box::new(LiquidNode::TextNode(t))),
@@ -72,7 +75,7 @@ impl LiquidDocParamNode {
 
         LiquidDocParamNode::new(
             Position::from_pair(pair, position_offset),
-            pair.as_str().to_string(),
+            pair.as_str().into(),
             param_type,
             param_name,
             description,
@@ -94,7 +97,8 @@ mod tests {
         let result = parse_liquid_string(input, Some(10));
 
         assert!(result.is_some());
-        let node = result.unwrap().head();
+        let binding = result.unwrap();
+        let node = binding.head();
 
         if let LiquidNode::LiquidDocParamNode(param_node) = node {
             assert_eq!(
@@ -121,7 +125,8 @@ mod tests {
         let result = parse_liquid_string(input, Some(10));
 
         assert!(result.is_some());
-        let node = result.unwrap().head();
+        let binding = result.unwrap();
+        let node = binding.head();
         if let LiquidNode::LiquidDocParamNode(param_node) = node {
             assert_eq!(
                 param_node.param_name.as_text_node_unsafe().as_str(),
@@ -147,7 +152,8 @@ mod tests {
         let result = parse_liquid_string(input, Some(10));
 
         assert!(result.is_some());
-        let node = result.unwrap().head();
+        let binding = result.unwrap();
+        let node = binding.head();
         if let LiquidNode::LiquidDocParamNode(param_node) = node {
             assert_eq!(
                 param_node.param_name.as_text_node_unsafe().as_str(),
