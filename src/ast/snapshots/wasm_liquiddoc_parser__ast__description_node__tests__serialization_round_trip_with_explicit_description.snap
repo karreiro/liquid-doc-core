@@ -31,7 +31,6 @@ expression: "@description kdkd\n\n@param {sometype} requiredParamWithSomeType - 
       "end": 99
     },
     "source": "@param {sometype} requiredParamWithSomeType - This is a cool parameter",
-    "required": true,
     "paramName": {
       "type": "TextNode",
       "value": "requiredParamWithSomeType",
@@ -58,6 +57,7 @@ expression: "@description kdkd\n\n@param {sometype} requiredParamWithSomeType - 
         "end": 45
       },
       "source": "{sometype}"
-    }
+    },
+    "required": true
   }
 ]

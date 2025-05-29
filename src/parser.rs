@@ -51,14 +51,11 @@ pub fn visit(
                     let node = LiquidDocDescriptionNode::explicit(&next, position_offset);
                     ast.add_node(LiquidNode::LiquidDocDescriptionNode(node));
                 }
-                Rule::promptNode => {
-                    // Process prompt node
-                    unimplemented!("Prompt nodes are not yet implemented");
-                }
-                Rule::fallbackNode => {
-                    // Process fallback node
-                    let node = TextNode::from_pair(&next, position_offset);
-                    ast.add_node(LiquidNode::TextNode(node));
+                Rule::promptNode | Rule::fallbackNode => {
+                    let text_node = TextNode::from_pair(&next, position_offset);
+                    if !text_node.is_empty() {
+                        ast.add_node(LiquidNode::TextNode(text_node));
+                    }
                 }
                 _ => unreachable!("Unexpected rule in LiquidDocNode: {:?}", next.as_rule()),
             }

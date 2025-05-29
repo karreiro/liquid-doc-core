@@ -11,7 +11,6 @@ expression: "@param {sometype} requiredParamWithSomeType - This is a cool parame
       "end": 80
     },
     "source": "@param {sometype} requiredParamWithSomeType - This is a cool parameter",
-    "required": true,
     "paramName": {
       "type": "TextNode",
       "value": "requiredParamWithSomeType",
@@ -38,6 +37,7 @@ expression: "@param {sometype} requiredParamWithSomeType - This is a cool parame
         "end": 26
       },
       "source": "{sometype}"
-    }
+    },
+    "required": true
   }
 ]

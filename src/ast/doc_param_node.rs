@@ -11,13 +11,13 @@ pub struct LiquidDocParamNode {
     pub name: String,
     pub position: Position,
     pub source: String,
-    pub required: bool,
     #[serde(rename = "paramName")]
     pub param_name: Box<LiquidNode>,
     #[serde(rename = "paramDescription")]
     pub param_description: Option<Box<LiquidNode>>,
     #[serde(rename = "paramType")]
     pub param_type: Option<Box<LiquidNode>>,
+    pub required: bool,
 }
 impl LiquidDocParamNode {
     fn new(
@@ -171,5 +171,15 @@ mod tests {
         assert_json_output!(
             "@param {sometype} requiredParamWithSomeType - This is a cool parameter"
         );
+    }
+
+    #[test]
+    pub fn complex_example_with_many_params() {
+        assert_json_output!("@param requiredParamWithNoType
+@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.
+@param {String} paramWithNoDescription
+@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description
+@param [optionalParameterWithDescription] - optional parameter description
+@param {String} [optionalParameterWithType]")
     }
 }

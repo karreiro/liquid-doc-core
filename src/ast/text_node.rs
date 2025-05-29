@@ -72,4 +72,9 @@ mod tests {
     fn fallback_node() {
         assert_json_output!("@unsupported this node falls back to a text node")
     }
+
+    #[test]
+    fn prompt_node() {
+        assert_json_output!("@prompt Make something pretty")
+    }
 }
