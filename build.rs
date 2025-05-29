@@ -1,4 +1,3 @@
-// build.rs
 use std::env;
 use std::fs;
 use std::path::Path;
@@ -21,7 +20,6 @@ fn main() {
         })
         .collect::<Vec<_>>();
 
-    // Generate the macro
     let macro_content = format!(
         r#"
 #[macro_export]
