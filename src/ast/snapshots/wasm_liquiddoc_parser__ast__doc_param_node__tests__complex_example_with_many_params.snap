@@ -10,7 +10,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
       "start": 10,
       "end": 40
     },
-    "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}",
+    "source": "@param requiredParamWithNoType",
     "paramName": {
       "type": "TextNode",
       "value": "requiredParamWithNoType",
@@ -18,7 +18,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 17,
         "end": 40
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "requiredParamWithNoType"
     },
     "paramDescription": null,
     "paramType": null,
@@ -31,7 +31,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
       "start": 41,
       "end": 161
     },
-    "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}",
+    "source": "@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.",
     "paramName": {
       "type": "TextNode",
       "value": "paramWithDescription",
@@ -39,7 +39,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 57,
         "end": 77
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "paramWithDescription"
     },
     "paramDescription": {
       "type": "TextNode",
@@ -48,7 +48,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 80,
         "end": 161
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "param with description and `punctation`. This is still a valid param description."
     },
     "paramType": {
       "type": "TextNode",
@@ -57,7 +57,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 49,
         "end": 55
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "{String}"
     },
     "required": true
   },
@@ -68,7 +68,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
       "start": 162,
       "end": 200
     },
-    "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}",
+    "source": "@param {String} paramWithNoDescription",
     "paramName": {
       "type": "TextNode",
       "value": "paramWithNoDescription",
@@ -76,7 +76,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 178,
         "end": 200
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "paramWithNoDescription"
     },
     "paramDescription": null,
     "paramType": {
@@ -86,7 +86,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 170,
         "end": 176
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "{String}"
     },
     "required": true
   },
@@ -97,7 +97,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
       "start": 201,
       "end": 305
     },
-    "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}",
+    "source": "@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description",
     "paramName": {
       "type": "TextNode",
       "value": "optionalParameterWithTypeAndDescription",
@@ -105,7 +105,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 218,
         "end": 257
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "[optionalParameterWithTypeAndDescription]"
     },
     "paramDescription": {
       "type": "TextNode",
@@ -114,7 +114,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 261,
         "end": 305
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "optional parameter with type and description"
     },
     "paramType": {
       "type": "TextNode",
@@ -123,7 +123,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 209,
         "end": 215
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "{String}"
     },
     "required": false
   },
@@ -134,7 +134,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
       "start": 306,
       "end": 380
     },
-    "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}",
+    "source": "@param [optionalParameterWithDescription] - optional parameter description",
     "paramName": {
       "type": "TextNode",
       "value": "optionalParameterWithDescription",
@@ -142,7 +142,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 314,
         "end": 346
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "[optionalParameterWithDescription]"
     },
     "paramDescription": {
       "type": "TextNode",
@@ -151,7 +151,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 350,
         "end": 380
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "optional parameter description"
     },
     "paramType": null,
     "required": false
@@ -163,7 +163,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
       "start": 381,
       "end": 424
     },
-    "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}",
+    "source": "@param {String} [optionalParameterWithType]",
     "paramName": {
       "type": "TextNode",
       "value": "optionalParameterWithType",
@@ -171,7 +171,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 398,
         "end": 423
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "[optionalParameterWithType]"
     },
     "paramDescription": null,
     "paramType": {
@@ -181,7 +181,7 @@ expression: "@param requiredParamWithNoType\n@param {String} paramWithDescriptio
         "start": 389,
         "end": 395
       },
-      "source": "{% doc %}\n@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and `punctation`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n{% enddoc %}"
+      "source": "{String}"
     },
     "required": false
   }

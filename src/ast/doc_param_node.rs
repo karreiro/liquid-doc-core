@@ -57,6 +57,8 @@ impl LiquidDocParamNode {
         } else {
             (None, first)
         };
+        let original_name_str = name.as_str();
+        let required = !original_name_str.starts_with('[') && !original_name_str.ends_with(']');
 
         let param_name = TextNode::without_brackets(&name, position_offset);
 
@@ -68,14 +70,13 @@ impl LiquidDocParamNode {
             }
         });
 
-        let source_str = pair.as_str();
         LiquidDocParamNode::new(
             Position::from_pair(pair, position_offset),
-            source_str.to_string(),
+            pair.as_str().to_string(),
             param_type,
             param_name,
             description,
-            !source_str.starts_with('[') && !source_str.ends_with(']'),
+            required,
         )
     }
 }

@@ -1,5 +1,5 @@
 // Main rule
-Document = { ImplicitDescription ~ (LiquidDocNode | TextNode)* }
+Document = { ImplicitDescription ~ (WhitespaceNode | LiquidDocNode | TextNode)* }
 
 LiquidDocNode = {
     paramNode
@@ -15,9 +15,11 @@ ImplicitDescription = { descriptionContent }
 
 // Space definitions
 strictSpace = _{ " " | "\t" }
+space = _{ strictSpace | NEWLINE }
 openControl = { strictSpace* ~ (tagStart | EOI) }
 supportedTags = { "@prompt" | "@example" | "@description" | "@param" }
 tagStart = { "@prompt" | "@example" | "@description" | "@param"| "@" ~ !ASCII_ALPHANUMERIC }
+WhitespaceNode = _{ space+ }
 
 // Parameter node rules
 paramNode = { "@param" ~ strictSpace* ~ paramType? ~ strictSpace* ~ (optionalParamName | paramName) ~ (strictSpace* ~ "-")? ~ strictSpace* ~ paramDescription }
@@ -44,4 +46,3 @@ fallbackNode = { "@" ~ (!endOfParam ~ ANY)* }
 // Helper rules (assuming these are defined in the Helpers parent grammar)
 TextNode = { (!openControl ~ ANY)+ }
 identifierCharacter = @{ ASCII_ALPHANUMERIC | "_" | "-" }
-space = _{ " " | "\t" | NEWLINE }
