@@ -1,0 +1,46 @@
+---
+source: src/ast/fixture_tests.rs
+expression: "@description This is a description\n@description This is another description\nit can have multiple lines"
+---
+[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
+    "position": {
+      "start": 10,
+      "end": 45
+    },
+    "source": "@description This is a description\n",
+    "content": {
+      "type": "TextNode",
+      "value": "This is a description\n",
+      "position": {
+        "start": 23,
+        "end": 45
+      },
+      "source": "@description This is a description\n"
+    },
+    "isImplicit": false,
+    "isInline": true
+  },
+  {
+    "type": "LiquidDocDescriptionNode",
+    "name": "description",
+    "position": {
+      "start": 45,
+      "end": 112
+    },
+    "source": "@description This is another description\nit can have multiple lines",
+    "content": {
+      "type": "TextNode",
+      "value": "This is another description\nit can have multiple lines",
+      "position": {
+        "start": 58,
+        "end": 112
+      },
+      "source": "@description This is another description\nit can have multiple lines"
+    },
+    "isImplicit": false,
+    "isInline": true
+  }
+]

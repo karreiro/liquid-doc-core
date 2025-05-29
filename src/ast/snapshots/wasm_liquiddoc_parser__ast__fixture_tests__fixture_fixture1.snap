@@ -1,0 +1,197 @@
+---
+source: src/ast/fixture_tests.rs
+expression: "@param requiredParamWithNoType\n@param {String} paramWithDescription - param with description and \\`punctation\\`. This is still a valid param description.\n@param {String} paramWithNoDescription\n@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description\n@param [optionalParameterWithDescription] - optional parameter description\n@param {String} [optionalParameterWithType]\n@unsupported this node falls back to a text node"
+---
+[
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 10,
+      "end": 40
+    },
+    "source": "@param requiredParamWithNoType",
+    "paramName": {
+      "type": "TextNode",
+      "value": "requiredParamWithNoType",
+      "position": {
+        "start": 17,
+        "end": 40
+      },
+      "source": "requiredParamWithNoType"
+    },
+    "paramDescription": null,
+    "paramType": null,
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 41,
+      "end": 163
+    },
+    "source": "@param {String} paramWithDescription - param with description and \\`punctation\\`. This is still a valid param description.",
+    "paramName": {
+      "type": "TextNode",
+      "value": "paramWithDescription",
+      "position": {
+        "start": 57,
+        "end": 77
+      },
+      "source": "paramWithDescription"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "param with description and \\`punctation\\`. This is still a valid param description.",
+      "position": {
+        "start": 80,
+        "end": 163
+      },
+      "source": "param with description and \\`punctation\\`. This is still a valid param description."
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "String",
+      "position": {
+        "start": 49,
+        "end": 55
+      },
+      "source": "{String}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 164,
+      "end": 202
+    },
+    "source": "@param {String} paramWithNoDescription",
+    "paramName": {
+      "type": "TextNode",
+      "value": "paramWithNoDescription",
+      "position": {
+        "start": 180,
+        "end": 202
+      },
+      "source": "paramWithNoDescription"
+    },
+    "paramDescription": null,
+    "paramType": {
+      "type": "TextNode",
+      "value": "String",
+      "position": {
+        "start": 172,
+        "end": 178
+      },
+      "source": "{String}"
+    },
+    "required": true
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 203,
+      "end": 307
+    },
+    "source": "@param {String} [optionalParameterWithTypeAndDescription] - optional parameter with type and description",
+    "paramName": {
+      "type": "TextNode",
+      "value": "optionalParameterWithTypeAndDescription",
+      "position": {
+        "start": 220,
+        "end": 259
+      },
+      "source": "[optionalParameterWithTypeAndDescription]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "optional parameter with type and description",
+      "position": {
+        "start": 263,
+        "end": 307
+      },
+      "source": "optional parameter with type and description"
+    },
+    "paramType": {
+      "type": "TextNode",
+      "value": "String",
+      "position": {
+        "start": 211,
+        "end": 217
+      },
+      "source": "{String}"
+    },
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 308,
+      "end": 382
+    },
+    "source": "@param [optionalParameterWithDescription] - optional parameter description",
+    "paramName": {
+      "type": "TextNode",
+      "value": "optionalParameterWithDescription",
+      "position": {
+        "start": 316,
+        "end": 348
+      },
+      "source": "[optionalParameterWithDescription]"
+    },
+    "paramDescription": {
+      "type": "TextNode",
+      "value": "optional parameter description",
+      "position": {
+        "start": 352,
+        "end": 382
+      },
+      "source": "optional parameter description"
+    },
+    "paramType": null,
+    "required": false
+  },
+  {
+    "type": "LiquidDocParamNode",
+    "name": "param",
+    "position": {
+      "start": 383,
+      "end": 426
+    },
+    "source": "@param {String} [optionalParameterWithType]",
+    "paramName": {
+      "type": "TextNode",
+      "value": "optionalParameterWithType",
+      "position": {
+        "start": 400,
+        "end": 425
+      },
+      "source": "[optionalParameterWithType]"
+    },
+    "paramDescription": null,
+    "paramType": {
+      "type": "TextNode",
+      "value": "String",
+      "position": {
+        "start": 391,
+        "end": 397
+      },
+      "source": "{String}"
+    },
+    "required": false
+  },
+  {
+    "type": "TextNode",
+    "value": "@unsupported this node falls back to a text node",
+    "position": {
+      "start": 427,
+      "end": 475
+    },
+    "source": "@unsupported this node falls back to a text node"
+  }
+]

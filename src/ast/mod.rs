@@ -1,6 +1,8 @@
 mod description_node;
 mod doc_param_node;
 mod example_node;
+#[cfg(test)]
+mod fixture_tests;
 mod liquid_ast;
 mod position;
 pub(crate) mod test_utils;

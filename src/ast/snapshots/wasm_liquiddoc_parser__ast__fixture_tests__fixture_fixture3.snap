@@ -1,0 +1,44 @@
+---
+source: src/ast/fixture_tests.rs
+expression: "@example\nFirst Example\n@example\nSecond Example"
+---
+[
+  {
+    "type": "LiquidDocExampleNode",
+    "name": "example",
+    "position": {
+      "start": 10,
+      "end": 33
+    },
+    "source": "@example\nFirst Example\n",
+    "content": {
+      "type": "TextNode",
+      "value": "@example\nFirst Example\n",
+      "position": {
+        "start": 10,
+        "end": 33
+      },
+      "source": "@example\nFirst Example\n"
+    },
+    "isInline": true
+  },
+  {
+    "type": "LiquidDocExampleNode",
+    "name": "example",
+    "position": {
+      "start": 33,
+      "end": 56
+    },
+    "source": "@example\nSecond Example",
+    "content": {
+      "type": "TextNode",
+      "value": "@example\nSecond Example",
+      "position": {
+        "start": 33,
+        "end": 56
+      },
+      "source": "@example\nSecond Example"
+    },
+    "isInline": true
+  }
+]
