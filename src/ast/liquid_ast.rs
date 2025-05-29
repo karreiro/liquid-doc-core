@@ -18,7 +18,6 @@ pub enum LiquidNode {
 }
 
 impl LiquidNode {
-    /// Unsafe. Should only use this for testing purposes.
     #[cfg(test)]
     pub fn as_text_node_unsafe(&self) -> &TextNode {
         if let LiquidNode::TextNode(text_node) = self {

@@ -1,3 +1,6 @@
+/// Generates a JSON snapshot of the AST for the given Liquid input.
+/// If the output changes between test runs, the test will fail.
+/// To compare and accept/reject changes, use the `cargo insta review` on the command line.
 #[macro_export]
 macro_rules! assert_json_output {
     ($input:expr $(,)?) => {{

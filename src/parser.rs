@@ -35,7 +35,6 @@ pub fn visit(
         }
         Rule::ParamNode => {
             let node = LiquidDocParamNode::from_pair(&pair, position_offset);
-
             ast.add_node(LiquidNode::LiquidDocParamNode(node));
         }
         Rule::ExampleNode => {
@@ -46,13 +45,7 @@ pub fn visit(
             let node = LiquidDocDescriptionNode::explicit(&pair, position_offset);
             ast.add_node(LiquidNode::LiquidDocDescriptionNode(node));
         }
-        Rule::PromptNode | Rule::FallbackNode => {
-            let text_node = TextNode::from_pair(&pair, position_offset);
-            if !text_node.is_empty() {
-                ast.add_node(LiquidNode::TextNode(text_node));
-            }
-        }
-        Rule::TextNode => {
+        Rule::PromptNode | Rule::FallbackNode | Rule::TextNode => {
             let text_node = TextNode::from_pair(&pair, position_offset);
             if !text_node.is_empty() {
                 ast.add_node(LiquidNode::TextNode(text_node));
