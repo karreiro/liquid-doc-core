@@ -34,8 +34,7 @@ impl LiquidDocExampleNode {
         );
 
         let mut content = TextNode::from_pair(pair, position_offset);
-        content.value = content.value.trim_start_matches("@example ").to_string();
-        content.position.shift_start(9); // Adjust for the "@example " prefix
+        content.trim_content_start("@example ");
 
         let position = Position::from_pair(pair, position_offset);
         let source = pair.as_str().to_string();

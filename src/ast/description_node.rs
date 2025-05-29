@@ -60,7 +60,8 @@ impl LiquidDocDescriptionNode {
             pair.as_rule()
         );
 
-        let content = TextNode::from_pair(pair, position_offset);
+        let mut content = TextNode::from_pair(pair, position_offset);
+        content.trim_content_start("@description ");
         let source_str = pair.as_str();
 
         LiquidDocDescriptionNode::new(
@@ -99,6 +100,7 @@ impl LiquidDocDescriptionNode {
 #[cfg(test)]
 mod tests {
     use crate::{ast::LiquidNode, parser::parse_liquid_string};
+    use pretty_assertions::assert_eq;
 
     #[test]
     fn test_liquid_doc_implicit_description_node() {
@@ -129,5 +131,38 @@ mod tests {
         assert!(!description_node.is_implicit);
         assert!(description_node.is_inline);
         assert_eq!(description_node.content.value, "@description kdkd\n");
+    }
+
+    #[test]
+    fn test_serialization_round_trip() {
+        let input = "@description kdkd\n";
+        let ast = parse_liquid_string(input, Some(10)).unwrap();
+
+        let expected = r#"[
+  {
+    "type": "LiquidDocDescriptionNode",
+    "content": {
+      "value": "kdkd\n",
+      "position": {
+        "start": 23,
+        "end": 28
+      },
+      "source": "{% doc %}\n@description kdkd\n{% enddoc %}",
+      "type": "TextNode",
+    },
+    "isImplicit": false,
+    "isInline": true,
+    "position": {
+      "start": 10,
+      "end": 28
+    },
+    "source": "@description kdkd\n",
+    "name": "description"
+  }
+]"#;
+
+        let actual = serde_json::to_string_pretty(&ast.nodes).unwrap();
+
+        assert_eq!(expected, actual);
     }
 }

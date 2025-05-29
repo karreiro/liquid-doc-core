@@ -43,6 +43,13 @@ impl TextNode {
         text_node
     }
 
+    pub fn trim_content_start(&mut self, to_strip: &str) {
+        if self.value.starts_with(to_strip) {
+            self.value = self.value.trim_start_matches(to_strip).to_string();
+            self.position.shift_start(to_strip.len());
+        }
+    }
+
     #[allow(dead_code)]
     pub fn as_str(&self) -> &str {
         &self.value
