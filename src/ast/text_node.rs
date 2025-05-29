@@ -77,4 +77,11 @@ mod tests {
     fn prompt_node() {
         assert_json_output!("@prompt Make something pretty")
     }
+
+    #[test]
+    pub fn test_multiline_with_prompt_tag() {
+        assert_json_output!("@prompt
+This is a prompt
+It can have multiple lines");
+    }
 }
