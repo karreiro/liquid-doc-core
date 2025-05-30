@@ -1,5 +1,7 @@
 # WebAssembly LiquidDoc Parser
 
+<img src="web/favicon.png" alt="LiquidDoc Parser Logo" width="100" height="100">
+
 A Rust implementation of the LiquidDoc parser compiled to WebAssembly, for parsing documentation with special annotations.
 
 ## Features
@@ -75,7 +77,7 @@ The parser returns JavaScript objects representing the LiquidDoc AST:
         "description": "The input parameter"
       },
       {
-        "type": "ExampleNode", 
+        "type": "ExampleNode",
         "content": "myFunction(\"test\")"
       }
     ]
@@ -87,7 +89,7 @@ The parser returns JavaScript objects representing the LiquidDoc AST:
 
 - **Rust**: Core language with Pest parser
 - **Pest**: Parser generator for LiquidDoc grammar
-- **wasm-pack**: WebAssembly build tool  
+- **wasm-pack**: WebAssembly build tool
 - **Ruby**: Sinatra web framework
 - **serde**: JSON serialization for WASM ↔ JS objects
 
