@@ -1,0 +1,17 @@
+{
+  "name": "liquid-doc-benchmarks",
+  "version": "1.0.0",
+  "description": "Performance benchmarks for Liquid parsers",
+  "type": "module",
+  "scripts": {
+    "test": "node test-fixtures.js",
+    "benchmark": "./test-all-fixtures.sh"
+  },
+  "dependencies": {
+    "@shopify/liquid-html-parser": "^2.0.0",
+    "ohm-js": "^17.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

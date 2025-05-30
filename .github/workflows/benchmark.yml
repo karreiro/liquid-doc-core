@@ -1,0 +1,185 @@
+name: Parser Benchmark
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      iterations:
+        description: 'Number of iterations per test'
+        required: false
+        default: '100'
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: web/package.json
+
+    - name: Setup Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: wasm32-unknown-unknown
+        override: true
+
+    - name: Install wasm-pack
+      run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+    - name: Install Node dependencies
+      working-directory: web
+      run: npm install
+
+    - name: Build WASM parser
+      run: |
+        wasm-pack build --target web --out-dir web/pkg
+
+    - name: Make benchmark script executable
+      working-directory: web
+      run: chmod +x test-all-fixtures.sh
+
+    - name: Run benchmark tests
+      working-directory: web
+      run: |
+        ITERATIONS=${{ github.event.inputs.iterations || '100' }}
+        echo "Running benchmarks with $ITERATIONS iterations..."
+        ./test-all-fixtures.sh $ITERATIONS | tee benchmark-output.txt
+
+    - name: Format benchmark results for PR comment
+      if: github.event_name == 'pull_request'
+      working-directory: web
+      run: |
+        echo "## 📊 Benchmark Results" > pr-comment.md
+        echo "" >> pr-comment.md
+        echo "**Iterations:** ${{ github.event.inputs.iterations || '100' }} per fixture" >> pr-comment.md
+        echo "" >> pr-comment.md
+
+        # Extract individual fixture results
+        echo "### 🏃 Performance by Fixture" >> pr-comment.md
+        echo '```' >> pr-comment.md
+
+        # Parse the output to show fixture-by-fixture results
+        awk '
+          /Testing fixture/ {
+            if (fixture != "") {
+              printf "%-20s Ohm.js: %8.4f ms   Pest.rs: %8.4f ms   Speedup: %6.2fx\n",
+                     fixture, ohm_time, pest_time, (pest_time > 0 ? ohm_time/pest_time : 0)
+            }
+            fixture = $3
+            ohm_time = 0
+            pest_time = 0
+          }
+          /Ohm\.js Results:/ { getline; getline; if ($0 ~ /Average time:/) ohm_time = $3 }
+          /Pest\.rs Results:/ { getline; getline; if ($0 ~ /Average time:/) pest_time = $3 }
+          /🚀 Overall speedup:/ {
+            # Extract the numeric value from "29.30x"
+            gsub(/x$/, "", $4)
+            overall = $4
+          }
+          /Ohm\.js average across all fixtures:/ { ohm_avg = $7 }
+          /Pest\.rs average across all fixtures:/ { pest_avg = $7 }
+          END {
+            if (fixture != "") {
+              printf "%-20s Ohm.js: %8.4f ms   Pest.rs: %8.4f ms   Speedup: %6.2fx\n",
+                     fixture, ohm_time, pest_time, (pest_time > 0 ? ohm_time/pest_time : 0)
+            }
+            print ""
+            print "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            # If overall is not set, calculate it from the averages
+            if (overall == 0 && ohm_avg > 0 && pest_avg > 0) {
+              overall = ohm_avg / pest_avg
+            }
+            printf "OVERALL AVERAGE:     Ohm.js: %8.4f ms   Pest.rs: %8.4f ms   Speedup: %6.2fx\n",
+                   ohm_avg, pest_avg, overall
+          }
+        ' benchmark-output.txt >> pr-comment.md
+
+        echo '```' >> pr-comment.md
+        echo "" >> pr-comment.md
+
+        # Add summary from JSON if available
+        if [ -f benchmark-summary.json ]; then
+          echo "### 📈 Summary" >> pr-comment.md
+          echo "" >> pr-comment.md
+
+          # Extract key values from JSON
+          OHM_AVG=$(jq -r '.ohmAverage // "N/A"' benchmark-summary.json)
+          PEST_AVG=$(jq -r '.pestAverage // "N/A"' benchmark-summary.json)
+          SPEEDUP=$(jq -r '.speedup // "N/A"' benchmark-summary.json)
+          FIXTURES=$(jq -r '.fixtures // "N/A"' benchmark-summary.json)
+
+          # Format numbers to 4 decimal places
+          if [ "$OHM_AVG" != "N/A" ]; then
+            OHM_AVG=$(printf "%.4f" $OHM_AVG)
+          fi
+          if [ "$PEST_AVG" != "N/A" ]; then
+            PEST_AVG=$(printf "%.4f" $PEST_AVG)
+          fi
+          if [ "$SPEEDUP" != "N/A" ]; then
+            SPEEDUP=$(printf "%.2f" $SPEEDUP)
+          fi
+
+          echo "| Metric | Value |" >> pr-comment.md
+          echo "|--------|-------|" >> pr-comment.md
+          echo "| Fixtures tested | ${FIXTURES} |" >> pr-comment.md
+          echo "| Ohm.js average | ${OHM_AVG} ms |" >> pr-comment.md
+          echo "| Pest.rs average | ${PEST_AVG} ms |" >> pr-comment.md
+          echo "| **Overall speedup** | **${SPEEDUP}x** |" >> pr-comment.md
+        fi
+
+        echo "" >> pr-comment.md
+        echo "---" >> pr-comment.md
+        echo "_Generated by GitHub Actions workflow run [#${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})_" >> pr-comment.md
+
+    - name: Comment PR with results
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const comment = fs.readFileSync('web/pr-comment.md', 'utf8');
+
+          // Find existing comment
+          const { data: comments } = await github.rest.issues.listComments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+          });
+
+          const botComment = comments.find(comment =>
+            comment.user.type === 'Bot' &&
+            comment.body.includes('## 📊 Benchmark Results')
+          );
+
+          if (botComment) {
+            // Update existing comment
+            await github.rest.issues.updateComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: botComment.id,
+              body: comment
+            });
+          } else {
+            // Create new comment
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: comment
+            });
+          }
