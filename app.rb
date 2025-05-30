@@ -20,6 +20,10 @@ get '/benchmark' do
   send_file File.join(settings.public_folder, 'test-all-fixtures.html')
 end
 
+get '/graph' do
+  send_file File.join(settings.public_folder, "performance-comparison.html")
+end
+
 # Health check endpoint
 get '/health' do
   content_type :json
