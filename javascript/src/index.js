@@ -1,6 +1,6 @@
 import initWasmModule, {
   parse_liquid as parseLiquidDoc,
-} from "../node_modules/liquid_doc-wasm/liquiddoc_wasm.js";
+} from "../node_modules/liquid_doc-wasm/wasm_liquiddoc_parser.js";
 
 let wasmInitialized = false;
 let wasmModule = null;
