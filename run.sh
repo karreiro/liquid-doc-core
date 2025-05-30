@@ -17,9 +17,9 @@ else
 fi
 
 echo ""
-echo "3️⃣  Building WebAssembly version..."
+echo "3️⃣  Building WebAssembly output..."
 echo "----------------------------------------"
-wasm-pack build wasm --target web --out-dir web/pkg
+wasm-pack build wasm --target web --out-dir ../web/pkg
 
 echo ""
 echo "4️⃣  Starting Sinatra server..."
