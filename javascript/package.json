@@ -2,13 +2,35 @@
   "name": "liquid-doc-parse",
   "version": "1.0.0",
   "description": "Bindings to parse Liquid Doc",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "wasm/",
+    "README.md"
+  ],
   "scripts": {
+    "build": "rollup -c",
+    "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "liquid",
+    "parser",
+    "wasm",
+    "template"
+  ],
   "author": "Hackdays Teeeam",
   "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-terser": "^0.4.0",
+    "rollup": "^4.0.0",
+    "rollup-plugin-copy": "^3.5.0"
+  },
+  "peerDependencies": {},
   "dependencies": {
     "liquid_doc-wasm": "file:../web/pkg"
   }

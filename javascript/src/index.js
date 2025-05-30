@@ -3,13 +3,56 @@ import initWasmModule, {
 } from "../node_modules/liquid_doc-wasm/liquiddoc_wasm.js";
 
 let wasmInitialized = false;
+let wasmModule = null;
+let parseLiquidDoc = null;
+
+/**
+ * Dynamically import the WASM module
+ */
+async function loadWasmModule() {
+  if (typeof window !== 'undefined') {
+    // Browser environment - use relative import
+    const wasmJsUrl = new URL('../wasm/liquiddoc_parser.js', import.meta.url).href;
+    return await import(wasmJsUrl);
+  } else {
+    // Node.js environment - use absolute path
+    const path = await import('path');
+    const url = await import('url');
+    const currentDir = path.dirname(url.fileURLToPath(import.meta.url));
+    const wasmJsPath = path.join(currentDir, '../wasm/liquiddoc_parser.js');
+    const wasmJsUrl = url.pathToFileURL(wasmJsPath).href;
+    return await import(wasmJsUrl);
+  }
+}
+
+/**
+ * Get WASM file location for the current environment
+ */
+async function getWasmLocation() {
+  if (typeof window !== 'undefined') {
+    // Browser environment
+    return new URL('../wasm/liquiddoc_parser.wasm', import.meta.url).href;
+  } else {
+    // Node.js environment - read the file as bytes
+    const fs = await import('fs/promises');
+    const path = await import('path');
+    const url = await import('url');
+
+    const currentDir = path.dirname(url.fileURLToPath(import.meta.url));
+    const wasmPath = path.join(currentDir, '../wasm/liquiddoc_parser.wasm');
+
+    try {
+      const wasmBytes = await fs.readFile(wasmPath);
+      return wasmBytes;
+    } catch (error) {
+      throw new Error(`Could not read WASM file at ${wasmPath}: ${error.message}`);
+    }
+  }
+}
 
 /**
  * Initializes the WebAssembly module.
- * This must be called once before any other parser functions can be used.
- * @param {string} [wasmUrl] - Optional URL to the .wasm file.
- *                             If not provided, it defaults to 'liquid_engine_bg.wasm'
- *                             relative to the generated JS glue file.
+ * @param {string|Uint8Array} [wasmInput] - Optional WASM file path, URL, or bytes.
  * @returns {Promise<void>} A promise that resolves when initialization is complete.
  */
 export async function init(wasmUrl) {
@@ -29,9 +72,10 @@ export async function init(wasmUrl) {
 
 /**
  * Parses a Liquid template string into an AST (Abstract Syntax Tree).
+ * Automatically initializes WASM if not already done.
  * @param {string} input The Liquid template string.
- * @returns {any} The JavaScript representation of the Liquid AST.
- * @throws {Error} If the Wasm module is not initialized or if input is not a string.
+ * @returns {Promise<any>} The JavaScript representation of the Liquid AST.
+ * @throws {Error} If input is not a string or parsing fails.
  */
 export function parseLiquid(input) {
   if (!wasmInitialized) {
