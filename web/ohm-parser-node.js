@@ -2,58 +2,61 @@
 import ohm from 'ohm-js';
 
 const ConcreteNodeTypes = {
-  HtmlDoctype: "HtmlDoctype",
-  HtmlComment: "HtmlComment",
-  HtmlRawTag: "HtmlRawTag",
-  HtmlVoidElement: "HtmlVoidElement",
-  HtmlSelfClosingElement: "HtmlSelfClosingElement",
-  HtmlTagOpen: "HtmlTagOpen",
-  HtmlTagClose: "HtmlTagClose",
-  AttrSingleQuoted: "AttrSingleQuoted",
-  AttrDoubleQuoted: "AttrDoubleQuoted",
-  AttrUnquoted: "AttrUnquoted",
-  AttrEmpty: "AttrEmpty",
-  LiquidVariableOutput: "LiquidVariableOutput",
-  LiquidRawTag: "LiquidRawTag",
-  LiquidTag: "LiquidTag",
-  LiquidTagOpen: "LiquidTagOpen",
-  LiquidTagClose: "LiquidTagClose",
-  TextNode: "TextNode",
-  YAMLFrontmatter: "YAMLFrontmatter",
+  HtmlDoctype: 'HtmlDoctype',
+  HtmlComment: 'HtmlComment',
+  HtmlRawTag: 'HtmlRawTag',
+  HtmlVoidElement: 'HtmlVoidElement',
+  HtmlSelfClosingElement: 'HtmlSelfClosingElement',
+  HtmlTagOpen: 'HtmlTagOpen',
+  HtmlTagClose: 'HtmlTagClose',
+  AttrSingleQuoted: 'AttrSingleQuoted',
+  AttrDoubleQuoted: 'AttrDoubleQuoted',
+  AttrUnquoted: 'AttrUnquoted',
+  AttrEmpty: 'AttrEmpty',
+  LiquidVariableOutput: 'LiquidVariableOutput',
+  LiquidRawTag: 'LiquidRawTag',
+  LiquidTag: 'LiquidTag',
+  LiquidTagOpen: 'LiquidTagOpen',
+  LiquidTagClose: 'LiquidTagClose',
+  TextNode: 'TextNode',
+  YAMLFrontmatter: 'YAMLFrontmatter',
 
-  LiquidVariable: "LiquidVariable",
-  LiquidFilter: "LiquidFilter",
-  NamedArgument: "NamedArgument",
-  LiquidLiteral: "LiquidLiteral",
-  VariableLookup: "VariableLookup",
-  String: "String",
-  Number: "Number",
-  Range: "Range",
-  Comparison: "Comparison",
-  Condition: "Condition",
+  LiquidVariable: 'LiquidVariable',
+  LiquidFilter: 'LiquidFilter',
+  NamedArgument: 'NamedArgument',
+  LiquidLiteral: 'LiquidLiteral',
+  VariableLookup: 'VariableLookup',
+  String: 'String',
+  Number: 'Number',
+  Range: 'Range',
+  Comparison: 'Comparison',
+  Condition: 'Condition',
 
-  AssignMarkup: "AssignMarkup",
-  ContentForMarkup: "ContentForMarkup",
-  CycleMarkup: "CycleMarkup",
-  ForMarkup: "ForMarkup",
-  RenderMarkup: "RenderMarkup",
-  PaginateMarkup: "PaginateMarkup",
-  RenderVariableExpression: "RenderVariableExpression",
-  RenderAliasExpression: "RenderAliasExpression",
-  ContentForNamedArgument: "ContentForNamedArgument",
+  AssignMarkup: 'AssignMarkup',
+  ContentForMarkup: 'ContentForMarkup',
+  CycleMarkup: 'CycleMarkup',
+  ForMarkup: 'ForMarkup',
+  RenderMarkup: 'RenderMarkup',
+  PaginateMarkup: 'PaginateMarkup',
+  RenderVariableExpression: 'RenderVariableExpression',
+  RenderAliasExpression: 'RenderAliasExpression',
+  ContentForNamedArgument: 'ContentForNamedArgument',
 
-  LiquidDocParamNode: "LiquidDocParamNode",
-  LiquidDocParamNameNode: "LiquidDocParamNameNode",
-  LiquidDocDescriptionNode: "LiquidDocDescriptionNode",
-  LiquidDocExampleNode: "LiquidDocExampleNode",
-  LiquidDocPromptNode: "LiquidDocPromptNode",
+  LiquidDocParamNode: 'LiquidDocParamNode',
+  LiquidDocParamNameNode: 'LiquidDocParamNameNode',
+  LiquidDocDescriptionNode: 'LiquidDocDescriptionNode',
+  LiquidDocExampleNode: 'LiquidDocExampleNode',
+  LiquidDocPromptNode: 'LiquidDocPromptNode',
 };
 
 // Simplified toAST function since we don't have ohm-extras in Node.js
 function toAST(matchResult, mapping) {
   const visit = (node, mapping) => {
     if (typeof mapping === 'function') {
-      return mapping.call(node, ...node.children.map(child => visit(child, mapping)));
+      return mapping.call(
+        node,
+        ...node.children.map((child) => visit(child, mapping))
+      );
     } else if (typeof mapping === 'object') {
       const result = {};
       for (const [key, value] of Object.entries(mapping)) {
@@ -76,6 +79,7 @@ function toAST(matchResult, mapping) {
 function toCST(source, grammar, offset = 0) {
   const locStart = (tokens) => offset + tokens[0].source.startIdx;
   const locEnd = (tokens) => offset + tokens[tokens.length - 1].source.endIdx;
+
   const textNode = () => ({
     type: ConcreteNodeTypes.TextNode,
     value: function () {
@@ -86,7 +90,7 @@ function toCST(source, grammar, offset = 0) {
     source,
   });
 
-  const res = grammar.match(source, "Node");
+  const res = grammar.match(source, 'Node');
   if (res.failed()) {
     throw new Error(res);
   }
@@ -102,7 +106,7 @@ function toCST(source, grammar, offset = 0) {
     },
     ImplicitDescription: {
       type: ConcreteNodeTypes.LiquidDocDescriptionNode,
-      name: "description",
+      name: 'description',
       locStart,
       locEnd,
       source,
@@ -113,7 +117,7 @@ function toCST(source, grammar, offset = 0) {
     TextNode: textNode(),
     paramNode: {
       type: ConcreteNodeTypes.LiquidDocParamNode,
-      name: "param",
+      name: 'param',
       locStart,
       locEnd,
       source,
@@ -123,14 +127,14 @@ function toCST(source, grammar, offset = 0) {
     },
     descriptionNode: {
       type: ConcreteNodeTypes.LiquidDocDescriptionNode,
-      name: "description",
+      name: 'description',
       locStart,
       locEnd,
       source,
       content: 2,
       isImplicit: false,
       isInline: function (_node) {
-        return !this.children[1].sourceString.includes("\n");
+        return !this.children[1].sourceString.includes('\n');
       },
     },
     descriptionContent: textNode(),
@@ -155,18 +159,18 @@ function toCST(source, grammar, offset = 0) {
     paramDescription: textNode(),
     exampleNode: {
       type: ConcreteNodeTypes.LiquidDocExampleNode,
-      name: "example",
+      name: 'example',
       locStart,
       locEnd,
       source,
       content: 2,
       isInline: function (_node) {
-        return !this.children[1].sourceString.includes("\n");
+        return !this.children[1].sourceString.includes('\n');
       },
     },
     promptNode: {
       type: ConcreteNodeTypes.LiquidDocPromptNode,
-      name: "prompt",
+      name: 'prompt',
       locStart,
       locEnd,
       source,

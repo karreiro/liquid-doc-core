@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "npx vitest run tests/liquid-ast-wasm.test.js"
+    "test": "npx vitest run tests/parity.test.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
   "devDependencies": {
     "node-fetch": "^3.3.2",
     "vitest": "^3.1.4"
+  },
+  "dependencies": {
+    "@shopify/liquid-html-parser": "^2.8.2"
   }
 }

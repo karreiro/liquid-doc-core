@@ -1,5 +1,5 @@
-use magnus::{function, prelude::*, Error, Ruby};
 use liquid_doc_parser::parse_liquid_string;
+use magnus::{function, prelude::*, Error, Ruby};
 
 fn hello(subject: String) -> String {
     format!("Hello from Rust, {subject}!")
@@ -25,4 +25,3 @@ fn init(ruby: &Ruby) -> Result<(), Error> {
     module.define_singleton_method("hello", function!(hello, 1))?;
     Ok(())
 }
-
