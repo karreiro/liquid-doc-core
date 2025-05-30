@@ -98,10 +98,10 @@ jobs:
           }
           /Ohm\.js Results:/ { getline; getline; if ($0 ~ /Average time:/) ohm_time = $3 }
           /Pest\.rs Results:/ { getline; getline; if ($0 ~ /Average time:/) pest_time = $3 }
-          /Overall speedup:/ {
+          /🚀 Overall speedup:/ {
             # Extract the numeric value from "29.30x"
-            gsub(/x$/, "", $3)
-            overall = $3
+            gsub(/x$/, "", $4)
+            overall = $4
           }
           /Ohm\.js average across all fixtures:/ { ohm_avg = $7 }
           /Pest\.rs average across all fixtures:/ { pest_avg = $7 }
@@ -112,6 +112,10 @@ jobs:
             }
             print ""
             print "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            # If overall is not set, calculate it from the averages
+            if (overall == 0 && ohm_avg > 0 && pest_avg > 0) {
+              overall = ohm_avg / pest_avg
+            }
             printf "OVERALL AVERAGE:     Ohm.js: %8.4f ms   Pest.rs: %8.4f ms   Speedup: %6.2fx\n",
                    ohm_avg, pest_avg, overall
           }
