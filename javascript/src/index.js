@@ -1,55 +1,122 @@
 import initWasmModule, {
-  parse_liquid as parseLiquidDoc,
-} from "../node_modules/liquid_doc-wasm/liquiddoc_wasm.js";
+  parse_liquid as parseLiquidDocWasm,
+} from "../wasm/liquiddoc_parser.js";
 
 let wasmInitialized = false;
+let wasmInitPromise = null;
 
 /**
- * Initializes the WebAssembly module.
- * This must be called once before any other parser functions can be used.
- * @param {string} [wasmUrl] - Optional URL to the .wasm file.
- *                             If not provided, it defaults to 'liquid_engine_bg.wasm'
- *                             relative to the generated JS glue file.
- * @returns {Promise<void>} A promise that resolves when initialization is complete.
+ * Get WASM data for the current environment
  */
-export async function init(wasmUrl) {
+async function getWasmData() {
+  if (typeof window !== 'undefined') {
+    // Browser environment - return URL
+    return new URL('../wasm/liquiddoc_parser.wasm', import.meta.url).href;
+  } else {
+    // Node.js environment - read file as bytes
+    const { readFile } = await import('fs/promises');
+    const { dirname, join } = await import('path');
+    const { fileURLToPath } = await import('url');
+
+    const currentDir = dirname(fileURLToPath(import.meta.url));
+    const wasmPath = join(currentDir, '../wasm/liquiddoc_parser.wasm');
+
+    try {
+      const wasmBytes = await readFile(wasmPath);
+      return wasmBytes;
+    } catch (error) {
+      throw new Error(`Could not read WASM file at ${wasmPath}: ${error.message}`);
+    }
+  }
+}
+
+/**
+ * Auto-initialize the WebAssembly module
+ */
+async function autoInit() {
   if (wasmInitialized) {
-    console.warn("Wasm module already initialized.");
     return;
   }
-  // The initWasmModule function is the default export from the JS glue.
-  // It often takes the URL of the .wasm file as an argument.
-  // If your wasm-pack target handles wasm loading (e.g. with a bundler),
-  // you might not need to pass wasmUrl.
-  // For --target web, you usually pass the path to the _bg.wasm file.
-  await initWasmModule(wasmUrl); // wasmUrl could be 'pkg/web/liquiddoc_wasm_bg.wasm'
-  wasmInitialized = true;
-  console.log("Liquid parser Wasm module initialized.");
+
+  if (wasmInitPromise) {
+    return wasmInitPromise;
+  }
+
+  wasmInitPromise = (async () => {
+    try {
+      const wasmData = await getWasmData();
+      await initWasmModule({ module_or_path: wasmData });
+      wasmInitialized = true;
+      console.log("Liquid parser WASM module auto-initialized.");
+    } catch (error) {
+      console.error("Failed to auto-initialize WASM module:", error);
+      throw error;
+    }
+  })();
+
+  return wasmInitPromise;
+}
+
+/**
+ * Initializes the WebAssembly module manually (optional).
+ * @param {string|Uint8Array} [wasmInput] - Optional WASM file path, URL, or bytes.
+ * @returns {Promise<void>} A promise that resolves when initialization is complete.
+ */
+export async function init(wasmInput) {
+  if (wasmInitialized) {
+    console.warn("WASM module already initialized.");
+    return;
+  }
+
+  if (wasmInitPromise) {
+    return wasmInitPromise;
+  }
+
+  wasmInitPromise = (async () => {
+    try {
+      const wasmData = wasmInput || await getWasmData();
+      await initWasmModule({ module_or_path: wasmData });
+      wasmInitialized = true;
+      console.log("Liquid parser WASM module initialized.");
+    } catch (error) {
+      console.error("Failed to initialize WASM module:", error);
+      throw error;
+    }
+  })();
+
+  return wasmInitPromise;
 }
 
 /**
  * Parses a Liquid template string into an AST (Abstract Syntax Tree).
+ * Automatically initializes WASM if not already done.
  * @param {string} input The Liquid template string.
- * @returns {any} The JavaScript representation of the Liquid AST.
- * @throws {Error} If the Wasm module is not initialized or if input is not a string.
+ * @returns {Promise<any>} The JavaScript representation of the Liquid AST.
+ * @throws {Error} If input is not a string or parsing fails.
  */
-export function parseLiquid(input) {
+export async function parseLiquid(input) {
+  // Auto-initialize if not already done
   if (!wasmInitialized) {
-    throw new Error("Wasm module not initialized. Call init() first.");
+    await autoInit();
   }
+
   if (typeof input !== "string") {
     throw new TypeError("Input must be a string.");
   }
+
   try {
-    // Call the imported Wasm function
-    return parseLiquidDoc(input);
+    // Call the imported WASM function
+    return parseLiquidDocWasm(input);
   } catch (error) {
-    // The error from wasm-bindgen might be a JsValue.
-    // You might want to process it further or re-throw.
     console.error("Error parsing Liquid:", error);
-    throw error; // Re-throw the original error or a custom one
+    throw error;
   }
 }
+
+// Start auto-initialization immediately when module is imported
+autoInit().catch(error => {
+  console.warn("Auto-initialization failed, will retry when parseLiquid is called:", error.message);
+});
 
 // Optional: Export an object with all methods if preferred
 // export default {

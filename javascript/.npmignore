@@ -1,0 +1,62 @@
+# Source files (we publish built files instead)
+src/
+
+# Development and example files
+example.html
+example-usage.js
+rollup.config.js
+.gitignore
+
+# Build dependencies
+node_modules/
+package-lock.json
+
+# Test files
+test/
+tests/
+__tests__/
+*.test.js
+*.spec.js
+
+# Documentation source files
+docs/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Package files
+*.tgz
+liquid-doc-parse-*.tgz
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+
+# The parent directory reference
+../
+
+# Only dist/ and wasm/ folders should be published
