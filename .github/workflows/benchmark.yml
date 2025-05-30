@@ -1,8 +1,6 @@
 name: Parser Benchmark
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -61,16 +59,6 @@ jobs:
         ITERATIONS=${{ github.event.inputs.iterations || '100' }}
         echo "Running benchmarks with $ITERATIONS iterations..."
         ./test-all-fixtures.sh $ITERATIONS | tee benchmark-output.txt
-
-    - name: Upload benchmark summary
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: benchmark-results-${{ github.run_number }}
-        path: |
-          web/benchmark-summary.json
-          web/benchmark-output.txt
-        retention-days: 30
 
     - name: Format benchmark results for PR comment
       if: github.event_name == 'pull_request'
