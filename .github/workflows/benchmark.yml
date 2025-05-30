@@ -98,7 +98,11 @@ jobs:
           }
           /Ohm\.js Results:/ { getline; getline; if ($0 ~ /Average time:/) ohm_time = $3 }
           /Pest\.rs Results:/ { getline; getline; if ($0 ~ /Average time:/) pest_time = $3 }
-          /Overall speedup:/ { overall = $3 }
+          /Overall speedup:/ {
+            # Extract the numeric value from "29.30x"
+            gsub(/x$/, "", $3)
+            overall = $3
+          }
           /Ohm\.js average across all fixtures:/ { ohm_avg = $7 }
           /Pest\.rs average across all fixtures:/ { pest_avg = $7 }
           END {
