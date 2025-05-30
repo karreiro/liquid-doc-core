@@ -36,9 +36,9 @@ async function loadParsers() {
 
     // Try to load Pest.rs WASM parser
     try {
-      const wasmModule = await import("./pkg/liquiddoc_wasm.js");
+      const wasmModule = await import("./pkg/wasm_liquiddoc_parser.js");
       // In Node.js, we need to provide the path to the WASM file
-      const wasmPath = path.join(__dirname, "pkg", "liquiddoc_wasm_bg.wasm");
+      const wasmPath = path.join(__dirname, "pkg", "wasm_liquiddoc_parser_bg.wasm");
       const wasmBuffer = fs.readFileSync(wasmPath);
       await wasmModule.default(wasmBuffer);
       pestParser = wasmModule;
