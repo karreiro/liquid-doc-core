@@ -10,6 +10,6 @@
   "author": "Hackdays Teeeam",
   "license": "MIT",
   "dependencies": {
-    "wasm-liquiddoc-parser": "file:../web/pkg"
+    "liquid_doc-wasm": "file:../web/pkg"
   }
 }

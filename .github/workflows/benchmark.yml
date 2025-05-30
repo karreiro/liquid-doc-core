@@ -47,7 +47,7 @@ jobs:
 
     - name: Build WASM parser
       run: |
-        wasm-pack build --target web --out-dir web/pkg
+        wasm-pack build wasm --target web --out-dir web/pkg
 
     - name: Make benchmark script executable
       working-directory: web

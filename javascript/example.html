@@ -1,33 +1,33 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Liquid Parser Test</title>
-</head>
-<body>
+  </head>
+  <body>
     <script type="module">
-        import { init, parseLiquid } from './src/index.js'; // Path to your library
+      import { init, parseLiquid } from "./src/index.js"; // Path to your library
 
-        async function main() {
-            try {
-                await init('../node_modules/wasm-liquiddoc-parser/wasm_liquiddoc_parser_bg.wasm')
+      async function main() {
+        try {
+          await init("../node_modules/liquid_doc-wasm/liquiddoc_wasm_bg.wasm");
 
-                const template = "description here\n@param requiredParamWithNoType";
-                const ast = parseLiquid(template);
-                console.log("Parsed AST:", ast);
+          const template = "description here\n@param requiredParamWithNoType";
+          const ast = parseLiquid(template);
+          console.log("Parsed AST:", ast);
 
-                // Example of using the AST (depends on its structure)
-                // if (ast && ast.type === 'root' && Array.isArray(ast.body)) {
-                //     ast.body.forEach(node => console.log(node.type));
-                // }
-
-            } catch (error) {
-                console.error("Error:", error);
-            }
+          // Example of using the AST (depends on its structure)
+          // if (ast && ast.type === 'root' && Array.isArray(ast.body)) {
+          //     ast.body.forEach(node => console.log(node.type));
+          // }
+        } catch (error) {
+          console.error("Error:", error);
         }
+      }
 
-        main();
+      main();
     </script>
-</body>
+  </body>
 </html>
+

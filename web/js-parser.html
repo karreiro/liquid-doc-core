@@ -136,7 +136,7 @@
     <script src="./ohm-parser.js"></script>
     <script type="module">
       // Import our clean benchmark utilities
-      import { benchmarkComparison } from './benchmark.js';
+      import { benchmarkComparison } from "./benchmark.js";
 
       // Add error handling for module loading
       let toLiquidHtmlAST = window.toLiquidHtmlAST;
@@ -147,7 +147,7 @@
 
         // Import Pest.rs WASM parser
         try {
-          const wasmModule = await import('./pkg/wasm_liquiddoc_parser.js'); //TODO: change to the correct path when we have it
+          const wasmModule = await import("./pkg/liquiddoc_wasm.js");
           await wasmModule.default();
           pestParser = wasmModule;
           console.log("Pest.rs WASM module loaded:", pestParser);
@@ -156,7 +156,7 @@
         }
 
         // Clean benchmark function using our benchmark module
-        window.runSimpleBenchmark = function() {
+        window.runSimpleBenchmark = function () {
           const ohmInput = document.getElementById("input").value;
           const pestInput = document.getElementById("input").value;
           const iterations = 100;
@@ -164,16 +164,28 @@
           console.log(`Input: ${ohmInput.substring(0, 100)}...`);
 
           const benchmarks = [
-            ["Ohm.js (@shopify/liquid-html-parser)", () => toLiquidHtmlAST(ohmInput)]
+            [
+              "Ohm.js (@shopify/liquid-html-parser)",
+              () => toLiquidHtmlAST(ohmInput),
+            ],
           ];
 
           if (pestParser && pestParser.parse_liquid) {
-            benchmarks.push(["Pest.rs (WASM)", () => pestParser.parse_liquid(pestInput)]);
+            benchmarks.push([
+              "Pest.rs (WASM)",
+              () => pestParser.parse_liquid(pestInput),
+            ]);
           } else {
-            console.log("\n⚠️ Pest.rs parser not available (WASM module not found or function not exposed)");
+            console.log(
+              "\n⚠️ Pest.rs parser not available (WASM module not found or function not exposed)"
+            );
             console.log("   To enable Pest.rs benchmark:");
-            console.log("   1. Build WASM: wasm-pack build --target web --out-dir web/pkg");
-            console.log("   2. Ensure parse_liquid function is exposed in src/lib.rs");
+            console.log(
+              "   1. Build WASM: wasm-pack build --target web --out-dir web/pkg"
+            );
+            console.log(
+              "   2. Ensure parse_liquid function is exposed in src/lib.rs"
+            );
           }
 
           benchmarkComparison(benchmarks, iterations);
@@ -297,3 +309,4 @@
     </script>
   </body>
 </html>
+

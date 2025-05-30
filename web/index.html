@@ -1,38 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>LiquidDoc parser</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
     <h1>LiquidDoc parser</h1>
     <div id="status"></div>
     <div id="result"></div>
 
     <a href="/ohm">Ohm Liquid-to-AST Parsing Tool</a>
-    <br>
+    <br />
     <a href="/benchmark"> Benchmarks</a>
-
-    <script type="module">
-        import init, {
-            add_numbers
-        } from './pkg/wasm_liquiddoc_parser.js';
-
-        async function run() {
-            try {
-                await init();
-                document.getElementById('status').innerHTML = 'LiquidDoc WebAssembly module loaded successfully!';
-
-                console.log(add_numbers(2, 2))
-                console.log('LiquidDoc WASM Parser ready!');
-            } catch (error) {
-                console.error('Error loading WASM module:', error);
-                document.getElementById('status').innerHTML = 'Error loading WebAssembly module: ' + error.message;
-            }
-        }
-
-        run();
-    </script>
-</body>
+  </body>
 </html>
+

@@ -28,7 +28,7 @@ impl LiquidNode {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Default)]
 pub struct LiquidAST {
     pub nodes: Vec<LiquidNode>,
 }

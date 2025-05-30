@@ -5,11 +5,7 @@ echo ""
 
 echo "1️⃣  Installing Rust tools..."
 echo "----------------------------------------"
-cargo install cargo-insta
-
-echo "1️⃣  Running CLI version:"
-echo "----------------------------------------"
-cargo run --bin cli
+cargo insta --version || cargo install cargo-insta
 
 echo ""
 echo "2️⃣  Installing Ruby dependencies..."
@@ -23,7 +19,7 @@ fi
 echo ""
 echo "3️⃣  Building WebAssembly version..."
 echo "----------------------------------------"
-wasm-pack build --target web --out-dir web/pkg
+wasm-pack build wasm --target web --out-dir web/pkg
 
 echo ""
 echo "4️⃣  Starting Sinatra server..."

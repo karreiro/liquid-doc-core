@@ -1,4 +1,6 @@
-import initWasmModule, { parse_liquid as parseLiquidDoc } from '../node_modules/wasm-liquiddoc-parser/wasm_liquiddoc_parser.js';
+import initWasmModule, {
+  parse_liquid as parseLiquidDoc,
+} from "../node_modules/liquid_doc-wasm/liquiddoc_wasm.js";
 
 let wasmInitialized = false;
 
@@ -11,18 +13,18 @@ let wasmInitialized = false;
  * @returns {Promise<void>} A promise that resolves when initialization is complete.
  */
 export async function init(wasmUrl) {
-    if (wasmInitialized) {
-        console.warn("Wasm module already initialized.");
-        return;
-    }
-    // The initWasmModule function is the default export from the JS glue.
-    // It often takes the URL of the .wasm file as an argument.
-    // If your wasm-pack target handles wasm loading (e.g. with a bundler),
-    // you might not need to pass wasmUrl.
-    // For --target web, you usually pass the path to the _bg.wasm file.
-    await initWasmModule(wasmUrl); // wasmUrl could be 'pkg/web/wasm_liquiddoc_parser_bg.wasm'
-    wasmInitialized = true;
-    console.log("Liquid parser Wasm module initialized.");
+  if (wasmInitialized) {
+    console.warn("Wasm module already initialized.");
+    return;
+  }
+  // The initWasmModule function is the default export from the JS glue.
+  // It often takes the URL of the .wasm file as an argument.
+  // If your wasm-pack target handles wasm loading (e.g. with a bundler),
+  // you might not need to pass wasmUrl.
+  // For --target web, you usually pass the path to the _bg.wasm file.
+  await initWasmModule(wasmUrl); // wasmUrl could be 'pkg/web/liquiddoc_wasm_bg.wasm'
+  wasmInitialized = true;
+  console.log("Liquid parser Wasm module initialized.");
 }
 
 /**
@@ -32,21 +34,21 @@ export async function init(wasmUrl) {
  * @throws {Error} If the Wasm module is not initialized or if input is not a string.
  */
 export function parseLiquid(input) {
-    if (!wasmInitialized) {
-        throw new Error("Wasm module not initialized. Call init() first.");
-    }
-    if (typeof input !== 'string') {
-        throw new TypeError("Input must be a string.");
-    }
-    try {
-        // Call the imported Wasm function
-        return parseLiquidDoc(input);
-    } catch (error) {
-        // The error from wasm-bindgen might be a JsValue.
-        // You might want to process it further or re-throw.
-        console.error("Error parsing Liquid:", error);
-        throw error; // Re-throw the original error or a custom one
-    }
+  if (!wasmInitialized) {
+    throw new Error("Wasm module not initialized. Call init() first.");
+  }
+  if (typeof input !== "string") {
+    throw new TypeError("Input must be a string.");
+  }
+  try {
+    // Call the imported Wasm function
+    return parseLiquidDoc(input);
+  } catch (error) {
+    // The error from wasm-bindgen might be a JsValue.
+    // You might want to process it further or re-throw.
+    console.error("Error parsing Liquid:", error);
+    throw error; // Re-throw the original error or a custom one
+  }
 }
 
 // Optional: Export an object with all methods if preferred
@@ -54,3 +56,4 @@ export function parseLiquid(input) {
 //   init,
 //   parseLiquid
 // };
+

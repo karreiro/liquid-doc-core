@@ -11,5 +11,5 @@ crate-type = ["cdylib"]
 
 [dependencies]
 magnus = { version = "0.6.2" }
-liquid_doc_parser = { path = "../../parser" }
+liquid_doc_parser.workspace = true
 serde_json = "1.0"
