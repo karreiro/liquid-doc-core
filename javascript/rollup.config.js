@@ -25,12 +25,12 @@ export default {
     copy({
       targets: [
         {
-          src: '../web/pkg/wasm_liquiddoc_parser_bg.wasm',
+          src: '../web/pkg/liquid_doc_wasm_bg.wasm',
           dest: 'wasm/',
           rename: 'liquiddoc_parser.wasm'
         },
         {
-          src: '../web/pkg/wasm_liquiddoc_parser.js',
+          src: '../web/pkg/liquid_doc_wasm.js',
           dest: 'wasm/',
           rename: 'liquiddoc_parser.js'
         }
