@@ -106,7 +106,7 @@
           }
           console.log("✅ minified Ohm parser loaded");
           try {
-            const wasmModule = await import("./pkg/wasm_liquiddoc_parser.js");
+            const wasmModule = await import("./pkg/liquid_doc_wasm.js");
             await wasmModule.default();
             pestParser = wasmModule;
             console.log("✅ Pest.rs WASM parser loaded");

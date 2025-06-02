@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 async function testWasm() {
   try {
     console.log("🔧 Loading WASM parser...");
-    const wasmModule = await import("./pkg/wasm_liquiddoc_parser.js");
+    const wasmModule = await import("./pkg/liquid_doc_wasm.js");
 
     // In Node.js, we need to provide the path to the WASM file
     const wasmPath = path.join(__dirname, "pkg", "liquiddoc_wasm_bg.wasm");
