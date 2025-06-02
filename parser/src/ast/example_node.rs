@@ -35,11 +35,14 @@ impl LiquidDocExampleNode {
         );
 
         let mut content = TextNode::from_pair(pair, position_offset);
+        let is_inline = !pair.as_str().starts_with("@example\n");
+
+        content.trim_content_start("@example\n");
         content.trim_content_start("@example ");
 
         let position = Position::from_pair(pair, position_offset);
         let source = pair.as_str().to_string();
-        LiquidDocExampleNode::new(content, true, position, source)
+        LiquidDocExampleNode::new(content, is_inline, position, source)
     }
 }
 
