@@ -1,0 +1,30 @@
+{
+  "name": "liquid-doc-core",
+  "version": "1.0.0",
+  "description": "A Rust implementation of the LiquidDoc parser compiled to WebAssembly, for parsing documentation with special annotations.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npx vitest run tests/parity.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karreiro/liquid-doc-core.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karreiro/liquid-doc-core/issues"
+  },
+  "homepage": "https://github.com/karreiro/liquid-doc-core#readme",
+  "devDependencies": {
+    "node-fetch": "^3.3.2",
+    "vitest": "^3.1.4"
+  },
+  "dependencies": {
+    "@shopify/liquid-html-parser": "^2.8.2"
+  }
+}

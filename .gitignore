@@ -17,3 +17,4 @@
 mkmf.log
 target/
 javascript/node_modules/*
+node_modules
